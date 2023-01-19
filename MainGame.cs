@@ -35,6 +35,8 @@ public class MainGame : Game
 
     public static MainGame Instance;
 
+    private int Number;
+
     private GraphicsDeviceManager _graphics;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
     private SpriteBatch _spriteBatch;
