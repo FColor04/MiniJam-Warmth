@@ -32,9 +32,9 @@ jobs:
       - name: Install zip
         uses: montudor/action-zip@v1
       - name: Zip Windows
-        run: cd /home/runner/work/MiniJam-Warmth/MiniJam-Warmth/MiniJam-Warmth/bin/Release/net6.0/win-x64/publish && zip -qq -r "MiniJam-Warmth win-x64.zip" ./*
+        run: cd /home/runner/work/MiniJam-Warmth/MiniJam-Warmth/bin/Release/net6.0/win-x64/publish && zip -qq -r "MiniJam-Warmth win-x64.zip" ./*
       - name: Zip Linux
-        run: cd /home/runner/work/MiniJam-Warmth/MiniJam-Warmth/MiniJam-Warmth/bin/Release/net6.0/linux-x64/publish && zip -qq -r "MiniJam-Warmth linux-x64.zip" ./*
+        run: cd /home/runner/work/MiniJam-Warmth/MiniJam-Warmth/bin/Release/net6.0/linux-x64/publish && zip -qq -r "MiniJam-Warmth linux-x64.zip" ./*
       - uses: ncipollo/release-action@v1
         with:
           tag: "latest"

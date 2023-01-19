@@ -38,7 +38,6 @@ public class MainGame : Game
     private GraphicsDeviceManager _graphics;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
     private SpriteBatch _spriteBatch;
-    private SpriteFont font;
     
     public MainGame()
     {
@@ -57,7 +56,6 @@ public class MainGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        font = Content.Load<SpriteFont>("defaultfont");
     }
 
     protected override void Update(GameTime gameTime)
@@ -85,7 +83,7 @@ public class MainGame : Game
         OnDraw?.Invoke(deltaTime);
         
         _spriteBatch.Begin(SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp, transformMatrix: _spriteBatchMatrix);
-        _spriteBatch.DrawString(font, $"{Input.NormalizedMousePosition.X:F2}, {Input.NormalizedMousePosition.Y:F2}", Vector2.Zero, Color.White);
+        
         OnDrawSprites?.Invoke(deltaTime, _spriteBatch);
         
         _spriteBatch.End();
