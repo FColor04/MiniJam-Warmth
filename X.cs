@@ -6,15 +6,24 @@ using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MiniJam_Warmth;
 
 
+namespace SystemDebugTools {
 
-namespace MiniJam_Warmth {
-
-    public static class XenoLoafTools {
-
+    public class XenoLoafTools {
 
 
+        public bool DebugMode;
+
+        public XenoLoafTools() { 
+             
+        
+        
+        
+        
+        }
+        
 
 
 
