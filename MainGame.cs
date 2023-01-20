@@ -50,7 +50,6 @@ public class MainGame : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
         Window.AllowUserResizing = true;
-        Console.WriteLine(Test.test);
     }
 
     protected override void Initialize()
@@ -62,6 +61,7 @@ public class MainGame : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
+        System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
     }
 
     protected override void Update(GameTime gameTime)
