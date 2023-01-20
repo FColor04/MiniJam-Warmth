@@ -7,6 +7,7 @@ namespace MiniJam_Warmth;
 
 public static class Resolution
 {
+    public static readonly Point gameSize = new Point(320, 180);
     private static int _previousWidth;
     private static int _previousHeight;
     public static Rectangle TrimmedScreen;

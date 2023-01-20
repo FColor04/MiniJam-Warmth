@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MiniJam_Warmth.Controllers;
+using MiniJam_Warmth.GameScripts;
+using MiniJam_Warmth.Utility;
 
 namespace MiniJam_Warmth;
 
@@ -32,6 +34,12 @@ public class MainGame : Game
     /// <remarks>This is called after <see cref="OnDraw"/></remarks>
     /// </summary>
     public static event Action<float, SpriteBatch> OnDrawSprites = (_, _) => {};
+    /// <summary>
+    /// Called within <see cref="Draw"/>, provides batch rendered after other batches to draw UI.
+    /// <remarks>This is called after <see cref="OnDrawSprites"/></remarks>
+    /// </summary>
+    public static event Action<float, SpriteBatch> OnDrawUI = (_, _) => { };
+    
     #endregion
 
     public static MainGame Instance;
@@ -39,6 +47,7 @@ public class MainGame : Game
     private readonly GraphicsDeviceManager _graphics;
     public static GraphicsDeviceManager graphicsDeviceManager => Instance._graphics;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
+
     private SpriteBatch _spriteBatch;
     private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
@@ -61,7 +70,26 @@ public class MainGame : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
+        System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
+
+        //Register Items
+        ItemReference.RegisterItem("Wood", "Chunk of tree", Content.Load<Texture2D>("wood"));
+        ItemReference.RegisterItem("Rocks", "Just a few rocks", Content.Load<Texture2D>("rocks"));
+        
+        var toolbar = new UIElement(new UI.Margin(180 - 24, 64, 0, 64), UI.Pixel, new Color(36, 36, 36));
+        UI.Root.AddChild(toolbar);
+        for (int i = 0; i < 8; i++)
+        {
+            var itemSlot = new ItemSlot(new Rectangle(0, 0, 16, 16), UI.Pixel, new Color(200, 200, 200));
+            if (i == 0)
+                itemSlot.Item = new Item("Wood", 4);
+            if (i == 1)
+                itemSlot.Item = new Item("Rocks", 15);
+            toolbar.AddChild(itemSlot);
+        }
+        toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar, new UI.Margin(1)));
+        toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
     }
 
     protected override void Update(GameTime gameTime)
@@ -91,13 +119,14 @@ public class MainGame : Game
     {
         float deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
         GraphicsDevice.SetRenderTarget(_renderTarget);
-        GraphicsDevice.Clear(Color.MonoGameOrange);
+        GraphicsDevice.Clear(Color.DarkViolet);
 
         OnDraw?.Invoke(deltaTime);
         
-        _spriteBatch.Begin(SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
+        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
         
         OnDrawSprites?.Invoke(deltaTime, _spriteBatch);
+        OnDrawUI?.Invoke(deltaTime, _spriteBatch);
         
         _spriteBatch.End();
         
