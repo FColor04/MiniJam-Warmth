@@ -48,8 +48,8 @@ namespace ScoreBoardUtil
         private int totalScoreAccumulated;
         private int totalScoreLost;
         private int highestScoreAchieved;
-        public int TotalScoreAccumulated { get { return totalScoreAccumulated; } set { totalScoreAccumulated = value; } }
-        public int TotalScoreLost { get { return totalScoreLost; } set { totalScoreLost = value; } }
+        public int TotalScoreAccumulated { get { return totalScoreAccumulated; } set { totalScoreAccumulated += (int)ScoreGainedPerSec; } }
+        public int TotalScoreLost { get { return totalScoreLost; } set { totalScoreLost += (int)ScoreLostPerSec; } }
         public int HighestScoreAchieved { get { return highestScoreAchieved; } set { if (currentScore >= highestScoreAchieved) { highestScoreAchieved = currentScore} } }
         #endregion
 
@@ -68,6 +68,7 @@ namespace ScoreBoardUtil
                 TotalScoreLost++;
                 TotalSecondsElapsed++;
             }
+
 
             AverageScorePerSecond = (CurrentScore - InitialScore) / TotalSecondsElapsed;
             NetScorePerSecond = ScoreGainedPerSec - ScoreLostPerSec;
