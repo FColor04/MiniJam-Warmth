@@ -6,6 +6,7 @@ using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MiniJam_Warmth.Controllers;
 
 namespace MiniJam_Warmth;
 
@@ -34,10 +35,13 @@ public class MainGame : Game
     #endregion
 
     public static MainGame Instance;
-
+    public static GraphicsDevice graphicsDevice => Instance.GraphicsDevice;
+    
     private GraphicsDeviceManager _graphics;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
     private SpriteBatch _spriteBatch;
+
+    private StateMachine playerStateMachine;
     
     public MainGame()
     {
@@ -56,6 +60,14 @@ public class MainGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        
+        //Player idle & walk use graphicsDevice to create textures which is available here, in other cases this could be in previous initialization methods
+        var playerIdle = new PlayerIdle();
+        var playerWalk = new PlayerWalk();
+        
+        playerStateMachine = new StateMachine(playerIdle);
+        playerStateMachine.AddTransition(playerIdle, playerWalk, () => Input.Test);
+        playerStateMachine.AddTransition(playerWalk, playerIdle, () => !Input.Test);
     }
 
     protected override void Update(GameTime gameTime)

@@ -16,6 +16,7 @@ public static class Input
     /// </summary>
     public static Vector2 NormalizedMousePosition => MouseState.Position.ToVector2() / MainGame.WindowSize.ToVector2();
     public static bool Exit => KeyboardState.IsKeyDown(Keys.Escape) || GamepadState.Buttons.Start == ButtonState.Pressed;
+    public static bool Test => KeyboardState.IsKeyDown(Keys.Space);
 
     public static GamePadState GamepadState;
     public static KeyboardState KeyboardState;
