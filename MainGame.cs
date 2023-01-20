@@ -36,11 +36,11 @@ public class MainGame : Game
 
     public static MainGame Instance;
     public static GraphicsDevice graphicsDevice => Instance.GraphicsDevice;
-    
-    private GraphicsDeviceManager _graphics;
+    private readonly GraphicsDeviceManager _graphics;
+    public static GraphicsDeviceManager graphicsDeviceManager => Instance._graphics;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
     private SpriteBatch _spriteBatch;
-
+    private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
     
     public MainGame()
@@ -50,6 +50,7 @@ public class MainGame : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
         Window.AllowUserResizing = true;
+        Console.WriteLine(Test.test);
     }
 
     protected override void Initialize()
@@ -60,20 +61,21 @@ public class MainGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        
-        //Player idle & walk use graphicsDevice to create textures which is available here, in other cases this could be in previous initialization methods
-        var playerIdle = new PlayerIdle();
-        var playerWalk = new PlayerWalk();
-        
-        playerStateMachine = new StateMachine(playerIdle);
-        playerStateMachine.AddTransition(playerIdle, playerWalk, () => Input.Test);
-        playerStateMachine.AddTransition(playerWalk, playerIdle, () => !Input.Test);
+        _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
     }
 
     protected override void Update(GameTime gameTime)
     {
         float deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
         
+        Time.UnscaledDeltaTime = deltaTime;
+        Time.UnscaledTotalTime = (float) gameTime.TotalGameTime.TotalSeconds;
+        
+        deltaTime *= Time.TimeScale;
+        
+        Time.TotalTime += deltaTime;
+        Time.DeltaTime = deltaTime;
+
         //Input is exception so it's executed before other stuff not to cause race conditions.
         Input.UpdateState();
         if (Input.Exit)
@@ -85,20 +87,26 @@ public class MainGame : Game
         base.Update(gameTime);
     }
 
-    private readonly Matrix _spriteBatchMatrix = Matrix.Add(Matrix.CreateScale(2), Matrix.CreateTranslation(32, 0, 0));
-
     protected override void Draw(GameTime gameTime)
     {
         float deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.SetRenderTarget(_renderTarget);
+        GraphicsDevice.Clear(Color.MonoGameOrange);
 
         OnDraw?.Invoke(deltaTime);
         
-        _spriteBatch.Begin(SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp, transformMatrix: _spriteBatchMatrix);
+        _spriteBatch.Begin(SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
         
         OnDrawSprites?.Invoke(deltaTime, _spriteBatch);
         
         _spriteBatch.End();
+        
+        GraphicsDevice.SetRenderTarget(null);
+        GraphicsDevice.Clear(Color.Black);
+        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+        _spriteBatch.Draw(_renderTarget, Resolution.TrimmedScreen, Color.White);
+        _spriteBatch.End();
+        
         base.Draw(gameTime);
     }
 }
