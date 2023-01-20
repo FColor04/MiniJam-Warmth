@@ -6,6 +6,7 @@ using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ScoreBoardUtil;
 
 namespace MiniJam_Warmth;
 
@@ -34,9 +35,6 @@ public class MainGame : Game
     #endregion
 
     public static MainGame Instance;
-
-    private int integerNumber;
-    public int IntegerNumber { get { return integerNumber; } set { integerNumber = value; } }
 
     private GraphicsDeviceManager _graphics;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
