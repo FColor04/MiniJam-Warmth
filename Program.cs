@@ -1,2 +1,2 @@
-﻿using var game = new MiniJam_Warmth.MainGame();
+﻿using var game = new MainGame();
 game.Run();
