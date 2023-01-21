@@ -10,6 +10,8 @@ using MiniJam_Warmth.Controllers;
 using MiniJam_Warmth.GameScripts;
 using MiniJam_Warmth.Utility;
 using MonoGame.Extended.BitmapFonts;
+using ScoreBoardUtil;
+
 
 namespace MiniJam_Warmth;
 
