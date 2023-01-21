@@ -9,6 +9,7 @@ using MonoGame.Extended.BitmapFonts;
 using ScoreBoardUtil;
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
 
 public class MainGame : Game
 {
@@ -44,6 +45,7 @@ public class MainGame : Game
     public static GraphicsDevice graphicsDevice => Instance.GraphicsDevice;
     private readonly GraphicsDeviceManager _graphics;
     public static GraphicsDeviceManager graphicsDeviceManager => Instance._graphics;
+    public static ContentManager content => Instance.Content;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
 
     private BitmapFont _font;
@@ -71,7 +73,7 @@ public class MainGame : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
         Window.AllowUserResizing = true;
-        _audioManager = new AudioManager(this);
+        _audioManager = new AudioManager();
     }
 
     protected override void Initialize()
@@ -85,6 +87,7 @@ public class MainGame : Game
         _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
         _font ??= Content.Load<BitmapFont>("ForwardFont");
         _audioManager.AddSong("Warmer", "Warmer");
+        _audioManager.PlaySong("Warmer");
 
         _sandTextures.Add(Content.Load<Texture2D>("Sand1"));
         _sandTextures.Add(Content.Load<Texture2D>("Sand2"));

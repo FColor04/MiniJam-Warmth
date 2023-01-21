@@ -11,21 +11,23 @@ namespace AudioManagementUtil
     public class AudioManager
     {
         private Dictionary<string, Song> _songs;
-        private ContentManager _contentManager;
-        private delegate void print(string name);
-        private print p = Console.WriteLine;
         private bool songPlaying = false;
 
-        public AudioManager(Game game)
+        public AudioManager()
         {
             _songs = new Dictionary<string, Song>();
-            _contentManager = new ContentManager(game.Content.ServiceProvider, "Content");
+            MainGame.OnUpdate += OnUpdate;
+        }
+
+        ~AudioManager()
+        {
+            MainGame.OnUpdate -= OnUpdate;
         }
 
         public void AddSong(string name, string path)
         {
             if (!_songs.ContainsKey(name))
-                _songs.Add(name, _contentManager.Load<Song>(path));
+                _songs.Add(name, MainGame.content.Load<Song>(path));
         }
 
         public void RemoveSong(string name)
@@ -37,29 +39,22 @@ namespace AudioManagementUtil
         public void PlaySong(string name)
         {
             if (_songs.ContainsKey(name))
+            {
                 MediaPlayer.Play(_songs[name]);
+                MediaPlayer.Volume = 0.1f;
+                songPlaying = true;
+            }
         }
 
         public void StopSong()
         {
+            songPlaying = false;
             MediaPlayer.Stop();
         }
 
-        private void OnUpdate()
+        private void OnUpdate(float deltaTime)
         {
-            if (Input.WasPressedThisFrame(Keys.Space) && !songPlaying)
-            {
-                this.PlaySong("Warmer_");
-                songPlaying = true;
-            }
-            else if (Input.WasReleasedThisFrame(Keys.Space))
-            {
-                songPlaying = false;
-            }
-            if (songPlaying == true && Input.WasPressedThisFrame(Keys.Space))
-            {
-                StopSong();
-            }
+            
         }
     }
 }
