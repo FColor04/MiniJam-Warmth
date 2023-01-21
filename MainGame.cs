@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using MiniJam_Warmth.Controllers;
 using MiniJam_Warmth.GameScripts;
 using MiniJam_Warmth.Utility;
+using MonoGame.Extended.BitmapFonts;
 
 namespace MiniJam_Warmth;
 
@@ -48,6 +49,16 @@ public class MainGame : Game
     public static GraphicsDeviceManager graphicsDeviceManager => Instance._graphics;
     public static Point WindowSize => new Point(Instance._graphics.PreferredBackBufferWidth, Instance._graphics.PreferredBackBufferHeight);
 
+    private BitmapFont _font;
+    public BitmapFont Font
+    {
+        get
+        {
+            if(_font == null)
+                _font = Content.Load<BitmapFont>("ForwardMini");
+            return _font;
+        }
+    }
     private SpriteBatch _spriteBatch;
     private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
@@ -70,6 +81,8 @@ public class MainGame : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
+        _font ??= Content.Load<BitmapFont>("ForwardFont");
+
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
 
@@ -77,7 +90,7 @@ public class MainGame : Game
         ItemReference.RegisterItem("Wood", "Chunk of tree", Content.Load<Texture2D>("wood"));
         ItemReference.RegisterItem("Rocks", "Just a few rocks", Content.Load<Texture2D>("rocks"));
         
-        var toolbar = new UIElement(new UI.Margin(180 - 24, 64, 0, 64), UI.Pixel, new Color(36, 36, 36));
+        var toolbar = new UIElement(new UI.Margin(180 - 18, 88, 0, 88), UI.Pixel, new Color(36, 36, 36));
         UI.Root.AddChild(toolbar);
         for (int i = 0; i < 8; i++)
         {
@@ -119,7 +132,7 @@ public class MainGame : Game
     {
         float deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
         GraphicsDevice.SetRenderTarget(_renderTarget);
-        GraphicsDevice.Clear(Color.DarkViolet);
+        GraphicsDevice.Clear(Color.DarkGoldenrod);
 
         OnDraw?.Invoke(deltaTime);
         
