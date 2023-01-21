@@ -8,6 +8,8 @@ namespace MiniJam_Warmth;
 
 public static class CommonExtensions
 {
+    public static T Random<T>(this List<T> collection) => collection[System.Random.Shared.Next(0, collection.Count)];
+    
     public static IEnumerable<UIElement> Flatten(this UIElement element)
     {
         yield return element;

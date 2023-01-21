@@ -62,7 +62,10 @@ public class MainGame : Game
     private SpriteBatch _spriteBatch;
     private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
-    
+
+    private List<Texture2D> _sandTextures = new ();
+    private Dictionary<Point, int> _sandIndexes = new ();
+
     public MainGame()
     {
         Instance = this;
@@ -83,6 +86,26 @@ public class MainGame : Game
         _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
         _font ??= Content.Load<BitmapFont>("ForwardFont");
 
+        _sandTextures.Add(Content.Load<Texture2D>("Sand1"));
+        _sandTextures.Add(Content.Load<Texture2D>("Sand2"));
+        _sandTextures.Add(Content.Load<Texture2D>("Sand3"));
+
+        for (int x = -32; x <= Resolution.gameSize.X; x += 32)
+        {
+            for (int y = -32; y <= Resolution.gameSize.Y; y += 32)
+            {
+                _sandIndexes[new Point(x, y)] = Random.Shared.Next(0, _sandTextures.Count);
+            }
+        }
+        
+        OnDrawSprites += (_, batch) =>
+        {
+            foreach (var pair in _sandIndexes)
+            {
+                batch.Draw(_sandTextures[pair.Value], new Rectangle(pair.Key, new Point(32, 32)), Color.White);
+            }
+        };
+        
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
 
