@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection;
+﻿using AudioManagementUtil;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using MiniJam_Warmth;
 using MiniJam_Warmth.Controllers;
 using MiniJam_Warmth.GameScripts;
 using MiniJam_Warmth.Utility;
 using MonoGame.Extended.BitmapFonts;
 using ScoreBoardUtil;
-
-
-namespace MiniJam_Warmth;
+using System;
+using System.Collections.Generic;
 
 public class MainGame : Game
 {
@@ -64,6 +59,7 @@ public class MainGame : Game
     private SpriteBatch _spriteBatch;
     private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
+    private AudioManager _audioManager;
 
     private List<Texture2D> _sandTextures = new ();
     private Dictionary<Point, int> _sandIndexes = new ();
@@ -75,6 +71,7 @@ public class MainGame : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
         Window.AllowUserResizing = true;
+        _audioManager = new AudioManager(this);
     }
 
     protected override void Initialize()
@@ -87,6 +84,7 @@ public class MainGame : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
         _font ??= Content.Load<BitmapFont>("ForwardFont");
+        _audioManager.AddSong("Warmer", "Warmer");
 
         _sandTextures.Add(Content.Load<Texture2D>("Sand1"));
         _sandTextures.Add(Content.Load<Texture2D>("Sand2"));

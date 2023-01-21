@@ -108,6 +108,12 @@
 /processorParam:TextureFormat=Color
 /build:Sand3.png
 
+#begin Warmer.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Warmer.mp3
+
 #begin wood.png
 /importer:TextureImporter
 /processor:TextureProcessor

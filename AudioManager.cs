@@ -1,61 +1,65 @@
-﻿using Microsoft.Xna.Framework.Audio;
+﻿using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input;
-using MiniJam_Warmth;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using MiniJam_Warmth;
+using System;
 
 namespace AudioManagementUtil
 {
     public class AudioManager
     {
-        private Dictionary<string, SoundEffect> _sounds;
-        private AudioEngine _audioEngine;
-        private SoundBank _soundBank;
-        private Cue _backgroundMusicCue;
+        private Dictionary<string, Song> _songs;
+        private ContentManager _contentManager;
+        private delegate void print(string name);
+        private print p = Console.WriteLine;
+        private bool songPlaying = false;
 
-        public AudioManager()
+        public AudioManager(Game game)
         {
-            _sounds = new Dictionary<string, SoundEffect>();
-            _audioEngine = new AudioEngine("Content/Audio/MyGameAudio.xgs");
-            _soundBank = new SoundBank(_audioEngine, "Content/Audio/MyGameSoundBank.xsb");
+            _songs = new Dictionary<string, Song>();
+            _contentManager = new ContentManager(game.Content.ServiceProvider, "Content");
         }
 
-        public void AddSound(string name, SoundEffect sound)
+        public void AddSong(string name, string path)
         {
-            if (!_sounds.ContainsKey(name))
-                _sounds.Add(name, sound);
+            if (!_songs.ContainsKey(name))
+                _songs.Add(name, _contentManager.Load<Song>(path));
         }
 
-        public void RemoveSound(string name)
+        public void RemoveSong(string name)
         {
-            if (_sounds.ContainsKey(name))
-                _sounds.Remove(name);
+            if (_songs.ContainsKey(name))
+                _songs.Remove(name);
         }
 
-        public void PlaySoundEffect(string name)
+        public void PlaySong(string name)
         {
-            if (_sounds.ContainsKey(name))
-                _sounds[name].Play();
+            if (_songs.ContainsKey(name))
+                MediaPlayer.Play(_songs[name]);
         }
 
-        public void PlayBackgroundMusic(string cueName)
+        public void StopSong()
         {
-            if (_backgroundMusicCue != null)
-                _backgroundMusicCue.Stop(AudioStopOptions.AsAuthored);
-
-            _backgroundMusicCue = _soundBank.GetCue(cueName);
-            _backgroundMusicCue.Play();
+            MediaPlayer.Stop();
         }
 
-        public void StopBackgroundMusic()
+        private void OnUpdate()
         {
-            if (_backgroundMusicCue != null)
-                _backgroundMusicCue.Stop(AudioStopOptions.AsAuthored);
-        }
-
-        public void OnUpdate()
-        {
-            if (Input.IsKeyPressed(Keys.Space))
-                PlaySoundEffect("shoot");
+            if (Input.WasPressedThisFrame(Keys.Space) && !songPlaying)
+            {
+                this.PlaySong("Warmer_");
+                songPlaying = true;
+            }
+            else if (Input.WasReleasedThisFrame(Keys.Space))
+            {
+                songPlaying = false;
+            }
+            if (songPlaying == true && Input.WasPressedThisFrame(Keys.Space))
+            {
+                StopSong();
+            }
         }
     }
 }
