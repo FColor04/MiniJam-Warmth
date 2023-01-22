@@ -56,7 +56,7 @@ namespace AudioManagementUtil
             if (_songs.ContainsKey(name))
             {
                 MediaPlayer.Play(_songs[name]);
-                MediaPlayer.Volume = 0.1f;
+                MediaPlayer.Volume = 0.5f;
                 songPlaying = true;
             }
         }
