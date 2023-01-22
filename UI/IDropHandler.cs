@@ -13,4 +13,5 @@ public interface IDropHandler : IHasInteractiveRect
     /// <param name="genericSource">Where drag began</param>
     /// <returns>Is item a valid drop target</returns>
     public bool OnDrop<T>(T genericSource);
+    public void OnPotentialDrop<T>(T genericSource) {}
 }

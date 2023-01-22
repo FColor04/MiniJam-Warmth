@@ -20,6 +20,8 @@ using ScoreBoardUtil;
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input;
+using MiniJam_Warmth.GameScripts.Machines;
 
 public class MainGame : Game
 {
@@ -72,10 +74,12 @@ public class MainGame : Game
     private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
     private AudioManager _audioManager;
-
-    private List<Texture2D> _sandTextures = new ();
-    private Dictionary<Point, int> _sandIndexes = new ();
-
+    public static AudioManager AudioManager => Instance._audioManager;
+    
+    public World World;
+    public readonly List<Texture2D> SandTextures = new ();
+    public Texture2D rocks;
+    
     public MainGame()
     {
         Instance = this;
@@ -96,35 +100,29 @@ public class MainGame : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
         _font ??= Content.Load<BitmapFont>("ForwardFont");
+        _audioManager.AddSfx("Error", "Error");
         _audioManager.AddSong("Warmer", "Warmer");
         _audioManager.PlaySong("Warmer");
 
-        _sandTextures.Add(Content.Load<Texture2D>("Sand1"));
-        _sandTextures.Add(Content.Load<Texture2D>("Sand2"));
-        _sandTextures.Add(Content.Load<Texture2D>("Sand3"));
+        SandTextures.Add(Content.Load<Texture2D>("Sand1"));
+        SandTextures.Add(Content.Load<Texture2D>("Sand2"));
+        SandTextures.Add(Content.Load<Texture2D>("Sand3"));
 
-        for (int x = -32; x <= Resolution.gameSize.X; x += 32)
-        {
-            for (int y = -32; y <= Resolution.gameSize.Y; y += 32)
-            {
-                _sandIndexes[new Point(x, y)] = Random.Shared.Next(0, _sandTextures.Count);
-            }
-        }
-        
-        OnDrawSprites += (_, batch) =>
-        {
-            foreach (var pair in _sandIndexes)
-            {
-                batch.Draw(_sandTextures[pair.Value], new Rectangle(pair.Key, new Point(32, 32)), Color.White);
-            }
-        };
-        
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
 
         //Register Items
         ItemReference.RegisterItem("Wood", "Chunk of tree", Content.Load<Texture2D>("wood"));
-        ItemReference.RegisterItem("Rocks", "Just a few rocks", Content.Load<Texture2D>("rocks"));
+        PlaceableItemReference.RegisterPlaceableItem(
+            "Rocks", 
+            "Just a few rocks", 
+            typeof(TestRockEntity), 
+            new ()
+            {
+                new Point(0, 0)
+            }, 
+            Content.Load<Texture2D>("rocks"));
+        rocks = Content.Load<Texture2D>("rocks");
         
         var toolbar = new UIElement(new UI.Margin(180 - 18, 88, 0, 88), UI.Pixel, new Color(36, 36, 36));
         UI.Root.AddChild(toolbar);
@@ -139,6 +137,8 @@ public class MainGame : Game
         }
         toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar, new UI.Margin(1)));
         toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
+
+        World = new World(16, 16);
     }
 
     protected override void Update(GameTime gameTime)
@@ -157,7 +157,7 @@ public class MainGame : Game
         Input.UpdateState();
         if (Input.Exit)
             Exit();
-        
+
         //Everything else should subscribe to OnUpdate event
         OnUpdate?.Invoke(deltaTime);
 

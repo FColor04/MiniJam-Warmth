@@ -16,9 +16,11 @@ public static class UI
     private static IDragHandler _dragHandler;
     
     public static IEnumerable<UIElement> AllUIElements => Root.Flatten().OrderBy(element => element.Priority);
+    public static List<IHasInteractiveRect> AdditionalInteractiveElements = new ();
 
     private static List<IHasInteractiveRect> elementsUnderPointer = new ();
-
+    private static bool _clickHandled;
+    
     static UI()
     {
         Root = new UIElement();
@@ -32,7 +34,7 @@ public static class UI
 
     private static void Update(float deltaTime)
     {
-        foreach (var uiElement in AllUIElements.OfType<IHasInteractiveRect>())
+        foreach (var uiElement in AllUIElements.OfType<IHasInteractiveRect>().Concat(AdditionalInteractiveElements))
         {
             if (uiElement.InteractiveRect.Contains(Input.MousePositionWithinViewport))
             {
@@ -43,13 +45,16 @@ public static class UI
                         pointerEnterHandler.OnPointerEnter();
                 }
 
-                if(Input.GetPressedMouseButton != -1 && uiElement is IPointerClickHandler pointerClickHandler)
-                    pointerClickHandler.OnPointerClick(Input.GetPressedMouseButton);
 
-                if (_dragHandler == null)
+                if (Input.GetPressedMouseButton != -1 && uiElement is IPointerClickHandler pointerClickHandler && !_clickHandled)
                 {
-                    //Initiate Drag
-                    if (Input.LeftMousePressed && uiElement is IDragHandler dragHandler)
+                    _clickHandled = true;
+                    pointerClickHandler.OnPointerClick(Input.GetPressedMouseButton);
+                }
+                else if (_dragHandler == null && !_clickHandled)
+                {
+                    //Initiate Drag, Pressed && within rect
+                    if (Input.LeftMouseHold && uiElement is IDragHandler dragHandler)
                     {
                         if (dragHandler.OnDrag())
                         {
@@ -62,14 +67,28 @@ public static class UI
                 {
                     if (!Input.LeftMouseHold)
                     {
+                        //If released && within rect
                         if (uiElement is IDropHandler slot)
                         {
-                            Debug.WriteLine("Drag drop slot");
+                            Debug.WriteLine("Drag & Drop executed");
                             slot.OnDrop(_dragHandler);
                             _dragHandler = null;
                         }
                     }
+                    else
+                    {
+                        //If mouse is held && within rect
+                        if (uiElement is IDropHandler slot)
+                            slot.OnPotentialDrop(_dragHandler);
+                    }
                 }
+                if (Input.GetReleasedMouseButton != -1 &&
+                    uiElement is IPointerClickReleaseHandler pointerClickReleaseHandler)
+                {
+                    ReleaseDrag();
+                    pointerClickReleaseHandler.OnPointerClickRelease(Input.GetPressedMouseButton);
+                }
+
             }else if (!uiElement.InteractiveRect.Contains(Input.MousePositionWithinViewport) && elementsUnderPointer.Contains(uiElement))
             {
                 elementsUnderPointer.Remove(uiElement);
@@ -77,7 +96,12 @@ public static class UI
                     pointerExitHandler.OnPointerExit();
             }
         }
+        _clickHandled = false;
+        ReleaseDrag();
+    }
 
+    private static void ReleaseDrag()
+    {
         if (_dragHandler != null && !Input.LeftMouseHold && !Input.LeftMousePressed)
         {
             Debug.WriteLine("Drag cancel");
