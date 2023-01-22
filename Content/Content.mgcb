@@ -14,6 +14,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Error.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Error.wav
+
 #begin ForwardFont_0.png
 /importer:TextureImporter
 /processor:TextureProcessor

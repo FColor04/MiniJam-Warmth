@@ -7,7 +7,7 @@ using MonoGame.Extended.BitmapFonts;
 
 namespace MiniJam_Warmth;
 
-public class ItemSlot : UIElement, IDragHandler, IDropHandler
+public class ItemSlot : UIElement, IPointerClickHandler
 {
     public ItemSlot(UI.Margin margin, Texture2D texture = null, Color? color = null,
         List<UIElement> children = null, int priority = -1, float rotation = 0) : this(margin.GetRect, texture, color, children, priority, rotation) { }
@@ -20,7 +20,7 @@ public class ItemSlot : UIElement, IDragHandler, IDropHandler
     
     public Item Item;
     public bool IsDropTarget => true;
-
+    
     private float timer = 1;
     
     public override void AfterDraw(float deltaTime, SpriteBatch batch)
@@ -41,49 +41,11 @@ public class ItemSlot : UIElement, IDragHandler, IDropHandler
         }
     }
 
-    public bool OnDrag()
+    public void OnPointerClick(int buttonIndex)
     {
-        PointerItemRenderer.HeldItem = Item;
-        return Item != null;
-    }
-
-    public void OnDragCancelled()
-    {
-        PointerItemRenderer.HeldItem = null;
-    }
-
-    public bool OnDrop<T>(T genericSource)
-    {
-        if (genericSource is ItemSlot source)
+        if (buttonIndex == 0)
         {
-            PointerItemRenderer.HeldItem = null;
-            //Swap items
-            (source.Item, Item) = (Item, source.Item);
-            //Always accept
-            return true;
+            (PointerItemRenderer.HeldItem, Item) = (Item, PointerItemRenderer.HeldItem);
         }
-        return false;
-    }
-}
-
-public static class PointerItemRenderer
-{
-    public static Item HeldItem;
-    static PointerItemRenderer()
-    {
-        MainGame.OnDrawUI += DrawHeldItem;
-    }
-
-    private static void DrawHeldItem(float deltaTime, SpriteBatch batch)
-    {
-        if (HeldItem == null) return;
-        var sprite = HeldItem.Reference.sprite;
-        batch.Draw(sprite, new Rectangle(Input.MousePositionWithinViewport, new Point(sprite.Width, sprite.Height)), Color.White);
-        batch.DrawString(MainGame.Instance.Font,
-            $"{HeldItem.Count}",
-            Input.MousePositionWithinViewport.ToVector2(),
-            Color.White,
-            0,
-            new Vector2(21, 26.5f), new Vector2(16/64f, 16/64f), SpriteEffects.None, 0);
     }
 }
