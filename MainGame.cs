@@ -74,6 +74,10 @@ public class MainGame : Game
     private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
     private AudioManager _audioManager;
+    private int WorldSizeX = 17;
+    private int WorldSizeY = 17;
+    private int RendTargWidth = 320; // Original --> 320 [ by Fcolor04 ]
+    private int RendTargHeight = 180; // Original --> 180 [ by Fcolor04 ]
     public static AudioManager AudioManager => Instance._audioManager;
     
     public World World;
@@ -98,7 +102,7 @@ public class MainGame : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        _renderTarget = new RenderTarget2D(GraphicsDevice, 320, 180);
+        _renderTarget = new RenderTarget2D(GraphicsDevice, RendTargWidth, RendTargHeight);
         _font ??= Content.Load<BitmapFont>("ForwardFont");
         _audioManager.AddSfx("Error", "Error");
         _audioManager.AddSong("Warmer", "Warmer");
@@ -132,13 +136,13 @@ public class MainGame : Game
             if (i == 0)
                 itemSlot.Item = new Item("Wood", 4);
             if (i == 1)
-                itemSlot.Item = new Item("Rocks", 15);
+                itemSlot.Item = new Item("Rocks", 150);
             toolbar.AddChild(itemSlot);
         }
         toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar, new UI.Margin(1)));
         toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
 
-        World = new World(16, 16);
+        World = new World(WorldSizeX, WorldSizeY);
     }
 
     protected override void Update(GameTime gameTime)

@@ -12,7 +12,7 @@ using MiniJam_Warmth;
 
 namespace SystemDebugTools {
 
-    public class DebugTools {
+    public class X {
 
 
         public bool DebugMode;

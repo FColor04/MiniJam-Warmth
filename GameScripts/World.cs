@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using SystemDebugTools;
+using System.Reflection.Metadata.Ecma335;
 using AudioManagementUtil;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,9 +17,19 @@ namespace MiniJam_Warmth.GameScripts;
 public class World : IPointerClickHandler
 {
     private const int GridSize = 16;
+    private int interactiveRectA = 0;
+    private int interactiveRectB = 0;
+    private int interactiveRectC = 320;
+    private int interactiveRectD = 180;
     public Rectangle Bounds;
-    public Rectangle InteractiveRect => new Rectangle(0, 0, 320, 180);
-    public List<Entity> entities = new ();
+    private int BoundOriginX = 0;
+    private int BoundOriginY = 0;
+    private float centerX;
+    private float centerY;
+    private int worldWidth;
+    private int worldHeight;
+    public Rectangle InteractiveRect => new Rectangle(interactiveRectA, interactiveRectB, interactiveRectC, interactiveRectD);
+    public List<Entity> entities = new();
     public Dictionary<Point, GridEntity> gridElements = new ();
 
     public Vector2 cameraOffset;
@@ -30,8 +42,15 @@ public class World : IPointerClickHandler
     
     public World(int width, int height)
     {
-        Bounds = new Rectangle(-width * GridSize / 2, -height * GridSize / 2, width * GridSize, height * GridSize);
+        Bounds = new Rectangle(BoundOriginX, BoundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
         _sandIndexes = new int[width * height];
+        centerX = BoundOriginX + ((width * GridSize) - GridSize) / 2;
+        centerY = BoundOriginY + ((height * GridSize) - GridSize) / 2;
+        worldWidth = width;
+        worldHeight = height;
+
+        cameraOffset = new Vector2(-centerX / 4 , centerY / 4);
+
 
         for (int x = Bounds.X; x < Bounds.Width; x += 32)
         {
@@ -60,8 +79,17 @@ public class World : IPointerClickHandler
             DrawPlaceableGhost(reference);
         }
 
-        cameraOffset.Y += Input.Vertical * deltaTime * GridSize * 5;
-        cameraOffset.X += Input.Horizontal * deltaTime * GridSize * 5;
+        cameraOffset.Y += Input.Vertical * deltaTime * GridSize * 8;
+        cameraOffset.X += Input.Horizontal * deltaTime * GridSize * 8;
+
+        if(cameraOffset.X >= ((worldWidth * GridSize) - GridSize) / 2 || cameraOffset.X <= -((worldWidth * GridSize) - GridSize) / 2)
+        {
+            cameraOffset.X -= Input.Horizontal * deltaTime * GridSize * 8;
+        }
+        if (cameraOffset.Y >= (((worldWidth * GridSize) - GridSize) * 3) / 4 || cameraOffset.Y <= -((worldWidth * GridSize) - GridSize) / 4)
+        {
+            cameraOffset.Y -= Input.Vertical * deltaTime * GridSize * 8;
+        }
     }
 
     private void Draw(float deltaTime, SpriteBatch batch)
