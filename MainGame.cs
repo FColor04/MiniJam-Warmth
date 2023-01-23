@@ -52,10 +52,8 @@ public class MainGame : Game
     private SpriteBatch _spriteBatch;
     private RenderTarget2D _renderTarget;
     private StateMachine playerStateMachine;
-    private AudioManager _audioManager;
     private int WorldSizeX = 17;
     private int WorldSizeY = 17;
-    public static AudioManager AudioManager => Instance._audioManager;
 
     public World World;
     
@@ -66,7 +64,6 @@ public class MainGame : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
         Window.AllowUserResizing = true;
-        _audioManager = new AudioManager();
     }
 
     protected override void Initialize()
@@ -81,6 +78,7 @@ public class MainGame : Game
 
         GameContent.RegisterItems();
         
+        System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(AudioManager).TypeHandle);
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
         System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
 
