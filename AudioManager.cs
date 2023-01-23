@@ -1,13 +1,8 @@
-﻿using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MiniJam_Warmth;
 using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using JetBrains.Annotations;
 using Microsoft.Xna.Framework.Audio;
 
 namespace AudioManagementUtil
@@ -20,16 +15,22 @@ namespace AudioManagementUtil
             Place
         }
 
+        public enum Ambient
+        {
+            Warmer
+        }
+
         public enum SongTrack
         {
-            Warmer,
-            Desert,
+            Desert
         }
 
         public float sfxVolume = 0.6f;
-        public float musicVolume = 0.4f;
-        
+        public float ambientVolume = 0.6f;
+        public float musicVolume = 0.1f;
+
         private Dictionary<Sfx, SoundEffect> _sfx;
+        private Dictionary<Ambient, SoundEffect> _ambient;
         private Dictionary<SongTrack, SoundEffect> _songs;
 
         private float nextSongChange;
@@ -58,28 +59,35 @@ namespace AudioManagementUtil
         private float _songSlot2FadeProgress;
         private float fadeDuration = 16;
 
+        private SoundEffectInstance _ambSlot1;
+
+
         public AudioManager()
         {
             var Content = MainGame.content;
             _sfx = new Dictionary<Sfx, SoundEffect>();
+            _ambient = new Dictionary<Ambient, SoundEffect>();
             _songs = new Dictionary<SongTrack, SoundEffect>();
             
             _sfx.Add(Sfx.Error, Content.Load<SoundEffect>("Error"));
             _sfx.Add(Sfx.Place, Content.Load<SoundEffect>("Place"));
+            
+            _ambient.Add(Ambient.Warmer, Content.Load<SoundEffect>("Warmer"));
             //Songs are kept as SoundEffect too to allow fade transitions
-            _songs.Add(SongTrack.Warmer, Content.Load<SoundEffect>("Warmer"));
             _songs.Add(SongTrack.Desert, Content.Load<SoundEffect>("DesertAmbience"));
 
             _musicControllerSongs = new List<SongTrack?>()
             {
                 null,
-                SongTrack.Warmer,
                 SongTrack.Desert
             }.AsReadOnly();
             
-            PlaySong(SongTrack.Warmer);
+            PlaySong(SongTrack.Desert);
             nextSongChange = Random.Shared.Next(71, 142);
-            
+
+            PlayAmbient(Ambient.Warmer);
+
+
             MainGame.OnUpdate += OnUpdate;
         }
 
@@ -126,6 +134,15 @@ namespace AudioManagementUtil
             _sfx[key].Play(volume * sfxVolume, pitch, pan);
         }
 
+        public void PlayAmbient(Ambient key, bool isLooped = true)
+        {
+            _ambSlot1?.Dispose();
+            _ambSlot1 = _ambient[key].CreateInstance();
+            _ambSlot1.Volume = ambientVolume;
+            _ambSlot1.IsLooped = isLooped;
+            _ambSlot1.Play();
+        }
+
         private void OnUpdate(float deltaTime)
         {
             ControlMusic();
@@ -141,7 +158,7 @@ namespace AudioManagementUtil
                 SongPlaying = _musicControllerSongs.Random();
             switch (SongPlaying)
             {
-                case SongTrack.Warmer:
+                case SongTrack.Desert:
                     nextSongChange += Random.Shared.Next(71, 142);
                     break;
                 case null:
