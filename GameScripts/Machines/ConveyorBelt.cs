@@ -1,3 +1,4 @@
+#region Directives & Namespace
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,20 +10,24 @@ using MiniJam_Warmth.Utility;
 
 namespace MiniJam_Warmth.GameScripts.Machines;
 
-public class ConveyorBelt : GridEntity
-{
-    public static List<ConveyorBelt> ConveyorBelts = new ();
-    private static Stack<ConveyorBelt> _updateStack = new ();
-    
+#endregion
+
+#region Class Opening & Variables
+public class ConveyorBelt : GridEntity {
+    public static List<ConveyorBelt> ConveyorBelts = new();
+    private static Stack<ConveyorBelt> _updateStack = new();
+
     public override float DestroyTime => 0.1f;
     private Func<Texture2D> _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
     public override Texture2D sprite => _getSprite();
-    public override HashSet<Point> OccupiedRelativePoints => new (){new Point(0, 0)};
+    public override HashSet<Point> OccupiedRelativePoints => new() { new Point(0, 0) };
     public override Func<bool> OnDestroy => () => Inventory.AddItem(new Item("Belt", 1));
     private bool _updatedThisFrame;
-    private List<BeltEntity> _leftSideBeltEntities = new ();
-    private List<BeltEntity> _rightSideBeltEntities = new ();
+    private List<BeltEntity> _leftSideBeltEntities = new();
+    private List<BeltEntity> _rightSideBeltEntities = new();
+    #endregion
 
+#region Conveyor Belt Constructor & Disposal Method
     public ConveyorBelt()
     {
         ConveyorBelts.Add(this);
@@ -37,9 +42,12 @@ public class ConveyorBelt : GridEntity
         base.Dispose(true);
     }
 
+    #endregion
+
+#region Global Update Method
     public static void GlobalUpdate(float deltaTime)
     {
-        if(Keys.P.WasPressedThisFrame() && ConveyorBelts.Any())
+        if (Keys.P.WasPressedThisFrame() && ConveyorBelts.Any())
             ConveyorBelts.First().PlaceNewEntity(new BeltEntity()
             {
                 entity = new Entity()
@@ -57,14 +65,14 @@ public class ConveyorBelt : GridEntity
             if (targetBelt != null)
             {
                 float rotationDiff = targetBelt.rotation - belt.rotation;
-                    
+
                 while (rotationDiff < 0)
                     rotationDiff += 360;
                 rotationDiff %= 360;
                 bool targetOtherSide = (rotationDiff >= 180);
 
                 if (belt._leftSideBeltEntities.Count == 0 && belt._rightSideBeltEntities.Count == 0) continue;
-                
+
                 if (targetBelt.HasSpaceForNewEntity(targetOtherSide))
                 {
                     float previousProgress = 2;
@@ -74,7 +82,8 @@ public class ConveyorBelt : GridEntity
                         belt._rightSideBeltEntities.Remove(beltEntity);
                         targetBelt.PlaceNewEntity(beltEntity, targetOtherSide);
                     }
-                }else
+                }
+                else
                     Debug.WriteLine("No space for me A");
 
                 if (targetBelt.HasSpaceForNewEntity(!targetOtherSide))
@@ -86,13 +95,17 @@ public class ConveyorBelt : GridEntity
                         belt._leftSideBeltEntities.Remove(beltEntity);
                         targetBelt.PlaceNewEntity(beltEntity, !targetOtherSide);
                     }
-                }else
+                }
+                else
                     Debug.WriteLine("No space for me B");
-            }else
+            }
+            else
                 Debug.WriteLine($"No space for me C {belt.rotation} {belt.position}");
         }
     }
+    #endregion
 
+#region Refresh Stack Method
     private static void RefreshUpdateStack()
     {
         _updateStack.Clear();
@@ -100,12 +113,12 @@ public class ConveyorBelt : GridEntity
         {
             if (_updateStack.Contains(ConveyorBelts[i]))
                 continue;
-            
+
             _updateStack.Push(ConveyorBelts[i]);
             ConveyorBelt lastCheckedBelt = ConveyorBelts[i];
             ConveyorBelt sourceBelt = ConveyorBelts[i].GetSourceBelt();
 
-            while(sourceBelt != null && sourceBelt != ConveyorBelts[i])
+            while (sourceBelt != null && sourceBelt != ConveyorBelts[i])
             {
                 lastCheckedBelt = sourceBelt;
                 sourceBelt = sourceBelt.GetSourceBelt();
@@ -122,19 +135,23 @@ public class ConveyorBelt : GridEntity
                 lastCheckedBelt = lastCheckedBelt.GetTargetBelt();
             }
         }
-    }
+    } 
+#endregion
 
+#region Place New Entity Method (Belt)
     private void PlaceNewEntity(BeltEntity beltEntity, bool left)
     {
         beltEntity.pointA = position + -rotation.RotationToVector2() * World.GridSize;
         beltEntity.pointB = position;
-        
-        if(left)
+
+        if (left)
             _leftSideBeltEntities.Add(beltEntity);
         else
             _rightSideBeltEntities.Add(beltEntity);
     }
+    #endregion
 
+#region Has Space Method
     private bool HasSpaceForNewEntity(bool left)
     {
         if (left)
@@ -145,6 +162,9 @@ public class ConveyorBelt : GridEntity
     }
     private const float ItemSpacing = 1 / 4f;
 
+#endregion
+
+#region Get Target Belt
     public ConveyorBelt GetTargetBelt()
     {
         Point beltTarget = position.ToPoint();
@@ -169,7 +189,10 @@ public class ConveyorBelt : GridEntity
             return null;
         return belt;
     }
-    
+
+    #endregion
+
+#region Get Source Belt
     public ConveyorBelt GetSourceBelt()
     {
         Point beltSource = position.ToPoint();
@@ -195,9 +218,12 @@ public class ConveyorBelt : GridEntity
         return belt;
     }
 
+    #endregion
+
+#region On Grid Build Method
     private void OnGridBuild(Point entityPosition, GridEntity entity)
     {
-        if (entity is ConveyorBelt belt && 
+        if (entity is ConveyorBelt belt &&
             // ReSharper disable once CompareOfFloatsByEqualityOperator
             (Math.Abs(position.X - entityPosition.X) == World.GridSize) ||
             // ReSharper disable once CompareOfFloatsByEqualityOperator
@@ -207,7 +233,9 @@ public class ConveyorBelt : GridEntity
             UpdateSprite();
         }
     }
+#endregion
 
+#region Update Sprite Method
     public void UpdateSprite()
     {
         Point clockwisePoint = position.ToPoint();
@@ -232,22 +260,24 @@ public class ConveyorBelt : GridEntity
                 break;
         }
 
-        bool clockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(clockwisePoint, out var cwEntity) 
-                              && cwEntity is ConveyorBelt clockwiseBelt && 
+        bool clockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(clockwisePoint, out var cwEntity)
+                              && cwEntity is ConveyorBelt clockwiseBelt &&
                               clockwiseBelt.rotation == (rotation + 270) % 360;
-        
-        bool counterClockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(counterClockwisePoint, out var ccwEntity) 
-                                     && ccwEntity is ConveyorBelt counterClockwiseBelt && 
+
+        bool counterClockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(counterClockwisePoint, out var ccwEntity)
+                                     && ccwEntity is ConveyorBelt counterClockwiseBelt &&
                                      counterClockwiseBelt.rotation == (rotation + 90) % 360;
         if ((!clockwiseValid && !counterClockwiseValid) || (clockwiseValid && counterClockwiseValid))
         {
             _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
             return;
         }
-        
+
         _getSprite = clockwiseValid ? () => GameContent.ClockwiseConveyorBelt.GetSprite() : () => GameContent.CounterClockwiseConveyorBelt.GetSprite();
     }
+    #endregion
 
+#region Belt Entity
     public struct BeltEntity
     {
         public Vector2 pointA;
@@ -258,7 +288,7 @@ public class ConveyorBelt : GridEntity
         public bool Progress(float deltaTime, ref float previousProgress)
         {
             if (progress + deltaTime >= previousProgress - ItemSpacing) return false;
-            
+
             progress += deltaTime;
             entity.position = Vector2.Lerp(pointA, pointB, progress);
             previousProgress = progress;
@@ -266,3 +296,30 @@ public class ConveyorBelt : GridEntity
         }
     }
 }
+#endregion
+
+#region Issues & Improvements to Address
+/*===========================================================================
+ * = ISSUES = *
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = IMPROVEMENTS = *
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ * = 
+ ============================================================================*/
+#endregion
