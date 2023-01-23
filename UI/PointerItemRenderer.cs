@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MiniJam_Warmth.GameScripts;
@@ -7,7 +8,9 @@ namespace MiniJam_Warmth;
 
 public static class PointerItemRenderer
 {
-    public static Item HeldItem;
+    public static Func<Item> GetItem = () => null;
+    public static Action<Item> SetItem = _ => {};
+    public static Item HeldItem => GetItem();
     static PointerItemRenderer()
     {
         MainGame.OnDrawUI += DrawHeldItem;
@@ -15,10 +18,12 @@ public static class PointerItemRenderer
 
     private static void DrawHeldItem(float deltaTime, SpriteBatch batch)
     {
+        if (HeldItem?.Count <= 0) 
+            SetItem(null);
         if (HeldItem == null) return;
         var sprite = HeldItem.Reference.sprite;
         batch.Draw(sprite, new Rectangle(Input.MousePositionWithinViewport, new Point(sprite.Width, sprite.Height)), Color.White);
-        batch.DrawString(MainGame.Instance.Font,
+        batch.DrawString(GameContent.Font,
             $"{HeldItem.Count}",
             Input.MousePositionWithinViewport.ToVector2(),
             Color.White,

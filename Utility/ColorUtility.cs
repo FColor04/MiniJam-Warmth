@@ -5,6 +5,10 @@ namespace MiniJam_Warmth.Utility;
 
 public static class ColorUtility
 {
+    public static Color ToolbarGrey => new (24, 60, 24);
+    public static Color ToolbarSilver => new (144, 144, 144);
+    public static Color FillBarYellow => new (252, 190, 3);
+
     public static void HsvToRgb(float h, float S, float V, out int r, out int g, out int b)
     {    
         float H = h;

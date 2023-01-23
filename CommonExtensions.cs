@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using JetBrains.Annotations;
 using Microsoft.Xna.Framework;
 
@@ -8,11 +9,12 @@ namespace MiniJam_Warmth;
 
 public static class CommonExtensions
 {
-    public static T Random<T>(this List<T> collection) => collection[System.Random.Shared.Next(0, collection.Count)];
+    public static T Random<T>(this IList<T> collection) => collection[System.Random.Shared.Next(0, collection.Count)];
     
     public static IEnumerable<UIElement> Flatten(this UIElement element)
     {
         yield return element;
+        element.Children.RemoveAll(el => el == null);
         foreach (UIElement child in element.Children)
         {
             foreach (var childFlatten in child.Flatten())
@@ -54,4 +56,24 @@ public static class CommonExtensions
     }
 
     public static Rectangle LerpTo(this Rectangle from, Rectangle to, float t) => Lerp(from, to, t);
+
+    public static float Range(this Random random, float min, float max)
+    {
+        return (random.NextSingle() * (max - min)) + min;
+    }
+
+    public static Vector2 RotationToVector2(this float rotation)
+    {
+        switch (rotation)
+        {
+            default:
+                return new Vector2(0, -1);
+            case 90:
+                return new Vector2(1, 0);
+            case 180:
+                return new Vector2(0, 1);
+            case 270:
+                return new Vector2(-1, 0);
+        }
+    }
 }

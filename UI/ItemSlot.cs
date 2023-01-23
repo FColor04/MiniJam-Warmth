@@ -9,16 +9,21 @@ namespace MiniJam_Warmth;
 
 public class ItemSlot : UIElement, IPointerClickHandler
 {
-    public ItemSlot(UI.Margin margin, Texture2D texture = null, Color? color = null,
-        List<UIElement> children = null, int priority = -1, float rotation = 0) : this(margin.GetRect, texture, color, children, priority, rotation) { }
-
-    public ItemSlot(Rectangle? rect = default, Texture2D texture = null, Color? color = null,
+    public ItemSlot(Func<Item> getter, Action<Item> setter, Rectangle? rect = default, Texture2D texture = null, Color? color = null,
         List<UIElement> children = null, int priority = -1, float rotation = 0) : base(rect, texture, color, children,
         priority, rotation)
     {
+        _getItem = getter;
+        _setItem = setter;
     }
-    
-    public Item Item;
+
+    private readonly Func<Item> _getItem;
+    private readonly Action<Item> _setItem;
+    public Item Item
+    {
+        get => _getItem?.Invoke();
+        set => _setItem?.Invoke(value);
+    } 
     public bool IsDropTarget => true;
     
     private float timer = 1;
@@ -32,12 +37,12 @@ public class ItemSlot : UIElement, IPointerClickHandler
         if (Item != null)
         {
             batch.Draw(Item.Reference.sprite, rect, Color.White);
-            batch.DrawString(MainGame.Instance.Font,
-                $"{Item.Count}",
+            batch.DrawString(GameContent.Font,
+                $"{Math.Min(Item.Count, 99)}{(Item.Count > 99 ? "+" : "")}",
                 rect.Center.ToVector2(),
                 Color.White,
                 0,
-                new Vector2(21, 26.5f), new Vector2(16/64f, 16/64f), SpriteEffects.None, 0);
+                new Vector2(8, 8), 1, SpriteEffects.None, 0);
         }
     }
 
@@ -45,7 +50,19 @@ public class ItemSlot : UIElement, IPointerClickHandler
     {
         if (buttonIndex == 0)
         {
-            (PointerItemRenderer.HeldItem, Item) = (Item, PointerItemRenderer.HeldItem);
+            var tempItem = PointerItemRenderer.HeldItem;
+            if (tempItem != null)
+            {
+                PointerItemRenderer.SetItem(Item);
+                Item = tempItem;
+                PointerItemRenderer.GetItem = () => null;
+                PointerItemRenderer.SetItem = _ => {};
+            }
+            else
+            {
+                PointerItemRenderer.GetItem = () => Item;
+                PointerItemRenderer.SetItem = newItem => Item = newItem;
+            }
         }
     }
 }

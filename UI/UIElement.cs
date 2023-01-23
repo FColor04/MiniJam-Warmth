@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MiniJam_Warmth;
 
-public class UIElement
+public class UIElement : IDisposable
 {
     private static int _autoPriority = 0;
     
@@ -55,4 +55,17 @@ public class UIElement
     public virtual void AfterDraw(float deltaTime, SpriteBatch batch) {}
 
     public void AddChild(UIElement element) => Children.Add(element);
+
+    public void Dispose()
+    {
+        foreach (var uiElement in UI.Root.Flatten())
+        {
+            uiElement.Children.Remove(this);
+        }
+        foreach (var uiElement in Children)
+        {
+            uiElement.Dispose();
+        }
+        GC.SuppressFinalize(this);
+    }
 }

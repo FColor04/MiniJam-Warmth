@@ -34,6 +34,8 @@ public static class UI
 
     private static void Update(float deltaTime)
     {
+        if(!MainGame.IsFocused) return;
+        
         foreach (var uiElement in AllUIElements.OfType<IHasInteractiveRect>().Concat(AdditionalInteractiveElements))
         {
             if (uiElement.InteractiveRect.Contains(Input.MousePositionWithinViewport))

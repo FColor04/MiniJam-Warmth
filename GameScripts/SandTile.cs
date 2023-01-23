@@ -12,6 +12,6 @@ public class Sand : Entity
     public Sand(Vector2 position) : base()
     {
         this.position = position;
-        _sprite = MainGame.Instance.SandTextures.Random();
+        _sprite = GameContent.SandTextures.Random();
     }
 }
