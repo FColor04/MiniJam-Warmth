@@ -1,4 +1,5 @@
 ﻿using System;
+using MainGameFramework;
 
 public static class Program
 {

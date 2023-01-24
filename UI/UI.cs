@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MainGameFramework;
 
 namespace MiniJam_Warmth;
 

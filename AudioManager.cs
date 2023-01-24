@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using MiniJam_Warmth;
-using System;
-using System.Collections;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework.Audio;
+using MainGameFramework;
 
-namespace AudioManagementUtil
-{
+namespace AudioManagementUtil {
     /// <summary>
     /// Enumeration of audio mixer groups, one mixer is instantiated per one mixer group and assigned in static constructor.
     /// </summary>

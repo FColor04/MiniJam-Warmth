@@ -1,18 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using MiniJam_Warmth;
 
 
-namespace SystemDebugTools {
+namespace ObscurusDebuggerTools {
 
-    public class X {
+    public class ObscurusDebugger {
 
 
         public bool DebugMode;

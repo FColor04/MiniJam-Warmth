@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MiniJam_Warmth.GameScripts;
 using MonoGame.Extended.BitmapFonts;
+using MainGameFramework;
 
 namespace MiniJam_Warmth;
 
