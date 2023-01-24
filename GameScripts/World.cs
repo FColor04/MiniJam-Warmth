@@ -1,7 +1,6 @@
 
 using MainGameFramework;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System;
 using Microsoft.Xna.Framework;
@@ -9,6 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MiniJam_Warmth.GameScripts.Machines;
 using MiniJam_Warmth.Utility;
+
+using Debug = ObscurusDebuggerTools.ObscurusDebugger;
 
 namespace MiniJam_Warmth.GameScripts;
 
@@ -182,8 +183,6 @@ public class World : IPointerClickHandler
         var entityInstance = Activator.CreateInstance(item.PlacedEntityType);
         if (entityInstance is GridEntity gridEntity)
         {
-            //MainGame.AudioManager.PlaySfx(AudioManager.Sfx.Place, 0.5f, Random.Shared.Range(-0.2f, 0.2f));
-
             if (item.rotatable)
                 gridEntity.rotation = _placeableRotation;
             
@@ -203,7 +202,7 @@ public class World : IPointerClickHandler
         {
             entity.position = position;
             entities.Add(entity);
-            Debug.WriteLine("Placed Entity???");
+            Debug.Log("Placed Entity???");
         }
         
         return true;
@@ -226,7 +225,7 @@ public class World : IPointerClickHandler
                 if (PlaceItem(Input.MousePositionWithinViewport.ToVector2() + cameraOffset, reference))
                     PointerItemRenderer.HeldItem.Count--;
                 else
-                    return; // MainGame.AudioManager.PlaySfx(AudioManager.Sfx.Error);
+                    Debug.Log("Play Error Sound");
             }
         }
     }

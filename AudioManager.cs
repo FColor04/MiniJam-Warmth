@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MainGameFramework;
+using Microsoft.Xna.Framework.Audio;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Microsoft.Xna.Framework.Audio;
-using MainGameFramework;
 
-namespace AudioManagementUtil {
+namespace AudioManagementUtil
+{
     /// <summary>
-    /// Enumeration of audio mixer groups, one mixer is instantiated per one mixer group and assigned in static constructor.
+    /// Enumeration of audio mixer groups, one mixer is instantiated per one
+    /// mixer group and assigned in static constructor.
     /// </summary>
-    /// 
     /// <seealso cref="AudioManager"/>
     /// <seealso cref="AudioMixerGroup"/>
     public enum AudioMixerGroup
@@ -28,11 +29,10 @@ namespace AudioManagementUtil {
         /// <returns>AudioMixer</returns>
         public static AudioMixer GetMixer(this AudioMixerGroup group) => AudioManager.AudioMixers[group];
     }
-    
+
     /// <summary>
     /// Static utility class to ease managing of multiple audio mixers
     /// </summary>
-    /// 
     /// <seealso cref="AudioManager.AudioMixers"/>
     /// <seealso cref="AudioMixerGroup"/>
     public static class AudioManager
@@ -48,7 +48,7 @@ namespace AudioManagementUtil {
         /// </example>
         /// <seealso cref="AudioManager"/>
         /// <seealso cref="AudioMixerGroup"/>
-        public static readonly AudioMixers AudioMixers = new ();
+        public static readonly AudioMixers AudioMixers = new();
 
         static AudioManager()
         {
@@ -69,14 +69,13 @@ namespace AudioManagementUtil {
                 mixer.Update(deltaTime);
             }
         }
-        
-        
+
+
     }
 
     /// <summary>
     /// Collection of AudioMixers with AudioMixerGroup as a key.
     /// </summary>
-    /// 
     /// <example>
     /// Play a soundEffect on music mixer.
     /// <code>
@@ -88,22 +87,27 @@ namespace AudioManagementUtil {
     /// <seealso cref="AudioMixerGroup"/>
     public class AudioMixers : KeyedCollection<AudioMixerGroup, AudioMixer>
     {
+        public bool? ContainsKey(AudioMixerGroup group)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override AudioMixerGroup GetKeyForItem(AudioMixer item) => item.Group;
     }
 
     public class AudioMixer : IDisposable
     {
         public AudioMixerGroup Group;
-        
+
         public float MixerVolume;
         public int AudioTrackLimit;
-        
+
         private float _fadeVolumeTarget;
         private float _fadeVolumeMultiplier = 1f;
         private float _fadeDuration = 2f;
-        
+
         private SoundEffectInstance _fadeInInstance;
-        private readonly List<SoundEffectInstance> _instances = new ();
+        private readonly List<SoundEffectInstance> _instances = new();
 
         public AudioMixer(AudioMixerGroup group, float mixerVolume = 1f, int audioTrackLimit = -1)
         {
@@ -116,7 +120,7 @@ namespace AudioManagementUtil {
         {
             _fadeInInstance?.Dispose();
             var activeInstances = new Queue<SoundEffectInstance>(_instances);
-            while(activeInstances.TryDequeue(out var instance))
+            while (activeInstances.TryDequeue(out var instance))
                 instance.Dispose();
         }
 
@@ -137,7 +141,7 @@ namespace AudioManagementUtil {
         public void Play(SoundEffect audioTrack, float volume = 1f, float pitch = 0, float pan = 0f, bool loop = true)
         {
             if (AudioTrackLimit != -1 && _instances.Count >= AudioTrackLimit) return;
-            
+
             var trackInstance = audioTrack.CreateInstance();
             trackInstance.Volume = MixerVolume * volume * _fadeVolumeMultiplier;
             trackInstance.Pitch = pitch;
@@ -154,7 +158,7 @@ namespace AudioManagementUtil {
         public void Update(float deltaTime)
         {
             if (_fadeInInstance == null) return;
-            
+
             if (_fadeVolumeMultiplier > 0f)
                 _fadeVolumeMultiplier -= deltaTime / (Math.Max(_fadeDuration, 0.0001f));
             else

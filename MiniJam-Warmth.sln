@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniJam-Warmth", "MiniJam-Warmth.csproj", "{7B4EC480-77FA-4C6F-97BB-053619BD6512}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniJam-Warmth", "MiniJam-Warmth.csproj", "{7B4EC480-77FA-4C6F-97BB-053619BD6512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTesting", "..\ProjectTesting\ProjectTesting.csproj", "{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{7B4EC480-77FA-4C6F-97BB-053619BD6512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B4EC480-77FA-4C6F-97BB-053619BD6512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B4EC480-77FA-4C6F-97BB-053619BD6512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CDA8080-AAB3-4621-902C-36B396522757}
 	EndGlobalSection
 EndGlobal
