@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ObscurusDebuggerTools;
 using MainGameFramework;
 
 namespace MiniJam_Warmth.GameScripts.Machines;
@@ -302,7 +303,7 @@ public class ConveyorBelt : GridEntity {
 /*===========================================================================
  * = ISSUES = *
  * = 
- * = 
+ * = While Belts 'A' and 'B' are placed adjacent to each other going in opposed directions along the same axis, and belt 'C' is placed in a cell orthogonal to 'A' or 'B' in a way that would cause a 'Curved' belt, the game Freezes/Crashes. 
  * = 
  * = 
  * = 
