@@ -1,21 +1,23 @@
 using AudioManagementUtil;
-using Microsoft.Xna.Framework.Audio;
 using Debug = ObscurusDebuggerTools.ObscurusDebugger;
 
 namespace ProjectTesting
 {
+    [TestFixture]
     public class ProjTest {
 
         [SetUp]
         public void Setup()
         {
-            
+            //Run static constructor
+            System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(AudioManager).TypeHandle);
         }
 
         [Test]
         public void Test()
         {
-            Assert.Pass();
+            Assert.That(AudioManager.AudioMixers, Is.Not.Empty);
+            Assert.That(AudioManager.AudioMixers.Count, Is.EqualTo(Enum.GetValues(typeof(AudioMixerGroup)).Length));
         }
 
         [TearDown]

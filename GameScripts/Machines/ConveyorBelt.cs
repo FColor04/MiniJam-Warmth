@@ -119,7 +119,7 @@ public class ConveyorBelt : GridEntity {
             ConveyorBelt lastCheckedBelt = ConveyorBelts[i];
             ConveyorBelt sourceBelt = ConveyorBelts[i].GetSourceBelt();
 
-            while (sourceBelt != null && sourceBelt != ConveyorBelts[i])
+            while (sourceBelt != null && sourceBelt != lastCheckedBelt && sourceBelt != ConveyorBelts[i])
             {
                 lastCheckedBelt = sourceBelt;
                 sourceBelt = sourceBelt.GetSourceBelt();

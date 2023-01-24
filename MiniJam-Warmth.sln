@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniJam-Warmth", "MiniJam-Warmth.csproj", "{7B4EC480-77FA-4C6F-97BB-053619BD6512}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTesting", "..\ProjectTesting\ProjectTesting.csproj", "{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTesting", ".\ProjectTesting\ProjectTesting.csproj", "{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

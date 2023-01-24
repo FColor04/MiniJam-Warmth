@@ -2,11 +2,14 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
 using AudioManagementUtil;
 using MiniJam_Warmth.Controllers;
 using MiniJam_Warmth.GameScripts;
 using MiniJam_Warmth.Utility;
 using MiniJam_Warmth;
+
+using Debug = ObscurusDebuggerTools.ObscurusDebugger;
 
 namespace MainGameFramework {
     public class MainGame : Game
@@ -65,6 +68,7 @@ namespace MainGameFramework {
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
+            Debug.LogError("this is test error");
         }
 
         protected override void Initialize()

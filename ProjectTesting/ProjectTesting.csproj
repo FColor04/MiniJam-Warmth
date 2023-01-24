@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MiniJam-Warmth\MiniJam-Warmth.csproj" />
+    <ProjectReference Include="../MiniJam-Warmth.csproj" />
   </ItemGroup>
 
 </Project>
