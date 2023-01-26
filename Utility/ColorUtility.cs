@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace MiniJam_Warmth.Utility;
+namespace ReFactory.Utility;
 
 public static class ColorUtility
 {

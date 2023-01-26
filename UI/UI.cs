@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MainGameFramework;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public static class UI
 {

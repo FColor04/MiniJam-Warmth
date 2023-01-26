@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.Xna.Framework;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public abstract class UILayoutController
 {

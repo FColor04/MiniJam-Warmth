@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public class UIElement : IDisposable
 {

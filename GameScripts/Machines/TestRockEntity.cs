@@ -4,7 +4,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MiniJam_Warmth.GameScripts.Machines;
+namespace ReFactory.GameScripts.Machines.Testing;
 
 public class TestRockEntity : GridEntity
 {

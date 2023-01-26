@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using MiniJam_Warmth.GameScripts;
+using ReFactory.GameScripts;
 
-namespace MiniJam_Warmth.Utility;
+namespace ReFactory.Utility;
 
 public static class GridUtility
 {

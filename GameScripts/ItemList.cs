@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MiniJam_Warmth.GameScripts;
+namespace ReFactory.GameScripts;
 
 public static class ItemList
 {

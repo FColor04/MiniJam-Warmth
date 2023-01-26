@@ -8,13 +8,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ObscurusDebuggerTools;
 using MainGameFramework;
+using ReFactory;
+using ReFactory.GameScripts;
 
-namespace MiniJam_Warmth.GameScripts.Machines;
+namespace ReFactory.GameScripts.Machines.ConveyorBelts;
 
 #endregion
 
 #region Class Opening & Variables
-public class ConveyorBelt : GridEntity {
+public class ConveyorBelt : GridEntity
+{
     public static List<ConveyorBelt> ConveyorBelts = new();
     private static Stack<ConveyorBelt> _updateStack = new();
 
@@ -28,7 +31,7 @@ public class ConveyorBelt : GridEntity {
     private List<BeltEntity> _rightSideBeltEntities = new();
     #endregion
 
-#region Conveyor Belt Constructor & Disposal Method
+    #region Conveyor Belt Constructor & Disposal Method
     public ConveyorBelt()
     {
         ConveyorBelts.Add(this);
@@ -45,7 +48,7 @@ public class ConveyorBelt : GridEntity {
 
     #endregion
 
-#region Global Update Method
+    #region Global Update Method
     public static void GlobalUpdate(float deltaTime)
     {
         if (Keys.P.WasPressedThisFrame() && ConveyorBelts.Any())
@@ -70,7 +73,7 @@ public class ConveyorBelt : GridEntity {
                 while (rotationDiff < 0)
                     rotationDiff += 360;
                 rotationDiff %= 360;
-                bool targetOtherSide = (rotationDiff >= 180);
+                bool targetOtherSide = rotationDiff >= 180;
 
                 if (belt._leftSideBeltEntities.Count == 0 && belt._rightSideBeltEntities.Count == 0) continue;
 
@@ -106,7 +109,7 @@ public class ConveyorBelt : GridEntity {
     }
     #endregion
 
-#region Refresh Stack Method
+    #region Refresh Stack Method
     private static void RefreshUpdateStack()
     {
         _updateStack.Clear();
@@ -136,10 +139,10 @@ public class ConveyorBelt : GridEntity {
                 lastCheckedBelt = lastCheckedBelt.GetTargetBelt();
             }
         }
-    } 
-#endregion
+    }
+    #endregion
 
-#region Place New Entity Method (Belt)
+    #region Place New Entity Method (Belt)
     private void PlaceNewEntity(BeltEntity beltEntity, bool left)
     {
         beltEntity.pointA = position + -rotation.RotationToVector2() * World.GridSize;
@@ -152,7 +155,7 @@ public class ConveyorBelt : GridEntity {
     }
     #endregion
 
-#region Has Space Method
+    #region Has Space Method
     private bool HasSpaceForNewEntity(bool left)
     {
         if (left)
@@ -163,9 +166,9 @@ public class ConveyorBelt : GridEntity {
     }
     private const float ItemSpacing = 1 / 4f;
 
-#endregion
+    #endregion
 
-#region Get Target Belt
+    #region Get Target Belt
     public ConveyorBelt GetTargetBelt()
     {
         Point beltTarget = position.ToPoint();
@@ -193,7 +196,7 @@ public class ConveyorBelt : GridEntity {
 
     #endregion
 
-#region Get Source Belt
+    #region Get Source Belt
     public ConveyorBelt GetSourceBelt()
     {
         Point beltSource = position.ToPoint();
@@ -221,22 +224,22 @@ public class ConveyorBelt : GridEntity {
 
     #endregion
 
-#region On Grid Build Method
+    #region On Grid Build Method
     private void OnGridBuild(Point entityPosition, GridEntity entity)
     {
         if (entity is ConveyorBelt belt &&
             // ReSharper disable once CompareOfFloatsByEqualityOperator
-            (Math.Abs(position.X - entityPosition.X) == World.GridSize) ||
+            Math.Abs(position.X - entityPosition.X) == World.GridSize ||
             // ReSharper disable once CompareOfFloatsByEqualityOperator
-            (Math.Abs(position.Y - entityPosition.Y) == World.GridSize)
+            Math.Abs(position.Y - entityPosition.Y) == World.GridSize
             )
         {
             UpdateSprite();
         }
     }
-#endregion
+    #endregion
 
-#region Update Sprite Method
+    #region Update Sprite Method
     public void UpdateSprite()
     {
         Point clockwisePoint = position.ToPoint();
@@ -262,13 +265,13 @@ public class ConveyorBelt : GridEntity {
         }
 
         bool clockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(clockwisePoint, out var cwEntity)
-                              && cwEntity is ConveyorBelt clockwiseBelt &&
-                              clockwiseBelt.rotation == (rotation + 270) % 360;
+                            && cwEntity is ConveyorBelt clockwiseBelt &&
+                            clockwiseBelt.rotation == (rotation + 270) % 360;
 
         bool counterClockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(counterClockwisePoint, out var ccwEntity)
-                                     && ccwEntity is ConveyorBelt counterClockwiseBelt &&
-                                     counterClockwiseBelt.rotation == (rotation + 90) % 360;
-        if ((!clockwiseValid && !counterClockwiseValid) || (clockwiseValid && counterClockwiseValid))
+                            && ccwEntity is ConveyorBelt counterClockwiseBelt &&
+                            counterClockwiseBelt.rotation == (rotation + 90) % 360;
+        if (!clockwiseValid && !counterClockwiseValid || clockwiseValid && counterClockwiseValid)
         {
             _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
             return;
@@ -278,7 +281,7 @@ public class ConveyorBelt : GridEntity {
     }
     #endregion
 
-#region Belt Entity
+    #region Belt Entity
     public struct BeltEntity
     {
         public Vector2 pointA;
@@ -303,7 +306,6 @@ public class ConveyorBelt : GridEntity {
 /*===========================================================================
  * = ISSUES = *
  * = 
- * = While Belts 'A' and 'B' are placed adjacent to each other going in opposed directions along the same axis, and belt 'C' is placed in a cell orthogonal to 'A' or 'B' in a way that would cause a 'Curved' belt, the game Freezes/Crashes. 
  * = 
  * = 
  * = 

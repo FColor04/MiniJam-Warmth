@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using MainGameFramework;
 
-namespace MiniJam_Warmth
+namespace ReFactory
 {
 
     /// <summary>

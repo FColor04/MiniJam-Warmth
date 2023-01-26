@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using MainGameFramework;
 
-namespace MiniJam_Warmth.Controllers;
+namespace ReFactory.Controllers;
 
 /// <summary>
 /// State machine, contains list of transitions between states and manages current state based on these transitions and their conditions.

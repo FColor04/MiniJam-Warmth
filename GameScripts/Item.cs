@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.Xna.Framework;
 
-namespace MiniJam_Warmth.GameScripts;
+namespace ReFactory.GameScripts;
 
 public class Item
 {

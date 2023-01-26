@@ -1,4 +1,4 @@
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public interface IPointerClickReleaseHandler : IHasInteractiveRect
 {
