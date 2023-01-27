@@ -6,9 +6,19 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+<<<<<<< Updated upstream:GameScripts/Machines/ConveyorBelt.cs
 using MiniJam_Warmth.Utility;
 
 namespace MiniJam_Warmth.GameScripts.Machines;
+=======
+using MainGameFramework;
+using ReFactory;
+using ReFactory.GameScripts;
+
+using Debug = ObscurusDebuggerTools.ObscurusDebugger;
+
+namespace ReFactory.GameScripts.Machines.ConveyorBelts;
+>>>>>>> Stashed changes:GameScripts/Machines/ConveyorBelts/ConveyorBelt.cs
 
 #endregion
 
@@ -61,17 +71,25 @@ public class ConveyorBelt : GridEntity {
 
         while (_updateStack.TryPop(out var belt))
         {
-            var targetBelt = belt.GetTargetBelt();
+            ConveyorBelt targetBelt = belt.GetTargetBelt();
             if (targetBelt != null)
             {
                 float rotationDiff = targetBelt.rotation - belt.rotation;
-
+                Debug.Log(rotationDiff + "_FirstCheck");
                 while (rotationDiff < 0)
                     rotationDiff += 360;
                 rotationDiff %= 360;
+<<<<<<< Updated upstream:GameScripts/Machines/ConveyorBelt.cs
                 bool targetOtherSide = (rotationDiff >= 180);
+=======
+                bool targetOtherSide = rotationDiff >= 180;
+                
+>>>>>>> Stashed changes:GameScripts/Machines/ConveyorBelts/ConveyorBelt.cs
 
-                if (belt._leftSideBeltEntities.Count == 0 && belt._rightSideBeltEntities.Count == 0) continue;
+                if (belt._leftSideBeltEntities.Count !>= 0 && belt._rightSideBeltEntities.Count !>= 0)
+                {
+                    continue;
+                }
 
                 if (targetBelt.HasSpaceForNewEntity(targetOtherSide))
                 {
@@ -81,10 +99,11 @@ public class ConveyorBelt : GridEntity {
                         if (!beltEntity.Progress(deltaTime, ref previousProgress)) break;
                         belt._rightSideBeltEntities.Remove(beltEntity);
                         targetBelt.PlaceNewEntity(beltEntity, targetOtherSide);
+                        Debug.Log(rotationDiff + "_SecondCheck");
                     }
                 }
                 else
-                    Debug.WriteLine("No space for me A");
+                    Debug.Log("No space for me A");
 
                 if (targetBelt.HasSpaceForNewEntity(!targetOtherSide))
                 {
@@ -97,10 +116,10 @@ public class ConveyorBelt : GridEntity {
                     }
                 }
                 else
-                    Debug.WriteLine("No space for me B");
+                    Debug.Log("No space for me B");
             }
             else
-                Debug.WriteLine($"No space for me C {belt.rotation} {belt.position}");
+                Debug.Log($"No space for me C {belt.rotation} {belt.position}");
         }
     }
     #endregion
@@ -184,10 +203,9 @@ public class ConveyorBelt : GridEntity {
                 break;
         }
 
-        if (!(MainGame.Instance.World.gridElements.TryGetValue(beltTarget, out var entity) &&
-              entity is ConveyorBelt belt))
-            return null;
-        return belt;
+        if (MainGame.Instance.World.gridElements.TryGetValue(beltTarget, out var entity) && entity is ConveyorBelt belt)
+            return belt;
+        return null;
     }
 
     #endregion
@@ -212,10 +230,9 @@ public class ConveyorBelt : GridEntity {
                 break;
         }
 
-        if (!(MainGame.Instance.World.gridElements.TryGetValue(beltSource, out var entity) &&
-              entity is ConveyorBelt belt))
-            return null;
-        return belt;
+        if (MainGame.Instance.World.gridElements.TryGetValue(beltSource, out var entity) && entity is ConveyorBelt belt)
+            return belt;
+        return null;
     }
 
     #endregion
