@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public interface IDropHandler : IHasInteractiveRect
 {

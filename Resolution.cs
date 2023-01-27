@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using MainGameFramework;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public static class Resolution
 {

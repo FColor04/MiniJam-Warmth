@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public class HorizontalGrid : UILayoutController
 {

@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using JetBrains.Annotations;
 using Microsoft.Xna.Framework;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public static class CommonExtensions
 {

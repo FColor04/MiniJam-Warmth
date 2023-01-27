@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams;
-
-using Debug = ObscurusDebuggerTools.ObscurusDebugger;
 
 /*
 =======Thoughts=======
@@ -142,10 +138,10 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
             BeltEntity[] _leftSideEntity; // List of Entities on the left side of the belt.
             BeltEntity[] _rightSideEntity; // List of Entities on the right side of the belt.
 
-            Dictionary<BeltEntityCell, Entity[]> TLCell; // Top left cell
-            Dictionary<BeltEntityCell, Entity[]> TRCell; // Top right cell
-            Dictionary<BeltEntityCell, Entity[]> BLCell; // Bottom left cell
-            Dictionary<BeltEntityCell, Entity[]> BRCell; // Bottom right cell
+            Dictionary<BeltEntityCell, Entity> TLCell; // Top left cell
+            Dictionary<BeltEntityCell, Entity> TRCell; // Top right cell
+            Dictionary<BeltEntityCell, Entity> BLCell; // Bottom left cell
+            Dictionary<BeltEntityCell, Entity> BRCell; // Bottom right cell
             public int BeltState; // Current State of 'this' Belt.
 
             public Belt(string conveyorBeltType, Vector2 cellPosition, Vector2 position, int beltState)
@@ -156,10 +152,10 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
                 this.position = position;
                 _leftSideEntity = new BeltEntity[0];
                 _rightSideEntity = new BeltEntity[0];
-                TLCell = new Dictionary<BeltEntityCell, Entity[]>();
-                TRCell = new Dictionary<BeltEntityCell, Entity[]>();
-                BLCell = new Dictionary<BeltEntityCell, Entity[]>();
-                BRCell = new Dictionary<BeltEntityCell, Entity[]>();
+                TLCell = new Dictionary<BeltEntityCell, Entity>();
+                TRCell = new Dictionary<BeltEntityCell, Entity>();
+                BLCell = new Dictionary<BeltEntityCell, Entity>();
+                BRCell = new Dictionary<BeltEntityCell, Entity>();
                 neighbor = new List<Belt>();
                 _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
                 BeltState = beltState;
@@ -182,35 +178,8 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
 
         public struct BeltEntityCell
         {
-            public String TopLeft, TopRight, BotLeft, BotRight;
-            public int TL, TR, BL, BR;
-            public Entity[] beltItem;
-
-            public override bool Equals([NotNullWhen(true)] object obj)
-            {
-                return base.Equals(obj);
-            }
-
-            public override int GetHashCode()
-            {
-                Debug.Log(GetHashCode);
-                return base.GetHashCode();
-            }
-
-            public override string ToString()
-            {
-                return base.ToString();
-            }
-
-            public static bool operator ==(BeltEntityCell left, BeltEntityCell right)
-            {
-                return left.Equals(right);
-            }
-
-            public static bool operator !=(BeltEntityCell left, BeltEntityCell right)
-            {
-                return !(left == right);
-            }
+            private readonly String TopLeft, TopRight, BotLeft, BotRight;
+            private readonly int TL, TR, BL, BR;
         }
 
         public void MoveEntities(/*/--> Belt/CellPosition, BeltState, _leftSideEntity, _rightSideEntity, neighbor, TLCell, TRCell, BLCell, BRCell <--/*/)
@@ -295,6 +264,7 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt.ConveyorUtilities
         public MasterBeltHandler()
         {
             AllBelts = new List<Belt>();
+
         }
 
         public void AddBelt(Belt belt)

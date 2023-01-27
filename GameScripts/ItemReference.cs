@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MiniJam_Warmth.GameScripts;
+namespace ReFactory.GameScripts;
 
 public class ItemReference
 {
@@ -10,7 +10,7 @@ public class ItemReference
     public int maxStack;
     public Texture2D sprite;
 
-    public ItemReference(string name, string tooltip, Texture2D sprite, int maxStack = 50)
+    public ItemReference(string name, string tooltip, Texture2D sprite, int maxStack = 64)
     {
         this.name = name;
         this.tooltip = tooltip;
@@ -18,7 +18,7 @@ public class ItemReference
         this.maxStack = maxStack;
     }
 
-    public static void RegisterItem(string name, string tooltip, Texture2D sprite, int maxStack = 50)
+    public static void RegisterItem(string name, string tooltip, Texture2D sprite, int maxStack = 64)
     {
         ItemList.Items.Add(new ItemReference(name, tooltip, sprite, maxStack));
     }

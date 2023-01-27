@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MiniJam_Warmth.GameScripts;
+namespace ReFactory.GameScripts;
 
 public class PlaceableItemReference : ItemReference
 {

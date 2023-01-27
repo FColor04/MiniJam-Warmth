@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MiniJam_Warmth.GameScripts;
+namespace ReFactory.GameScripts;
 
 public class Sand : Entity
 {

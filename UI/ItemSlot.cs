@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MiniJam_Warmth.GameScripts;
+using ReFactory.GameScripts;
 using MonoGame.Extended.BitmapFonts;
 
-namespace MiniJam_Warmth;
+namespace ReFactory;
 
 public class ItemSlot : UIElement, IPointerClickHandler
 {

@@ -1,17 +1,17 @@
-using System;
+
+using MainGameFramework;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using SystemDebugTools;
-using System.Reflection.Metadata.Ecma335;
-using AudioManagementUtil;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MiniJam_Warmth.GameScripts.Machines;
-using MiniJam_Warmth.Utility;
+using ReFactory.Utility;
 
-namespace MiniJam_Warmth.GameScripts;
+using Debug = ObscurusDebuggerTools.ObscurusDebugger;
+using ReFactory.GameScripts.Machines.ConveyorBelts;
+
+namespace ReFactory.GameScripts;
 
 /// <summary>
 /// A world is collection of entities, grid, collection of grid elements and player stats
@@ -183,8 +183,6 @@ public class World : IPointerClickHandler
         var entityInstance = Activator.CreateInstance(item.PlacedEntityType);
         if (entityInstance is GridEntity gridEntity)
         {
-            MainGame.AudioManager.PlaySfx(AudioManager.Sfx.Place, 0.5f, Random.Shared.Range(-0.2f, 0.2f));
-
             if (item.rotatable)
                 gridEntity.rotation = _placeableRotation;
             
@@ -204,7 +202,7 @@ public class World : IPointerClickHandler
         {
             entity.position = position;
             entities.Add(entity);
-            Debug.WriteLine("Placed Entity???");
+            Debug.Log("Placed Entity???");
         }
         
         return true;
@@ -224,10 +222,10 @@ public class World : IPointerClickHandler
             //Handle building first
             if (PointerItemRenderer.HeldItem != null && PointerItemRenderer.HeldItem.Reference is PlaceableItemReference reference)
             {
-                if(PlaceItem(Input.MousePositionWithinViewport.ToVector2() + cameraOffset, reference))
+                if (PlaceItem(Input.MousePositionWithinViewport.ToVector2() + cameraOffset, reference))
                     PointerItemRenderer.HeldItem.Count--;
                 else
-                    MainGame.AudioManager.PlaySfx(AudioManager.Sfx.Error);
+                    Debug.Log("Play Error Sound");
             }
         }
     }

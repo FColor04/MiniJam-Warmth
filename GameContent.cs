@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MiniJam_Warmth.GameScripts;
-using MiniJam_Warmth.GameScripts.Machines;
+using ReFactory.GameScripts;
+using ReFactory.GameScripts.Machines.Testing;
 using MonoGame.Extended.BitmapFonts;
+using MainGameFramework;
+using ReFactory.GameScripts.Machines.ConveyorBelts;
 
-namespace MiniJam_Warmth
+namespace ReFactory
 {
     public static class GameContent
     {
