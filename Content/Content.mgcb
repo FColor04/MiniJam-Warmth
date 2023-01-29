@@ -6,11 +6,10 @@
 /platform:DesktopGL
 /config:
 /profile:Reach
-/compress:False
+/compress:True
 
 #-------------------------------- References --------------------------------#
 
-/reference:MonoGame.Extended.Content.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -25,52 +24,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Error.wav
-
-#begin ForwardFont_0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:ForwardFont_0.png
-
-#begin ForwardFont_1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:ForwardFont_1.png
-
-#begin ForwardFont.fnt
-/importer:BitmapFontImporter
-/processor:BitmapFontProcessor
-/build:ForwardFont.fnt
-
-#begin ForwardMini_0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:ForwardMini_0.png
-
-#begin ForwardMini.fnt
-/importer:BitmapFontImporter
-/processor:BitmapFontProcessor
-/build:ForwardMini.fnt
 
 #begin Place.mp3
 /importer:Mp3Importer

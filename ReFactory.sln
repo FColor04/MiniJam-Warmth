@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReFactory", "ReFactory.csproj", "{7B4EC480-77FA-4C6F-97BB-053619BD6512}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTesting", "ProjectTesting\ProjectTesting.csproj", "{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReFactory.Tests", "ReFactory.Tests\ReFactory.Tests.csproj", "{4BB833A5-D110-458C-8160-7C5AFAC0A9FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

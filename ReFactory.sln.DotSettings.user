@@ -2,4 +2,5 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\FColor04\.nuget\packages\monogame.extended\3.8.0\contentFiles\any\netstandard2.0\mgfxc.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\FColor04\.nuget\packages\monogame.extended\3.8.0\contentFiles\any\netstandard2.0\CppNet.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\FColor04\.nuget\packages\fontstashsharp\1.2.8\lib\netstandard2.0\FontStashSharp.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
