@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Diagnostics;
 using AudioManagementUtil;
 using ReFactory.Controllers;
 using ReFactory.GameScripts;
@@ -56,10 +55,11 @@ namespace MainGameFramework {
         private SpriteBatch _spriteBatch;
         private RenderTarget2D _renderTarget;
         private StateMachine playerStateMachine;
-        private int WorldSizeX = 17;
-        private int WorldSizeY = 17;
-
+        private int worldSizeX = 17;
+        private int worldSizeY = 17;
         public World World;
+        public int WorldSizeX { get { return worldSizeX; } }
+        public int WorldSizeY { get { return worldSizeY; } }
 
         public MainGame()
         {
