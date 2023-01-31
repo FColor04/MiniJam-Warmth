@@ -7,7 +7,7 @@
 > 
 > ⭐️ If you liked the project please star it. 
 
-![GitHub Repo stars](https://img.shields.io/github/stars/FColor04/ReFactory?style=for-the-badge)
+![GitHub Repo stars[ReFactory.csproj](ReFactory%2FReFactory.csproj)](https://img.shields.io/github/stars/FColor04/ReFactory?style=for-the-badge)
 ![Discord](https://img.shields.io/discord/1006653195625431161?style=for-the-badge)
 ![Join Discord](https://img.shields.io/badge/Join-Discord-blue?style=for-the-badge&logo=discord&color=5865F2)
 
