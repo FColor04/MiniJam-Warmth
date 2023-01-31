@@ -3,8 +3,13 @@ on:
     branches:
     - main
 jobs:
+    
     publish-docs:
       runs-on: ubuntu-latest
+
+      permissions:
+        contents: write
+
       steps:
         - uses: actions/checkout@v3
         - uses: actions/setup-dotnet@v3
