@@ -1,0 +1,1028 @@
+{
+  "homepages": [],
+  "source_base_path": "/home/runner/work/MiniJam-Warmth/MiniJam-Warmth/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AudioManagementUtil.AudioManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AudioManagementUtil.AudioManager.html",
+          "hash": "J4o0CsDraFkHOja/XcaY2u+Zc1hm+IBcNSuSH4q2k+c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AudioManagementUtil.AudioManagerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AudioManagementUtil.AudioManagerExtensions.html",
+          "hash": "vLZ+B5Ws7nKqd2G9Arz0tt2KnjxPTeEy8NbmBZMiLXs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AudioManagementUtil.AudioMixer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AudioManagementUtil.AudioMixer.html",
+          "hash": "pG63yr350qfguzKJHLLxdktCHRBlWNkdLW8jMTwtBdo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AudioManagementUtil.AudioMixerGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AudioManagementUtil.AudioMixerGroup.html",
+          "hash": "bvGCnFuncTnGaq3UqOnTUbRQRrkjiDdCYUwzyIGtHqw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AudioManagementUtil.AudioMixers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AudioManagementUtil.AudioMixers.html",
+          "hash": "03KCPfhROJDJ+ANN6dMeRJv+GytCuVNTDQ+9PvdoJlY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AudioManagementUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AudioManagementUtil.html",
+          "hash": "8/7rUYiGMfMpTM2nFEW9Dx4HzMuSAfFhDQrclhNXSVg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ConveyorDirection.Direction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ConveyorDirection.Direction.html",
+          "hash": "aYYLmlqVhaBfNob+55tV5BJF+SNQ7LP7DDIga1Rq/G0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ConveyorDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ConveyorDirection.html",
+          "hash": "vIRysRMA8jx8rJXIxZhw6Rn2cMUJxcx28y/gJEG8gj4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MainGameFramework.MainGame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MainGameFramework.MainGame.html",
+          "hash": "8AHMmG74sZvjvZta5F1aUBDnUgDbtLtYkIjvRwDNE6A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MainGameFramework.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MainGameFramework.html",
+          "hash": "aNcQ+hZ5PwP8Iug6e13U5tD9Xzx3Kd2SbWlmAUkEzW8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ObscurusDebuggerTools.Debug.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ObscurusDebuggerTools.Debug.html",
+          "hash": "WOihVvyWOxiKoJ1fE1tNEJGyoXqPI4moFssTNlI/akg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ObscurusDebuggerTools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ObscurusDebuggerTools.html",
+          "hash": "Pf1ZGPL4ioneOczAuYDa93LsKbYXxucuwokmrKK2AzA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ParticleSystemTesting.ps_ParticleData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ParticleSystemTesting.ps_ParticleData.html",
+          "hash": "aBvNEG49SQ0BTwYPawAic7iu8wgv0WloYHbRX70ZHGM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ParticleSystemTesting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ParticleSystemTesting.html",
+          "hash": "Ly8gkN8s1zCZxooezfBvLv7HlyG/EfZmbYvxetL68Yc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.CommonExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.CommonExtensions.html",
+          "hash": "w6MTw/kmeRQUWnoR1aGeP3y1Yy7l+AFFwdLCgxMZJHo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Controllers.IState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Controllers.IState.html",
+          "hash": "5rCAHcv/UlwjAvABjFnDmQRJYic0ALri+X0jHrW2dxo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Controllers.StateMachine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Controllers.StateMachine.html",
+          "hash": "NSKXVW06f7jO3AVSNqavQvOaDnNpKqLxv4O1z899nzA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Controllers.html",
+          "hash": "NJLWgSukL/z2uej+gxHmWhvX+ERTBASeu7rpRRLhznA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameContent.html",
+          "hash": "Dr7O9abWYjDMjUpeIUftJ75exeufJNAhxmUnXWxB3yY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Entity.html",
+          "hash": "jYXgP4L/vJCoXY6eVX8/gjJKBew4rVZCo48LsJXngQM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.GridEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.GridEntity.html",
+          "hash": "ZhAl2QkNnJutshagANyGlQCRroEFpHW1RGAjxitNM4o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Inventory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Inventory.html",
+          "hash": "ulzY+2qrDG0I1Eg7aU9Azukznt4vKbMCCbZ3IegQskU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Item.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Item.html",
+          "hash": "g7QlKE5a7pqQI0KBasjbzPUj4xlgcnV+QiowFebzEww="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.ItemList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.ItemList.html",
+          "hash": "gDmokTldQX3Hmab845oe5sASvHtorkFnSk6zcssUlAc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.ItemReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.ItemReference.html",
+          "hash": "Oac0vmmRUrvwiJHok9Rvr1aTWrajy5fJfaVDU/kjQRY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.Belt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.Belt.html",
+          "hash": "E6OvfHwh773XzTvOI1GliiMbNT53wyS/ouM5qLt+wnk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.BeltEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.BeltEntity.html",
+          "hash": "VS1pa/2jxCciPwjhN3JV8MDMlvOoW0AxVRCzyXqms0Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.BeltEntityCell.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.BeltEntityCell.html",
+          "hash": "sks2Qo2OdAxNwuB6jCys7kpSB6XPGl9hTghLzKNN6kE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams.html",
+          "hash": "HIamzGheBLExOiiN8MNkFc4iw7L+8bH/Hte+tAVOxO8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelt.html",
+          "hash": "hp402hYyDVkd8PBnraRTfYZQhJAyzju+mGzUZHgcEGM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelts.ConveyorBelt.BeltEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelts.ConveyorBelt.BeltEntity.html",
+          "hash": "VUjt0EkP/rnntnxKWQycra8ttnjrkamqAfat+tJO91c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelts.ConveyorBelt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelts.ConveyorBelt.html",
+          "hash": "pdJsogt2XkFkHU280H54tyJTXXyRI6k5hxQUqFQrd44="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.ConveyorBelts.html",
+          "hash": "xj7dS1SMWDr4QFw+LCuQQVphn/zQPR+rR3RNnNnUJ68="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.Testing.TestRockEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.Testing.TestRockEntity.html",
+          "hash": "oZNha1ZyivsXtS7qO/VAG5SNJSL1OOjaGRNT9GOGGRc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Machines.Testing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Machines.Testing.html",
+          "hash": "pXQWpiXNB9CY16IzDEfpuOo+rNzrFiZ+Pn+7Tee0riA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.PlaceableItemExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.PlaceableItemExtensions.html",
+          "hash": "rAs5QDbsHJTusa58QcmIYas3YiLb9Gb8SXl4dlEaZEs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.PlaceableItemReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.PlaceableItemReference.html",
+          "hash": "DEocYLrGZe3bsJfwrx743GXHGUMOyv/P/qzZSXrRwkc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.Sand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.Sand.html",
+          "hash": "9qMNomVjNrlZhuH7qUTZo+CkNEK5izA/t70hhQVTCrw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.SpriteSheetRenderer.Layer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.SpriteSheetRenderer.Layer.html",
+          "hash": "nuw7YboHata26vuQXKULcZUQZlgX4OrIZkZ+tozNSmU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.SpriteSheetRenderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.SpriteSheetRenderer.html",
+          "hash": "2skzCYrxVuq03jOJdR0eE3NcYCPlA3ZDd7JTAlK63GU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.World.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.World.html",
+          "hash": "uRvjuzg3O2SEwwkd0grdKKQt6A9Mlqt3jfqSpFQLQ7s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.GameScripts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.GameScripts.html",
+          "hash": "AyeJlE0M+xEM7tcvIoDhHk8S1xlm2Cur5N/hfCzSj24="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Input.html",
+          "hash": "RqbhcJr8VXpSxJUHg/bqBN0LzUQnzvX1coPWXSMezHo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.ParticleSystem.Particles.ps_Particle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.ParticleSystem.Particles.ps_Particle.html",
+          "hash": "tJIo/ez4MHO3IJMwGi7Oxj6zs9jTvDLmoxlIiJAiOZg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.ParticleSystem.Particles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.ParticleSystem.Particles.html",
+          "hash": "V1dulcrLO8yabmQVpsO1uciirdkRoRjwwp073qp7Gy8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.ParticleSystem.ps_Globals.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.ParticleSystem.ps_Globals.html",
+          "hash": "pe5bolg8CSs//vkl5ebYsgrNeHMITu4Lg9NP50QcGAY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.ParticleSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.ParticleSystem.html",
+          "hash": "4PH9wkFI5ZJsZjZ1b+zCqbzvn5NH47/Rh5dfV+Szcko="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Resolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Resolution.html",
+          "hash": "CM9XT1yAkENYJGcyl9T4ExHDSo7c5m3T79r3aByFWqM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Time.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Time.html",
+          "hash": "Nk3Smm+l/hFsTf6JifjQwDDCtBE/IPLhEyeqjkbO2/s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.Button.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.Button.html",
+          "hash": "j8jgo1DU4SvkkfMZvDmKzvmMyl+YYfXOCId8iCOPuTk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.IDragHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.IDragHandler.html",
+          "hash": "agvlqvrRBtSzRaVJGoxMQedmz3hyiRP9ZuLi4LMlJeU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.IDropHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.IDropHandler.html",
+          "hash": "IASdeTCYguvbrcSFYEzv+/ohSidom0dhH177aHsfUGQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.IHasInteractiveRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.IHasInteractiveRect.html",
+          "hash": "73Uf/S17SDW2wbHwCJdECDVP7gFePB4Rqzl9dmturxM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.IPointerClickHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.IPointerClickHandler.html",
+          "hash": "i4WzthNz85YUuW2FLwzZktwtxLmFOklOIr8M0+L/8ro="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.IPointerClickReleaseHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.IPointerClickReleaseHandler.html",
+          "hash": "et+WzFHPdkAzQqntN4xQeIT7/pRAaKVCGHvVePsmD4A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.IPointerEnterHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.IPointerEnterHandler.html",
+          "hash": "tJmGhksgqCNyLVq8FukDrvLnpM/NXrTBRNOw01QjA5k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.IPointerExitHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.IPointerExitHandler.html",
+          "hash": "mgXWcpiCtlFMOKmzN0sZZk1mqwVVg5ppHyEwVKAzvQ8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.ItemSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.ItemSlot.html",
+          "hash": "GOdHoTcEXQdixKjxJDHJZQykryb2nfVpbtbJh2b4u+w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.LayoutControllers.AspectRatioFitter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.LayoutControllers.AspectRatioFitter.html",
+          "hash": "EKXBNg69L1RYFH2jZeII01yIlFHZa9ub6pth2EiEfZw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.LayoutControllers.FixedSize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.LayoutControllers.FixedSize.html",
+          "hash": "2sCzB3HykwnwDyo3Zj9QeeYZ0IvIl/SaZKTAr2bKO08="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.LayoutControllers.HorizontalGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.LayoutControllers.HorizontalGrid.html",
+          "hash": "vRrkwYyuqJVuHKj7NnEj6U2NArR3dTNaUS60NiezMC8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.LayoutControllers.UILayoutController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.LayoutControllers.UILayoutController.html",
+          "hash": "+QYSwPtRApIJ9Ldibbqknl2FmAqBMFQG7+YBAoXOuds="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.LayoutControllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.LayoutControllers.html",
+          "hash": "qDOjZS7MqAn0TxI1AA0hxqDS4UeCADEr97ZwNE7LGXk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.PointerItemRenderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.PointerItemRenderer.html",
+          "hash": "D197ci4GocpWfY9pO6c2y2zlc9M+NrxA5FmTBw4VWeM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.ProgressBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.ProgressBar.html",
+          "hash": "klh7LlAkhaGxba9yogIGcr8fUigVRmdXjSptiTo3ttI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.UI.Margin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.UI.Margin.html",
+          "hash": "sVTwf5RiGDXXwTidPQbQzN0PgsI2pcGt4Jd9Sv/91BI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.UI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.UI.html",
+          "hash": "Ywt51cXAPDgZNK6A45lriVTIPASd0g2yPAqKFc47u4c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.UIElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.UIElement.html",
+          "hash": "aZZBkOULORZRo0S8TC5uAU/MvM6xXiK/+gXNcVFh2AM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.UISystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.UISystem.html",
+          "hash": "FAV+tLV01TkuCEEtWzaC7r7uRk7cxennVB/w1sx0uUU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Utility.ColorUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Utility.ColorUtility.html",
+          "hash": "rGjlK6yHceHh+5ugIUrHSLcq5rBAfIT86s6dgghBFFg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Utility.GridUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Utility.GridUtility.html",
+          "hash": "TFXjYWqAqcWRywJNYb7DG55x5qGqyBLCyluPZ9sx/4o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.Utility.html",
+          "hash": "lxhYNI4qJUtl+6QYyxAqYd9/LD5gaqwmV0Th9qq/vT8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReFactory.html",
+          "hash": "rtRTqEl4WBZEHVSKW77imQGCZK75RZHiYImxui46aCQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ScoreBoardUtil.ScoreBoardClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ScoreBoardUtil.ScoreBoardClass.html",
+          "hash": "t1ZCX35CqXSY9NWYY7eOw0II+VFdzkK/ZYxbY5Ph4oE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ScoreBoardUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ScoreBoardUtil.html",
+          "hash": "dbqC4DlNt3aIM4cCxk3FZ0lWBNjZIx6rz157yTXPNM8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "tTWTs9WVh+eO+gWt0YGf3tAwcnp5p3K4Y8rLEtJu09w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "VrYGBxUeS+GaGEBr//a9Xlwfv9KYEgDIbKoxU6gerhA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "yvFbf4myiBmtgkRrZpPuvk/eai+VYmCUTA+BvwonTsY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "+FPCLcvmNhVb9VLasYr6Tnep0PZtIA6V/UOJ0u+1RmE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "Te9qRHZswABQjI1Q71SyCkMeYFN5ItTUaHtHRA2Dkgg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "aVe9U1RxWP3P5E5X/x2rL8jCuFlqix3bHKxtkjZ3zxg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 75,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

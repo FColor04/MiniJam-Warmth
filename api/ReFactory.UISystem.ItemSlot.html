@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class ItemSlot
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class ItemSlot
+ ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ReFactory.UISystem.ItemSlot">
+
+
+  <h1 id="ReFactory_UISystem_ItemSlot" data-uid="ReFactory.UISystem.ItemSlot" class="text-break">Class ItemSlot
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">object</span></div>
+    <div class="level1"><a class="xref" href="ReFactory.UISystem.UIElement.html">UIElement</a></div>
+    <div class="level2"><span class="xref">ItemSlot</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="ReFactory.UISystem.IPointerClickHandler.html">IPointerClickHandler</a></div>
+    <div><a class="xref" href="ReFactory.UISystem.IHasInteractiveRect.html">IHasInteractiveRect</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_rect">UIElement.rect</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_color">UIElement.color</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_rotation">UIElement.rotation</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_InteractiveRect">UIElement.InteractiveRect</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_Priority">UIElement.Priority</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_Texture">UIElement.Texture</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_Children">UIElement.Children</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_ProcessUsingLayoutController_ReFactory_UISystem_LayoutControllers_UILayoutController_">UIElement.ProcessUsingLayoutController(UILayoutController)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_AddChild_ReFactory_UISystem_UIElement_">UIElement.AddChild(UIElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_Dispose">UIElement.Dispose()</a>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ReFactory.html">ReFactory</a>.<a class="xref" href="ReFactory.UISystem.html">UISystem</a></h6>
+  <h6><strong>Assembly</strong>: ReFactory.dll</h6>
+  <h5 id="ReFactory_UISystem_ItemSlot_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ItemSlot : UIElement, IDisposable, IPointerClickHandler, IHasInteractiveRect</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FColor04/MiniJam-Warmth/new/main/apiSpec/new?filename=ReFactory_UISystem_ItemSlot__ctor_System_Func_ReFactory_GameScripts_Item__System_Action_ReFactory_GameScripts_Item__System_Nullable_Rectangle__Texture2D_System_Nullable_Color__System_Collections_Generic_List_ReFactory_UISystem_UIElement__System_Int32_System_Single_.md&amp;value=---%0Auid%3A%20ReFactory.UISystem.ItemSlot.%23ctor(System.Func%7BReFactory.GameScripts.Item%7D%2CSystem.Action%7BReFactory.GameScripts.Item%7D%2CSystem.Nullable%7BRectangle%7D%2CTexture2D%2CSystem.Nullable%7BColor%7D%2CSystem.Collections.Generic.List%7BReFactory.UISystem.UIElement%7D%2CSystem.Int32%2CSystem.Single)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FColor04/MiniJam-Warmth/blob/main/ReFactory/UISystem/ItemSlot.cs/#L12">View Source</a>
+  </span>
+  <a id="ReFactory_UISystem_ItemSlot__ctor_" data-uid="ReFactory.UISystem.ItemSlot.#ctor*"></a>
+  <h4 id="ReFactory_UISystem_ItemSlot__ctor_System_Func_ReFactory_GameScripts_Item__System_Action_ReFactory_GameScripts_Item__System_Nullable_Rectangle__Texture2D_System_Nullable_Color__System_Collections_Generic_List_ReFactory_UISystem_UIElement__System_Int32_System_Single_" data-uid="ReFactory.UISystem.ItemSlot.#ctor(System.Func{ReFactory.GameScripts.Item},System.Action{ReFactory.GameScripts.Item},System.Nullable{Rectangle},Texture2D,System.Nullable{Color},System.Collections.Generic.List{ReFactory.UISystem.UIElement},System.Int32,System.Single)">ItemSlot(Func&lt;Item&gt;, Action&lt;Item&gt;, Rectangle?, Texture2D, Color?, List&lt;UIElement&gt;, int, float)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemSlot(Func&lt;Item&gt; getter, Action&lt;Item&gt; setter, Rectangle? rect = null, Texture2D texture = null, Color? color = null, List&lt;UIElement&gt; children = null, int priority = -1, float rotation = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func&lt;TResult&gt;</span>&lt;<a class="xref" href="ReFactory.GameScripts.Item.html">Item</a>&gt;</td>
+        <td><span class="parametername">getter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action&lt;T&gt;</span>&lt;<a class="xref" href="ReFactory.GameScripts.Item.html">Item</a>&gt;</td>
+        <td><span class="parametername">setter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rectangle</span>?</td>
+        <td><span class="parametername">rect</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Texture2D</span></td>
+        <td><span class="parametername">texture</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Color</span>?</td>
+        <td><span class="parametername">color</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List&lt;T&gt;</span>&lt;<a class="xref" href="ReFactory.UISystem.UIElement.html">UIElement</a>&gt;</td>
+        <td><span class="parametername">children</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">float</span></td>
+        <td><span class="parametername">rotation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FColor04/MiniJam-Warmth/new/main/apiSpec/new?filename=ReFactory_UISystem_ItemSlot_IsDropTarget.md&amp;value=---%0Auid%3A%20ReFactory.UISystem.ItemSlot.IsDropTarget%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FColor04/MiniJam-Warmth/blob/main/ReFactory/UISystem/ItemSlot.cs/#L27">View Source</a>
+  </span>
+  <a id="ReFactory_UISystem_ItemSlot_IsDropTarget_" data-uid="ReFactory.UISystem.ItemSlot.IsDropTarget*"></a>
+  <h4 id="ReFactory_UISystem_ItemSlot_IsDropTarget" data-uid="ReFactory.UISystem.ItemSlot.IsDropTarget">IsDropTarget</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDropTarget { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FColor04/MiniJam-Warmth/new/main/apiSpec/new?filename=ReFactory_UISystem_ItemSlot_Item.md&amp;value=---%0Auid%3A%20ReFactory.UISystem.ItemSlot.Item%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FColor04/MiniJam-Warmth/blob/main/ReFactory/UISystem/ItemSlot.cs/#L22">View Source</a>
+  </span>
+  <a id="ReFactory_UISystem_ItemSlot_Item_" data-uid="ReFactory.UISystem.ItemSlot.Item*"></a>
+  <h4 id="ReFactory_UISystem_ItemSlot_Item" data-uid="ReFactory.UISystem.ItemSlot.Item">Item</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Item Item { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ReFactory.GameScripts.Item.html">Item</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FColor04/MiniJam-Warmth/new/main/apiSpec/new?filename=ReFactory_UISystem_ItemSlot_AfterDraw_System_Single_SpriteBatch_.md&amp;value=---%0Auid%3A%20ReFactory.UISystem.ItemSlot.AfterDraw(System.Single%2CSpriteBatch)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FColor04/MiniJam-Warmth/blob/main/ReFactory/UISystem/ItemSlot.cs/#L31">View Source</a>
+  </span>
+  <a id="ReFactory_UISystem_ItemSlot_AfterDraw_" data-uid="ReFactory.UISystem.ItemSlot.AfterDraw*"></a>
+  <h4 id="ReFactory_UISystem_ItemSlot_AfterDraw_System_Single_SpriteBatch_" data-uid="ReFactory.UISystem.ItemSlot.AfterDraw(System.Single,SpriteBatch)">AfterDraw(float, SpriteBatch)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void AfterDraw(float deltaTime, SpriteBatch batch)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">float</span></td>
+        <td><span class="parametername">deltaTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">SpriteBatch</span></td>
+        <td><span class="parametername">batch</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_AfterDraw_System_Single_SpriteBatch_">UIElement.AfterDraw(float, SpriteBatch)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/FColor04/MiniJam-Warmth/new/main/apiSpec/new?filename=ReFactory_UISystem_ItemSlot_OnPointerClick_System_Int32_.md&amp;value=---%0Auid%3A%20ReFactory.UISystem.ItemSlot.OnPointerClick(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FColor04/MiniJam-Warmth/blob/main/ReFactory/UISystem/ItemSlot.cs/#L47">View Source</a>
+  </span>
+  <a id="ReFactory_UISystem_ItemSlot_OnPointerClick_" data-uid="ReFactory.UISystem.ItemSlot.OnPointerClick*"></a>
+  <h4 id="ReFactory_UISystem_ItemSlot_OnPointerClick_System_Int32_" data-uid="ReFactory.UISystem.ItemSlot.OnPointerClick(System.Int32)">OnPointerClick(int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnPointerClick(int buttonIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">buttonIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <a class="xref" href="ReFactory.UISystem.IPointerClickHandler.html">IPointerClickHandler</a>
+  </div>
+  <div>
+      <a class="xref" href="ReFactory.UISystem.IHasInteractiveRect.html">IHasInteractiveRect</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="ReFactory.CommonExtensions.html#ReFactory_CommonExtensions_Flatten_ReFactory_UISystem_UIElement_">CommonExtensions.Flatten(UIElement)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FColor04/MiniJam-Warmth/new/main/apiSpec/new?filename=ReFactory_UISystem_ItemSlot.md&amp;value=---%0Auid%3A%20ReFactory.UISystem.ItemSlot%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FColor04/MiniJam-Warmth/blob/main/ReFactory/UISystem/ItemSlot.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
