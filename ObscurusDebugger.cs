@@ -2,6 +2,7 @@ using System;
 using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Linq;
+using Microsoft.Xna.Framework;
 
 
 namespace ObscurusDebuggerTools {
@@ -12,7 +13,7 @@ namespace ObscurusDebuggerTools {
         public static readonly float DebugFloat = 3.141592653589793238462643383279f;
 
         private static string TimeNow => DateTime.Now.ToString("T");
-
+        
         static ObscurusDebugger()
         {
 #if DEBUG
@@ -34,6 +35,7 @@ namespace ObscurusDebuggerTools {
             if (!DebugMode) return;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"[{TimeNow}] [WARNING] {obj}");
+            Console.WriteLine($"{string.Join("\n", (new StackTrace(true)).GetFrames().Select(frame => $"{frame.GetMethod()} \n {frame.GetFileName()} @ {frame.GetFileLineNumber()}"))} line");
             Console.ForegroundColor = ConsoleColor.White;
         }
 
@@ -42,18 +44,23 @@ namespace ObscurusDebuggerTools {
             if (!DebugMode) return;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"[{TimeNow}] [ERROR] {obj}");
+            Console.WriteLine($"{string.Join("\n", (new StackTrace(true)).GetFrames().Select(frame => $"{frame.GetMethod()} \n {frame.GetFileName()} @ {frame.GetFileLineNumber()}"))} line");
             Console.ForegroundColor = ConsoleColor.White;
         }
 
         public static void ThrowError()
         {
             if (!DebugMode) return;
-            LogError($"An error has occured in {(new StackTrace()).GetFrame(1)!.GetMethod()!.Name}");
+            LogError($"An error has occured");
         }
         #endregion
 
         #region ~Tools~
 
+        public static void DebugDrawPoint(Vector2 screenCoordinates, Color color)
+        {
+            
+        }
         #endregion
 
     }

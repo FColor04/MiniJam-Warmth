@@ -1,18 +1,22 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Reflection;
+using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReFactory.GameScripts;
 using ReFactory.GameScripts.Machines.Testing;
-using MonoGame.Extended.BitmapFonts;
 using MainGameFramework;
 using ReFactory.GameScripts.Machines.ConveyorBelts;
+using SpriteFontPlus;
 
 namespace ReFactory
 {
     public static class GameContent
     {
-        public static readonly BitmapFont Font;
+        public static readonly FontSystem FontSystem;
+        public static readonly SpriteFontBase Font11;
         public static readonly ReadOnlyCollection<Texture2D> SandTextures;
         public static readonly Texture2D SelectedTile;
         public static readonly Texture2D Rocks;
@@ -24,7 +28,11 @@ namespace ReFactory
         {
             var Content = MainGame.content;
             
-            Font = Content.Load<BitmapFont>("ForwardMini");
+            //Load font
+            FontSystem = new FontSystem();
+            FontSystem.AddFont(Assembly.GetExecutingAssembly().GetManifestResourceStream("ReFactory.Fonts.FFFForward.ttf"));
+            Font11 = FontSystem.GetFont(16);
+            //
             SelectedTile = Content.Load<Texture2D>("Selected");
             Rocks = Content.Load<Texture2D>("rocks");
             

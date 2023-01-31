@@ -1,8 +1,8 @@
 using System;
+using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReFactory.GameScripts;
-using MonoGame.Extended.BitmapFonts;
 using MainGameFramework;
 
 namespace ReFactory;
@@ -24,11 +24,9 @@ public static class PointerItemRenderer
         if (HeldItem == null) return;
         var sprite = HeldItem.Reference.sprite;
         batch.Draw(sprite, new Rectangle(Input.MousePositionWithinViewport, new Point(sprite.Width, sprite.Height)), Color.White);
-        batch.DrawString(GameContent.Font,
+        batch.DrawString(GameContent.Font11,
             $"{HeldItem.Count}",
             Input.MousePositionWithinViewport.ToVector2(),
-            Color.White,
-            0,
-            new Vector2(21, 26.5f), new Vector2(16/64f, 16/64f), SpriteEffects.None, 0);
+            Color.White);
     }
 }

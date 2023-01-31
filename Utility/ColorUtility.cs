@@ -1,14 +1,17 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
+using Color = Microsoft.Xna.Framework.Color;
 
 namespace ReFactory.Utility;
 
 public static class ColorUtility
 {
-    public static Color ToolbarGrey => new (24, 60, 24);
-    public static Color ToolbarSilver => new (144, 144, 144);
-    public static Color FillBarYellow => new (252, 190, 3);
+    public static Color ToolbarGrey => FromHex("#333333");
+    public static Color ToolbarSilver => FromHex("#909090");
+    public static Color FillBarYellow => FromHex("#ffaa00");
 
+    public static Color ToXnaColor(this System.Drawing.Color color) => new (color.R, color.G, color.B, color.A);
+    public static Color FromHex(string hex) => System.Drawing.ColorTranslator.FromHtml(hex).ToXnaColor();
+    
     public static void HsvToRgb(float h, float S, float V, out int r, out int g, out int b)
     {    
         float H = h;

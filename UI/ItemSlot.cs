@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReFactory.GameScripts;
-using MonoGame.Extended.BitmapFonts;
-
+using FontStashSharp;
 namespace ReFactory;
 
 public class ItemSlot : UIElement, IPointerClickHandler
@@ -37,12 +36,10 @@ public class ItemSlot : UIElement, IPointerClickHandler
         if (Item != null)
         {
             batch.Draw(Item.Reference.sprite, rect, Color.White);
-            batch.DrawString(GameContent.Font,
+            batch.DrawString(GameContent.Font11,
                 $"{Math.Min(Item.Count, 99)}{(Item.Count > 99 ? "+" : "")}",
-                rect.Center.ToVector2(),
-                Color.White,
-                0,
-                new Vector2(8, 8), 1, SpriteEffects.None, 0);
+                rect.Location.ToVector2(),
+                Color.White);
         }
     }
 
