@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using MainGameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using ReFactory.Debugger;
 namespace ReFactory.UISystem;
 
 public static class UI
@@ -58,7 +57,7 @@ public static class UI
                     {
                         if (dragHandler.OnDrag())
                         {
-                            Debug.WriteLine("Drag init");
+                            Debug.Log("Drag init");
                             _dragHandler = dragHandler;
                         }
                     }
@@ -70,7 +69,7 @@ public static class UI
                         //If released && within rect
                         if (uiElement is IDropHandler slot)
                         {
-                            Debug.WriteLine("Drag & Drop executed");
+                            Debug.Log("Drag & Drop executed");
                             slot.OnDrop(_dragHandler);
                             _dragHandler = null;
                         }
@@ -104,7 +103,7 @@ public static class UI
     {
         if (_dragHandler != null && !Input.LeftMouseHold && !Input.LeftMousePressed)
         {
-            Debug.WriteLine("Drag cancel");
+            Debug.Log("Drag cancel");
             _dragHandler.OnDragCancelled();
             _dragHandler = null;
         }

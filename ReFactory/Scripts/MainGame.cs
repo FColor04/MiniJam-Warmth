@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿global using ReFactory.Debugger;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using AudioManagementUtil;
-using ObscurusDebuggerTools;
 using ReFactory.Controllers;
 using ReFactory.GameScripts;
 using ReFactory.Utility;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using MainGameFramework;
-using ObscurusDebuggerTools;
+using ReFactory.Debugger;
 
 public static class Program
 {

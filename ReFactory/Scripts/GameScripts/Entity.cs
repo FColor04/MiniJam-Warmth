@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MainGameFramework;
+using Debug = ReFactory.Debugger.Debug;
 
 namespace ReFactory.GameScripts;
 
@@ -33,7 +34,7 @@ public class Entity : IDisposable
 
     public void Dispose()
     {
-        Debug.WriteLine("Disposing");
+        Debug.Log("Disposing");
         Dispose(true);
         GC.SuppressFinalize(this);
     }

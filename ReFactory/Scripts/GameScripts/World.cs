@@ -6,7 +6,6 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using ObscurusDebuggerTools;
 using ReFactory.Utility;
 using ReFactory.GameScripts.Machines.ConveyorBelts;
 using ReFactory.UISystem;

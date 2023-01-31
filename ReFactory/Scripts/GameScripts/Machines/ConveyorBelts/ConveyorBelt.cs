@@ -1,16 +1,13 @@
 #region Directives & Namespace
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MainGameFramework;
-using ReFactory;
-using ReFactory.GameScripts;
 using ReFactory.UISystem;
-using Debug = ObscurusDebuggerTools.Debug;
+using Debug = ReFactory.Debugger.Debug;
 
 namespace ReFactory.GameScripts.Machines.ConveyorBelts;
 
@@ -70,7 +67,7 @@ public class ConveyorBelt : GridEntity
             if (targetBelt != null)
             {
                 float rotationDiff = targetBelt.rotation - belt.rotation;
-                ObscurusDebuggerTools.Debug.Log(rotationDiff + "_FirstCheck");
+                Debugger.Debug.Log(rotationDiff + "_FirstCheck");
                 while (rotationDiff < 0)
                     rotationDiff += 360;
                 rotationDiff %= 360;
@@ -93,7 +90,7 @@ public class ConveyorBelt : GridEntity
                     }
                 }
                 else
-                    ObscurusDebuggerTools.Debug.Log("No space for me A");
+                    Debug.Log("No space for me A");
 
                 if (targetBelt.HasSpaceForNewEntity(!targetOtherSide))
                 {
@@ -106,7 +103,7 @@ public class ConveyorBelt : GridEntity
                     }
                 }
                 else
-                    ObscurusDebuggerTools.Debug.Log("No space for me B");
+                    Debug.Log("No space for me B");
             }
             else
                 Debug.Log($"No space for me C {belt.rotation} {belt.position}");

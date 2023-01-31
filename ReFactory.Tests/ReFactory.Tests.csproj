@@ -7,7 +7,7 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>ProjectTesting</RootNamespace>
+    <RootNamespace>ReFactory.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReFactory.csproj" />
+    <ProjectReference Include="..\ReFactory\ReFactory.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,9 @@
 using System;
-using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.Xna.Framework;
 
-
-namespace ObscurusDebuggerTools {
+namespace ReFactory.Debugger {
 
     public static class Debug {
         public static bool DebugMode;

@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams;
-using Debug = ObscurusDebuggerTools.Debug;
+using Debug = ReFactory.Debugger.Debug;
 
 /*
 =======Thoughts=======

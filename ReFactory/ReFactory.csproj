@@ -5,6 +5,8 @@
     </PropertyGroup>
     <PropertyGroup>
         <OutputType>Exe</OutputType>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <ApplicationIcon>Icon.ico</ApplicationIcon>
         <TargetFramework>net6.0</TargetFramework>
         <RollForward>Major</RollForward>
         <PublishReadyToRun>false</PublishReadyToRun>
@@ -21,28 +23,21 @@
         <RepositoryType>GitHub</RepositoryType>
         <Company>Obscurus Games</Company>
     </PropertyGroup>
-    <PropertyGroup>
-        <ApplicationManifest>app.manifest</ApplicationManifest>
-        <ApplicationIcon>Icon.ico</ApplicationIcon>
-    </PropertyGroup>
     <ItemGroup>
         <None Remove="Content\Warmer.mp3" />
         <None Update="Icon.png">
           <Pack>True</Pack>
         </None>
         <None Remove="ReFactory.Tests\**" />
+        <None Remove="ReFactory.sln.DotSettings" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Remove="ReFactory.Tests\**" />
         <None Remove="Icon.bmp" />
+        <EmbeddedResource Include="Fonts\FFFForward.ttf" />
         <EmbeddedResource Include="Icon.bmp">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </EmbeddedResource>
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="Content\Warmer.mp3">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Exomia.Framework" Version="1.5.3" />
@@ -71,12 +66,10 @@
       <Compile Remove="ReFactory.Tests\**" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="ContentScripts" />
-      <Folder Include="IconGenerator" />
+      <Folder Include="Scripts\ContentScripts" />
     </ItemGroup>
     <ItemGroup>
       <Content Remove="Fonts\FFFForward.ttf" />
-      <EmbeddedResource Include="Fonts\FFFForward.ttf" />
     </ItemGroup>
     <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
         <Message Text="Restoring dotnet tools" Importance="High" />
