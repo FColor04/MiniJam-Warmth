@@ -1,209 +1,559 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: AudioManagementUtil
-  name: AudioManagementUtil
-  href: api/AudioManagementUtil.html
-  commentId: N:AudioManagementUtil
-  fullName: AudioManagementUtil
-  nameWithType: AudioManagementUtil
-- uid: AudioManagementUtil.AudioManager
+- uid: AudioManagement
+  name: AudioManagement
+  href: api/AudioManagement.html
+  commentId: N:AudioManagement
+  fullName: AudioManagement
+  nameWithType: AudioManagement
+- uid: AudioManagement.AudioManager
   name: AudioManager
-  href: api/AudioManagementUtil.AudioManager.html
-  commentId: T:AudioManagementUtil.AudioManager
-  fullName: AudioManagementUtil.AudioManager
+  href: api/AudioManagement.AudioManager.html
+  commentId: T:AudioManagement.AudioManager
+  fullName: AudioManagement.AudioManager
   nameWithType: AudioManager
-- uid: AudioManagementUtil.AudioManager.AudioMixers
+- uid: AudioManagement.AudioManager.AudioMixers
   name: AudioMixers
-  href: api/AudioManagementUtil.AudioManager.html#AudioManagementUtil_AudioManager_AudioMixers
-  commentId: F:AudioManagementUtil.AudioManager.AudioMixers
-  fullName: AudioManagementUtil.AudioManager.AudioMixers
+  href: api/AudioManagement.AudioManager.html#AudioManagement_AudioManager_AudioMixers
+  commentId: F:AudioManagement.AudioManager.AudioMixers
+  fullName: AudioManagement.AudioManager.AudioMixers
   nameWithType: AudioManager.AudioMixers
-- uid: AudioManagementUtil.AudioManagerExtensions
+- uid: AudioManagement.AudioManagerExtensions
   name: AudioManagerExtensions
-  href: api/AudioManagementUtil.AudioManagerExtensions.html
-  commentId: T:AudioManagementUtil.AudioManagerExtensions
-  fullName: AudioManagementUtil.AudioManagerExtensions
+  href: api/AudioManagement.AudioManagerExtensions.html
+  commentId: T:AudioManagement.AudioManagerExtensions
+  fullName: AudioManagement.AudioManagerExtensions
   nameWithType: AudioManagerExtensions
-- uid: AudioManagementUtil.AudioManagerExtensions.GetMixer(AudioManagementUtil.AudioMixerGroup)
+- uid: AudioManagement.AudioManagerExtensions.GetMixer(AudioManagement.AudioMixerGroup)
   name: GetMixer(AudioMixerGroup)
-  href: api/AudioManagementUtil.AudioManagerExtensions.html#AudioManagementUtil_AudioManagerExtensions_GetMixer_AudioManagementUtil_AudioMixerGroup_
-  commentId: M:AudioManagementUtil.AudioManagerExtensions.GetMixer(AudioManagementUtil.AudioMixerGroup)
-  fullName: AudioManagementUtil.AudioManagerExtensions.GetMixer(AudioManagementUtil.AudioMixerGroup)
+  href: api/AudioManagement.AudioManagerExtensions.html#AudioManagement_AudioManagerExtensions_GetMixer_AudioManagement_AudioMixerGroup_
+  commentId: M:AudioManagement.AudioManagerExtensions.GetMixer(AudioManagement.AudioMixerGroup)
+  fullName: AudioManagement.AudioManagerExtensions.GetMixer(AudioManagement.AudioMixerGroup)
   nameWithType: AudioManagerExtensions.GetMixer(AudioMixerGroup)
-- uid: AudioManagementUtil.AudioManagerExtensions.GetMixer*
+- uid: AudioManagement.AudioManagerExtensions.GetMixer*
   name: GetMixer
-  href: api/AudioManagementUtil.AudioManagerExtensions.html#AudioManagementUtil_AudioManagerExtensions_GetMixer_
-  commentId: Overload:AudioManagementUtil.AudioManagerExtensions.GetMixer
+  href: api/AudioManagement.AudioManagerExtensions.html#AudioManagement_AudioManagerExtensions_GetMixer_
+  commentId: Overload:AudioManagement.AudioManagerExtensions.GetMixer
   isSpec: "True"
-  fullName: AudioManagementUtil.AudioManagerExtensions.GetMixer
+  fullName: AudioManagement.AudioManagerExtensions.GetMixer
   nameWithType: AudioManagerExtensions.GetMixer
-- uid: AudioManagementUtil.AudioMixer
+- uid: AudioManagement.AudioMixer
   name: AudioMixer
-  href: api/AudioManagementUtil.AudioMixer.html
-  commentId: T:AudioManagementUtil.AudioMixer
-  fullName: AudioManagementUtil.AudioMixer
+  href: api/AudioManagement.AudioMixer.html
+  commentId: T:AudioManagement.AudioMixer
+  fullName: AudioManagement.AudioMixer
   nameWithType: AudioMixer
-- uid: AudioManagementUtil.AudioMixer.#ctor(AudioManagementUtil.AudioMixerGroup,System.Single,System.Int32)
+- uid: AudioManagement.AudioMixer.#ctor(AudioManagement.AudioMixerGroup,System.Single,System.Int32)
   name: AudioMixer(AudioMixerGroup, float, int)
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer__ctor_AudioManagementUtil_AudioMixerGroup_System_Single_System_Int32_
-  commentId: M:AudioManagementUtil.AudioMixer.#ctor(AudioManagementUtil.AudioMixerGroup,System.Single,System.Int32)
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer__ctor_AudioManagement_AudioMixerGroup_System_Single_System_Int32_
+  commentId: M:AudioManagement.AudioMixer.#ctor(AudioManagement.AudioMixerGroup,System.Single,System.Int32)
   name.vb: New(AudioMixerGroup, Single, Integer)
-  fullName: AudioManagementUtil.AudioMixer.AudioMixer(AudioManagementUtil.AudioMixerGroup, float, int)
-  fullName.vb: AudioManagementUtil.AudioMixer.New(AudioManagementUtil.AudioMixerGroup, Single, Integer)
+  fullName: AudioManagement.AudioMixer.AudioMixer(AudioManagement.AudioMixerGroup, float, int)
+  fullName.vb: AudioManagement.AudioMixer.New(AudioManagement.AudioMixerGroup, Single, Integer)
   nameWithType: AudioMixer.AudioMixer(AudioMixerGroup, float, int)
   nameWithType.vb: AudioMixer.New(AudioMixerGroup, Single, Integer)
-- uid: AudioManagementUtil.AudioMixer.#ctor*
+- uid: AudioManagement.AudioMixer.#ctor*
   name: AudioMixer
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer__ctor_
-  commentId: Overload:AudioManagementUtil.AudioMixer.#ctor
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer__ctor_
+  commentId: Overload:AudioManagement.AudioMixer.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: AudioManagementUtil.AudioMixer.AudioMixer
-  fullName.vb: AudioManagementUtil.AudioMixer.New
+  fullName: AudioManagement.AudioMixer.AudioMixer
+  fullName.vb: AudioManagement.AudioMixer.New
   nameWithType: AudioMixer.AudioMixer
   nameWithType.vb: AudioMixer.New
-- uid: AudioManagementUtil.AudioMixer.AudioTrackLimit
+- uid: AudioManagement.AudioMixer.AudioTrackLimit
   name: AudioTrackLimit
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_AudioTrackLimit
-  commentId: F:AudioManagementUtil.AudioMixer.AudioTrackLimit
-  fullName: AudioManagementUtil.AudioMixer.AudioTrackLimit
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_AudioTrackLimit
+  commentId: F:AudioManagement.AudioMixer.AudioTrackLimit
+  fullName: AudioManagement.AudioMixer.AudioTrackLimit
   nameWithType: AudioMixer.AudioTrackLimit
-- uid: AudioManagementUtil.AudioMixer.Dispose
+- uid: AudioManagement.AudioMixer.Dispose
   name: Dispose()
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_Dispose
-  commentId: M:AudioManagementUtil.AudioMixer.Dispose
-  fullName: AudioManagementUtil.AudioMixer.Dispose()
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_Dispose
+  commentId: M:AudioManagement.AudioMixer.Dispose
+  fullName: AudioManagement.AudioMixer.Dispose()
   nameWithType: AudioMixer.Dispose()
-- uid: AudioManagementUtil.AudioMixer.Dispose*
+- uid: AudioManagement.AudioMixer.Dispose*
   name: Dispose
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_Dispose_
-  commentId: Overload:AudioManagementUtil.AudioMixer.Dispose
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_Dispose_
+  commentId: Overload:AudioManagement.AudioMixer.Dispose
   isSpec: "True"
-  fullName: AudioManagementUtil.AudioMixer.Dispose
+  fullName: AudioManagement.AudioMixer.Dispose
   nameWithType: AudioMixer.Dispose
-- uid: AudioManagementUtil.AudioMixer.FadeTo(SoundEffect,System.Single,System.Single,System.Single,System.Single,System.Boolean)
+- uid: AudioManagement.AudioMixer.FadeTo(SoundEffect,System.Single,System.Single,System.Single,System.Single,System.Boolean)
   name: FadeTo(SoundEffect, float, float, float, float, bool)
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_FadeTo_SoundEffect_System_Single_System_Single_System_Single_System_Single_System_Boolean_
-  commentId: M:AudioManagementUtil.AudioMixer.FadeTo(SoundEffect,System.Single,System.Single,System.Single,System.Single,System.Boolean)
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_FadeTo_SoundEffect_System_Single_System_Single_System_Single_System_Single_System_Boolean_
+  commentId: M:AudioManagement.AudioMixer.FadeTo(SoundEffect,System.Single,System.Single,System.Single,System.Single,System.Boolean)
   name.vb: FadeTo(SoundEffect, Single, Single, Single, Single, Boolean)
-  fullName: AudioManagementUtil.AudioMixer.FadeTo(SoundEffect, float, float, float, float, bool)
-  fullName.vb: AudioManagementUtil.AudioMixer.FadeTo(SoundEffect, Single, Single, Single, Single, Boolean)
+  fullName: AudioManagement.AudioMixer.FadeTo(SoundEffect, float, float, float, float, bool)
+  fullName.vb: AudioManagement.AudioMixer.FadeTo(SoundEffect, Single, Single, Single, Single, Boolean)
   nameWithType: AudioMixer.FadeTo(SoundEffect, float, float, float, float, bool)
   nameWithType.vb: AudioMixer.FadeTo(SoundEffect, Single, Single, Single, Single, Boolean)
-- uid: AudioManagementUtil.AudioMixer.FadeTo*
+- uid: AudioManagement.AudioMixer.FadeTo*
   name: FadeTo
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_FadeTo_
-  commentId: Overload:AudioManagementUtil.AudioMixer.FadeTo
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_FadeTo_
+  commentId: Overload:AudioManagement.AudioMixer.FadeTo
   isSpec: "True"
-  fullName: AudioManagementUtil.AudioMixer.FadeTo
+  fullName: AudioManagement.AudioMixer.FadeTo
   nameWithType: AudioMixer.FadeTo
-- uid: AudioManagementUtil.AudioMixer.Group
+- uid: AudioManagement.AudioMixer.Group
   name: Group
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_Group
-  commentId: F:AudioManagementUtil.AudioMixer.Group
-  fullName: AudioManagementUtil.AudioMixer.Group
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_Group
+  commentId: F:AudioManagement.AudioMixer.Group
+  fullName: AudioManagement.AudioMixer.Group
   nameWithType: AudioMixer.Group
-- uid: AudioManagementUtil.AudioMixer.MixerVolume
+- uid: AudioManagement.AudioMixer.MixerVolume
   name: MixerVolume
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_MixerVolume
-  commentId: F:AudioManagementUtil.AudioMixer.MixerVolume
-  fullName: AudioManagementUtil.AudioMixer.MixerVolume
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_MixerVolume
+  commentId: F:AudioManagement.AudioMixer.MixerVolume
+  fullName: AudioManagement.AudioMixer.MixerVolume
   nameWithType: AudioMixer.MixerVolume
-- uid: AudioManagementUtil.AudioMixer.Play(SoundEffect,System.Single,System.Single,System.Single,System.Boolean)
+- uid: AudioManagement.AudioMixer.Play(SoundEffect,System.Single,System.Single,System.Single,System.Boolean)
   name: Play(SoundEffect, float, float, float, bool)
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_Play_SoundEffect_System_Single_System_Single_System_Single_System_Boolean_
-  commentId: M:AudioManagementUtil.AudioMixer.Play(SoundEffect,System.Single,System.Single,System.Single,System.Boolean)
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_Play_SoundEffect_System_Single_System_Single_System_Single_System_Boolean_
+  commentId: M:AudioManagement.AudioMixer.Play(SoundEffect,System.Single,System.Single,System.Single,System.Boolean)
   name.vb: Play(SoundEffect, Single, Single, Single, Boolean)
-  fullName: AudioManagementUtil.AudioMixer.Play(SoundEffect, float, float, float, bool)
-  fullName.vb: AudioManagementUtil.AudioMixer.Play(SoundEffect, Single, Single, Single, Boolean)
+  fullName: AudioManagement.AudioMixer.Play(SoundEffect, float, float, float, bool)
+  fullName.vb: AudioManagement.AudioMixer.Play(SoundEffect, Single, Single, Single, Boolean)
   nameWithType: AudioMixer.Play(SoundEffect, float, float, float, bool)
   nameWithType.vb: AudioMixer.Play(SoundEffect, Single, Single, Single, Boolean)
-- uid: AudioManagementUtil.AudioMixer.Play*
+- uid: AudioManagement.AudioMixer.Play*
   name: Play
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_Play_
-  commentId: Overload:AudioManagementUtil.AudioMixer.Play
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_Play_
+  commentId: Overload:AudioManagement.AudioMixer.Play
   isSpec: "True"
-  fullName: AudioManagementUtil.AudioMixer.Play
+  fullName: AudioManagement.AudioMixer.Play
   nameWithType: AudioMixer.Play
-- uid: AudioManagementUtil.AudioMixer.Update(System.Single)
+- uid: AudioManagement.AudioMixer.Update(System.Single)
   name: Update(float)
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_Update_System_Single_
-  commentId: M:AudioManagementUtil.AudioMixer.Update(System.Single)
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_Update_System_Single_
+  commentId: M:AudioManagement.AudioMixer.Update(System.Single)
   name.vb: Update(Single)
-  fullName: AudioManagementUtil.AudioMixer.Update(float)
-  fullName.vb: AudioManagementUtil.AudioMixer.Update(Single)
+  fullName: AudioManagement.AudioMixer.Update(float)
+  fullName.vb: AudioManagement.AudioMixer.Update(Single)
   nameWithType: AudioMixer.Update(float)
   nameWithType.vb: AudioMixer.Update(Single)
-- uid: AudioManagementUtil.AudioMixer.Update*
+- uid: AudioManagement.AudioMixer.Update*
   name: Update
-  href: api/AudioManagementUtil.AudioMixer.html#AudioManagementUtil_AudioMixer_Update_
-  commentId: Overload:AudioManagementUtil.AudioMixer.Update
+  href: api/AudioManagement.AudioMixer.html#AudioManagement_AudioMixer_Update_
+  commentId: Overload:AudioManagement.AudioMixer.Update
   isSpec: "True"
-  fullName: AudioManagementUtil.AudioMixer.Update
+  fullName: AudioManagement.AudioMixer.Update
   nameWithType: AudioMixer.Update
-- uid: AudioManagementUtil.AudioMixerGroup
+- uid: AudioManagement.AudioMixerGroup
   name: AudioMixerGroup
-  href: api/AudioManagementUtil.AudioMixerGroup.html
-  commentId: T:AudioManagementUtil.AudioMixerGroup
-  fullName: AudioManagementUtil.AudioMixerGroup
+  href: api/AudioManagement.AudioMixerGroup.html
+  commentId: T:AudioManagement.AudioMixerGroup
+  fullName: AudioManagement.AudioMixerGroup
   nameWithType: AudioMixerGroup
-- uid: AudioManagementUtil.AudioMixerGroup.Ambient
+- uid: AudioManagement.AudioMixerGroup.Ambient
   name: Ambient
-  href: api/AudioManagementUtil.AudioMixerGroup.html#AudioManagementUtil_AudioMixerGroup_Ambient
-  commentId: F:AudioManagementUtil.AudioMixerGroup.Ambient
-  fullName: AudioManagementUtil.AudioMixerGroup.Ambient
+  href: api/AudioManagement.AudioMixerGroup.html#AudioManagement_AudioMixerGroup_Ambient
+  commentId: F:AudioManagement.AudioMixerGroup.Ambient
+  fullName: AudioManagement.AudioMixerGroup.Ambient
   nameWithType: AudioMixerGroup.Ambient
-- uid: AudioManagementUtil.AudioMixerGroup.Custom
+- uid: AudioManagement.AudioMixerGroup.Custom
   name: Custom
-  href: api/AudioManagementUtil.AudioMixerGroup.html#AudioManagementUtil_AudioMixerGroup_Custom
-  commentId: F:AudioManagementUtil.AudioMixerGroup.Custom
-  fullName: AudioManagementUtil.AudioMixerGroup.Custom
+  href: api/AudioManagement.AudioMixerGroup.html#AudioManagement_AudioMixerGroup_Custom
+  commentId: F:AudioManagement.AudioMixerGroup.Custom
+  fullName: AudioManagement.AudioMixerGroup.Custom
   nameWithType: AudioMixerGroup.Custom
-- uid: AudioManagementUtil.AudioMixerGroup.Music
+- uid: AudioManagement.AudioMixerGroup.Music
   name: Music
-  href: api/AudioManagementUtil.AudioMixerGroup.html#AudioManagementUtil_AudioMixerGroup_Music
-  commentId: F:AudioManagementUtil.AudioMixerGroup.Music
-  fullName: AudioManagementUtil.AudioMixerGroup.Music
+  href: api/AudioManagement.AudioMixerGroup.html#AudioManagement_AudioMixerGroup_Music
+  commentId: F:AudioManagement.AudioMixerGroup.Music
+  fullName: AudioManagement.AudioMixerGroup.Music
   nameWithType: AudioMixerGroup.Music
-- uid: AudioManagementUtil.AudioMixerGroup.SoundEffects
+- uid: AudioManagement.AudioMixerGroup.SoundEffects
   name: SoundEffects
-  href: api/AudioManagementUtil.AudioMixerGroup.html#AudioManagementUtil_AudioMixerGroup_SoundEffects
-  commentId: F:AudioManagementUtil.AudioMixerGroup.SoundEffects
-  fullName: AudioManagementUtil.AudioMixerGroup.SoundEffects
+  href: api/AudioManagement.AudioMixerGroup.html#AudioManagement_AudioMixerGroup_SoundEffects
+  commentId: F:AudioManagement.AudioMixerGroup.SoundEffects
+  fullName: AudioManagement.AudioMixerGroup.SoundEffects
   nameWithType: AudioMixerGroup.SoundEffects
-- uid: AudioManagementUtil.AudioMixers
+- uid: AudioManagement.AudioMixers
   name: AudioMixers
-  href: api/AudioManagementUtil.AudioMixers.html
-  commentId: T:AudioManagementUtil.AudioMixers
-  fullName: AudioManagementUtil.AudioMixers
+  href: api/AudioManagement.AudioMixers.html
+  commentId: T:AudioManagement.AudioMixers
+  fullName: AudioManagement.AudioMixers
   nameWithType: AudioMixers
-- uid: AudioManagementUtil.AudioMixers.ContainsKey(AudioManagementUtil.AudioMixerGroup)
-  name: ContainsKey(AudioMixerGroup)
-  href: api/AudioManagementUtil.AudioMixers.html#AudioManagementUtil_AudioMixers_ContainsKey_AudioManagementUtil_AudioMixerGroup_
-  commentId: M:AudioManagementUtil.AudioMixers.ContainsKey(AudioManagementUtil.AudioMixerGroup)
-  fullName: AudioManagementUtil.AudioMixers.ContainsKey(AudioManagementUtil.AudioMixerGroup)
-  nameWithType: AudioMixers.ContainsKey(AudioMixerGroup)
-- uid: AudioManagementUtil.AudioMixers.ContainsKey*
-  name: ContainsKey
-  href: api/AudioManagementUtil.AudioMixers.html#AudioManagementUtil_AudioMixers_ContainsKey_
-  commentId: Overload:AudioManagementUtil.AudioMixers.ContainsKey
-  isSpec: "True"
-  fullName: AudioManagementUtil.AudioMixers.ContainsKey
-  nameWithType: AudioMixers.ContainsKey
-- uid: AudioManagementUtil.AudioMixers.GetKeyForItem(AudioManagementUtil.AudioMixer)
+- uid: AudioManagement.AudioMixers.GetKeyForItem(AudioManagement.AudioMixer)
   name: GetKeyForItem(AudioMixer)
-  href: api/AudioManagementUtil.AudioMixers.html#AudioManagementUtil_AudioMixers_GetKeyForItem_AudioManagementUtil_AudioMixer_
-  commentId: M:AudioManagementUtil.AudioMixers.GetKeyForItem(AudioManagementUtil.AudioMixer)
-  fullName: AudioManagementUtil.AudioMixers.GetKeyForItem(AudioManagementUtil.AudioMixer)
+  href: api/AudioManagement.AudioMixers.html#AudioManagement_AudioMixers_GetKeyForItem_AudioManagement_AudioMixer_
+  commentId: M:AudioManagement.AudioMixers.GetKeyForItem(AudioManagement.AudioMixer)
+  fullName: AudioManagement.AudioMixers.GetKeyForItem(AudioManagement.AudioMixer)
   nameWithType: AudioMixers.GetKeyForItem(AudioMixer)
-- uid: AudioManagementUtil.AudioMixers.GetKeyForItem*
+- uid: AudioManagement.AudioMixers.GetKeyForItem*
   name: GetKeyForItem
-  href: api/AudioManagementUtil.AudioMixers.html#AudioManagementUtil_AudioMixers_GetKeyForItem_
-  commentId: Overload:AudioManagementUtil.AudioMixers.GetKeyForItem
+  href: api/AudioManagement.AudioMixers.html#AudioManagement_AudioMixers_GetKeyForItem_
+  commentId: Overload:AudioManagement.AudioMixers.GetKeyForItem
   isSpec: "True"
-  fullName: AudioManagementUtil.AudioMixers.GetKeyForItem
+  fullName: AudioManagement.AudioMixers.GetKeyForItem
   nameWithType: AudioMixers.GetKeyForItem
+- uid: CanvasManagement
+  name: CanvasManagement
+  href: api/CanvasManagement.html
+  commentId: N:CanvasManagement
+  fullName: CanvasManagement
+  nameWithType: CanvasManagement
+- uid: CanvasManagement.Canvas
+  name: Canvas
+  href: api/CanvasManagement.Canvas.html
+  commentId: T:CanvasManagement.Canvas
+  fullName: CanvasManagement.Canvas
+  nameWithType: Canvas
+- uid: CanvasManagement.Canvas.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,CanvasManagement.CanvasLayer,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name: Canvas(int, int, int, int, CanvasLayer, int?, int?)
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas__ctor_System_Int32_System_Int32_System_Int32_System_Int32_CanvasManagement_CanvasLayer_System_Nullable_System_Int32__System_Nullable_System_Int32__
+  commentId: M:CanvasManagement.Canvas.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,CanvasManagement.CanvasLayer,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name.vb: New(Integer, Integer, Integer, Integer, CanvasLayer, Integer?, Integer?)
+  fullName: CanvasManagement.Canvas.Canvas(int, int, int, int, CanvasManagement.CanvasLayer, int?, int?)
+  fullName.vb: CanvasManagement.Canvas.New(Integer, Integer, Integer, Integer, CanvasManagement.CanvasLayer, Integer?, Integer?)
+  nameWithType: Canvas.Canvas(int, int, int, int, CanvasLayer, int?, int?)
+  nameWithType.vb: Canvas.New(Integer, Integer, Integer, Integer, CanvasLayer, Integer?, Integer?)
+- uid: CanvasManagement.Canvas.#ctor*
+  name: Canvas
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas__ctor_
+  commentId: Overload:CanvasManagement.Canvas.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CanvasManagement.Canvas.Canvas
+  fullName.vb: CanvasManagement.Canvas.New
+  nameWithType: Canvas.Canvas
+  nameWithType.vb: Canvas.New
+- uid: CanvasManagement.Canvas.Draw
+  name: Draw()
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Draw
+  commentId: M:CanvasManagement.Canvas.Draw
+  fullName: CanvasManagement.Canvas.Draw()
+  nameWithType: Canvas.Draw()
+- uid: CanvasManagement.Canvas.Draw*
+  name: Draw
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Draw_
+  commentId: Overload:CanvasManagement.Canvas.Draw
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Draw
+  nameWithType: Canvas.Draw
+- uid: CanvasManagement.Canvas.DrawRenderTarget
+  name: DrawRenderTarget
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_DrawRenderTarget
+  commentId: P:CanvasManagement.Canvas.DrawRenderTarget
+  fullName: CanvasManagement.Canvas.DrawRenderTarget
+  nameWithType: Canvas.DrawRenderTarget
+- uid: CanvasManagement.Canvas.DrawRenderTarget*
+  name: DrawRenderTarget
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_DrawRenderTarget_
+  commentId: Overload:CanvasManagement.Canvas.DrawRenderTarget
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.DrawRenderTarget
+  nameWithType: Canvas.DrawRenderTarget
+- uid: CanvasManagement.Canvas.DrawRenderTexture
+  name: DrawRenderTexture()
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_DrawRenderTexture
+  commentId: M:CanvasManagement.Canvas.DrawRenderTexture
+  fullName: CanvasManagement.Canvas.DrawRenderTexture()
+  nameWithType: Canvas.DrawRenderTexture()
+- uid: CanvasManagement.Canvas.DrawRenderTexture*
+  name: DrawRenderTexture
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_DrawRenderTexture_
+  commentId: Overload:CanvasManagement.Canvas.DrawRenderTexture
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.DrawRenderTexture
+  nameWithType: Canvas.DrawRenderTexture
+- uid: CanvasManagement.Canvas.Height
+  name: Height
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Height
+  commentId: P:CanvasManagement.Canvas.Height
+  fullName: CanvasManagement.Canvas.Height
+  nameWithType: Canvas.Height
+- uid: CanvasManagement.Canvas.Height*
+  name: Height
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Height_
+  commentId: Overload:CanvasManagement.Canvas.Height
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Height
+  nameWithType: Canvas.Height
+- uid: CanvasManagement.Canvas.Layer
+  name: Layer
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Layer
+  commentId: P:CanvasManagement.Canvas.Layer
+  fullName: CanvasManagement.Canvas.Layer
+  nameWithType: Canvas.Layer
+- uid: CanvasManagement.Canvas.Layer*
+  name: Layer
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Layer_
+  commentId: Overload:CanvasManagement.Canvas.Layer
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Layer
+  nameWithType: Canvas.Layer
+- uid: CanvasManagement.Canvas.Location
+  name: Location
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Location
+  commentId: P:CanvasManagement.Canvas.Location
+  fullName: CanvasManagement.Canvas.Location
+  nameWithType: Canvas.Location
+- uid: CanvasManagement.Canvas.Location*
+  name: Location
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Location_
+  commentId: Overload:CanvasManagement.Canvas.Location
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Location
+  nameWithType: Canvas.Location
+- uid: CanvasManagement.Canvas.MouseNormalizedPosition
+  name: MouseNormalizedPosition
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_MouseNormalizedPosition
+  commentId: P:CanvasManagement.Canvas.MouseNormalizedPosition
+  fullName: CanvasManagement.Canvas.MouseNormalizedPosition
+  nameWithType: Canvas.MouseNormalizedPosition
+- uid: CanvasManagement.Canvas.MouseNormalizedPosition*
+  name: MouseNormalizedPosition
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_MouseNormalizedPosition_
+  commentId: Overload:CanvasManagement.Canvas.MouseNormalizedPosition
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.MouseNormalizedPosition
+  nameWithType: Canvas.MouseNormalizedPosition
+- uid: CanvasManagement.Canvas.MousePosition
+  name: MousePosition
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_MousePosition
+  commentId: P:CanvasManagement.Canvas.MousePosition
+  fullName: CanvasManagement.Canvas.MousePosition
+  nameWithType: Canvas.MousePosition
+- uid: CanvasManagement.Canvas.MousePosition*
+  name: MousePosition
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_MousePosition_
+  commentId: Overload:CanvasManagement.Canvas.MousePosition
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.MousePosition
+  nameWithType: Canvas.MousePosition
+- uid: CanvasManagement.Canvas.OnDraw
+  name: OnDraw
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_OnDraw
+  commentId: E:CanvasManagement.Canvas.OnDraw
+  fullName: CanvasManagement.Canvas.OnDraw
+  nameWithType: Canvas.OnDraw
+- uid: CanvasManagement.Canvas.Rect
+  name: Rect
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Rect
+  commentId: P:CanvasManagement.Canvas.Rect
+  fullName: CanvasManagement.Canvas.Rect
+  nameWithType: Canvas.Rect
+- uid: CanvasManagement.Canvas.Rect*
+  name: Rect
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Rect_
+  commentId: Overload:CanvasManagement.Canvas.Rect
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Rect
+  nameWithType: Canvas.Rect
+- uid: CanvasManagement.Canvas.RenderHeight
+  name: RenderHeight
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_RenderHeight
+  commentId: P:CanvasManagement.Canvas.RenderHeight
+  fullName: CanvasManagement.Canvas.RenderHeight
+  nameWithType: Canvas.RenderHeight
+- uid: CanvasManagement.Canvas.RenderHeight*
+  name: RenderHeight
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_RenderHeight_
+  commentId: Overload:CanvasManagement.Canvas.RenderHeight
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.RenderHeight
+  nameWithType: Canvas.RenderHeight
+- uid: CanvasManagement.Canvas.RenderTarget
+  name: RenderTarget
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_RenderTarget
+  commentId: F:CanvasManagement.Canvas.RenderTarget
+  fullName: CanvasManagement.Canvas.RenderTarget
+  nameWithType: Canvas.RenderTarget
+- uid: CanvasManagement.Canvas.RenderTargetSize
+  name: RenderTargetSize
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_RenderTargetSize
+  commentId: P:CanvasManagement.Canvas.RenderTargetSize
+  fullName: CanvasManagement.Canvas.RenderTargetSize
+  nameWithType: Canvas.RenderTargetSize
+- uid: CanvasManagement.Canvas.RenderTargetSize*
+  name: RenderTargetSize
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_RenderTargetSize_
+  commentId: Overload:CanvasManagement.Canvas.RenderTargetSize
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.RenderTargetSize
+  nameWithType: Canvas.RenderTargetSize
+- uid: CanvasManagement.Canvas.RenderWidth
+  name: RenderWidth
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_RenderWidth
+  commentId: P:CanvasManagement.Canvas.RenderWidth
+  fullName: CanvasManagement.Canvas.RenderWidth
+  nameWithType: Canvas.RenderWidth
+- uid: CanvasManagement.Canvas.RenderWidth*
+  name: RenderWidth
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_RenderWidth_
+  commentId: Overload:CanvasManagement.Canvas.RenderWidth
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.RenderWidth
+  nameWithType: Canvas.RenderWidth
+- uid: CanvasManagement.Canvas.Size
+  name: Size
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Size
+  commentId: P:CanvasManagement.Canvas.Size
+  fullName: CanvasManagement.Canvas.Size
+  nameWithType: Canvas.Size
+- uid: CanvasManagement.Canvas.Size*
+  name: Size
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Size_
+  commentId: Overload:CanvasManagement.Canvas.Size
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Size
+  nameWithType: Canvas.Size
+- uid: CanvasManagement.Canvas.Width
+  name: Width
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Width
+  commentId: P:CanvasManagement.Canvas.Width
+  fullName: CanvasManagement.Canvas.Width
+  nameWithType: Canvas.Width
+- uid: CanvasManagement.Canvas.Width*
+  name: Width
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Width_
+  commentId: Overload:CanvasManagement.Canvas.Width
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Width
+  nameWithType: Canvas.Width
+- uid: CanvasManagement.Canvas.X
+  name: X
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_X
+  commentId: P:CanvasManagement.Canvas.X
+  fullName: CanvasManagement.Canvas.X
+  nameWithType: Canvas.X
+- uid: CanvasManagement.Canvas.X*
+  name: X
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_X_
+  commentId: Overload:CanvasManagement.Canvas.X
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.X
+  nameWithType: Canvas.X
+- uid: CanvasManagement.Canvas.Y
+  name: Y
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Y
+  commentId: P:CanvasManagement.Canvas.Y
+  fullName: CanvasManagement.Canvas.Y
+  nameWithType: Canvas.Y
+- uid: CanvasManagement.Canvas.Y*
+  name: Y
+  href: api/CanvasManagement.Canvas.html#CanvasManagement_Canvas_Y_
+  commentId: Overload:CanvasManagement.Canvas.Y
+  isSpec: "True"
+  fullName: CanvasManagement.Canvas.Y
+  nameWithType: Canvas.Y
+- uid: CanvasManagement.Canvases
+  name: Canvases
+  href: api/CanvasManagement.Canvases.html
+  commentId: T:CanvasManagement.Canvases
+  fullName: CanvasManagement.Canvases
+  nameWithType: Canvases
+- uid: CanvasManagement.Canvases.GetKeyForItem(CanvasManagement.Canvas)
+  name: GetKeyForItem(Canvas)
+  href: api/CanvasManagement.Canvases.html#CanvasManagement_Canvases_GetKeyForItem_CanvasManagement_Canvas_
+  commentId: M:CanvasManagement.Canvases.GetKeyForItem(CanvasManagement.Canvas)
+  fullName: CanvasManagement.Canvases.GetKeyForItem(CanvasManagement.Canvas)
+  nameWithType: Canvases.GetKeyForItem(Canvas)
+- uid: CanvasManagement.Canvases.GetKeyForItem*
+  name: GetKeyForItem
+  href: api/CanvasManagement.Canvases.html#CanvasManagement_Canvases_GetKeyForItem_
+  commentId: Overload:CanvasManagement.Canvases.GetKeyForItem
+  isSpec: "True"
+  fullName: CanvasManagement.Canvases.GetKeyForItem
+  nameWithType: Canvases.GetKeyForItem
+- uid: CanvasManagement.CanvasLayer
+  name: CanvasLayer
+  href: api/CanvasManagement.CanvasLayer.html
+  commentId: T:CanvasManagement.CanvasLayer
+  fullName: CanvasManagement.CanvasLayer
+  nameWithType: CanvasLayer
+- uid: CanvasManagement.CanvasLayer.Base
+  name: Base
+  href: api/CanvasManagement.CanvasLayer.html#CanvasManagement_CanvasLayer_Base
+  commentId: F:CanvasManagement.CanvasLayer.Base
+  fullName: CanvasManagement.CanvasLayer.Base
+  nameWithType: CanvasLayer.Base
+- uid: CanvasManagement.CanvasLayer.UI
+  name: UI
+  href: api/CanvasManagement.CanvasLayer.html#CanvasManagement_CanvasLayer_UI
+  commentId: F:CanvasManagement.CanvasLayer.UI
+  fullName: CanvasManagement.CanvasLayer.UI
+  nameWithType: CanvasLayer.UI
+- uid: CanvasManagement.CanvasLayerExtensions
+  name: CanvasLayerExtensions
+  href: api/CanvasManagement.CanvasLayerExtensions.html
+  commentId: T:CanvasManagement.CanvasLayerExtensions
+  fullName: CanvasManagement.CanvasLayerExtensions
+  nameWithType: CanvasLayerExtensions
+- uid: CanvasManagement.CanvasLayerExtensions.GetCanvas(CanvasManagement.CanvasLayer)
+  name: GetCanvas(CanvasLayer)
+  href: api/CanvasManagement.CanvasLayerExtensions.html#CanvasManagement_CanvasLayerExtensions_GetCanvas_CanvasManagement_CanvasLayer_
+  commentId: M:CanvasManagement.CanvasLayerExtensions.GetCanvas(CanvasManagement.CanvasLayer)
+  fullName: CanvasManagement.CanvasLayerExtensions.GetCanvas(CanvasManagement.CanvasLayer)
+  nameWithType: CanvasLayerExtensions.GetCanvas(CanvasLayer)
+- uid: CanvasManagement.CanvasLayerExtensions.GetCanvas*
+  name: GetCanvas
+  href: api/CanvasManagement.CanvasLayerExtensions.html#CanvasManagement_CanvasLayerExtensions_GetCanvas_
+  commentId: Overload:CanvasManagement.CanvasLayerExtensions.GetCanvas
+  isSpec: "True"
+  fullName: CanvasManagement.CanvasLayerExtensions.GetCanvas
+  nameWithType: CanvasLayerExtensions.GetCanvas
+- uid: CanvasManagement.CanvasManager
+  name: CanvasManager
+  href: api/CanvasManagement.CanvasManager.html
+  commentId: T:CanvasManagement.CanvasManager
+  fullName: CanvasManagement.CanvasManager
+  nameWithType: CanvasManager
+- uid: CanvasManagement.CanvasManager.Canvases
+  name: Canvases
+  href: api/CanvasManagement.CanvasManager.html#CanvasManagement_CanvasManager_Canvases
+  commentId: F:CanvasManagement.CanvasManager.Canvases
+  fullName: CanvasManagement.CanvasManager.Canvases
+  nameWithType: CanvasManager.Canvases
+- uid: CanvasManagement.DynamicCanvas
+  name: DynamicCanvas
+  href: api/CanvasManagement.DynamicCanvas.html
+  commentId: T:CanvasManagement.DynamicCanvas
+  fullName: CanvasManagement.DynamicCanvas
+  nameWithType: DynamicCanvas
+- uid: CanvasManagement.DynamicCanvas.#ctor(System.Int32,System.Int32,CanvasManagement.CanvasLayer,System.Single)
+  name: DynamicCanvas(int, int, CanvasLayer, float)
+  href: api/CanvasManagement.DynamicCanvas.html#CanvasManagement_DynamicCanvas__ctor_System_Int32_System_Int32_CanvasManagement_CanvasLayer_System_Single_
+  commentId: M:CanvasManagement.DynamicCanvas.#ctor(System.Int32,System.Int32,CanvasManagement.CanvasLayer,System.Single)
+  name.vb: New(Integer, Integer, CanvasLayer, Single)
+  fullName: CanvasManagement.DynamicCanvas.DynamicCanvas(int, int, CanvasManagement.CanvasLayer, float)
+  fullName.vb: CanvasManagement.DynamicCanvas.New(Integer, Integer, CanvasManagement.CanvasLayer, Single)
+  nameWithType: DynamicCanvas.DynamicCanvas(int, int, CanvasLayer, float)
+  nameWithType.vb: DynamicCanvas.New(Integer, Integer, CanvasLayer, Single)
+- uid: CanvasManagement.DynamicCanvas.#ctor*
+  name: DynamicCanvas
+  href: api/CanvasManagement.DynamicCanvas.html#CanvasManagement_DynamicCanvas__ctor_
+  commentId: Overload:CanvasManagement.DynamicCanvas.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CanvasManagement.DynamicCanvas.DynamicCanvas
+  fullName.vb: CanvasManagement.DynamicCanvas.New
+  nameWithType: DynamicCanvas.DynamicCanvas
+  nameWithType.vb: DynamicCanvas.New
+- uid: CanvasManagement.DynamicCanvas.AspectRatio
+  name: AspectRatio
+  href: api/CanvasManagement.DynamicCanvas.html#CanvasManagement_DynamicCanvas_AspectRatio
+  commentId: P:CanvasManagement.DynamicCanvas.AspectRatio
+  fullName: CanvasManagement.DynamicCanvas.AspectRatio
+  nameWithType: DynamicCanvas.AspectRatio
+- uid: CanvasManagement.DynamicCanvas.AspectRatio*
+  name: AspectRatio
+  href: api/CanvasManagement.DynamicCanvas.html#CanvasManagement_DynamicCanvas_AspectRatio_
+  commentId: Overload:CanvasManagement.DynamicCanvas.AspectRatio
+  isSpec: "True"
+  fullName: CanvasManagement.DynamicCanvas.AspectRatio
+  nameWithType: DynamicCanvas.AspectRatio
+- uid: CanvasManagement.DynamicCanvas.useFullSize
+  name: useFullSize
+  href: api/CanvasManagement.DynamicCanvas.html#CanvasManagement_DynamicCanvas_useFullSize
+  commentId: F:CanvasManagement.DynamicCanvas.useFullSize
+  fullName: CanvasManagement.DynamicCanvas.useFullSize
+  nameWithType: DynamicCanvas.useFullSize
 - uid: ConveyorDirection
   name: ConveyorDirection
   href: api/ConveyorDirection.html
@@ -368,24 +718,6 @@ references:
   isSpec: "True"
   fullName: MainGameFramework.MainGame.LoadContent
   nameWithType: MainGame.LoadContent
-- uid: MainGameFramework.MainGame.OnDraw
-  name: OnDraw
-  href: api/MainGameFramework.MainGame.html#MainGameFramework_MainGame_OnDraw
-  commentId: E:MainGameFramework.MainGame.OnDraw
-  fullName: MainGameFramework.MainGame.OnDraw
-  nameWithType: MainGame.OnDraw
-- uid: MainGameFramework.MainGame.OnDrawSprites
-  name: OnDrawSprites
-  href: api/MainGameFramework.MainGame.html#MainGameFramework_MainGame_OnDrawSprites
-  commentId: E:MainGameFramework.MainGame.OnDrawSprites
-  fullName: MainGameFramework.MainGame.OnDrawSprites
-  nameWithType: MainGame.OnDrawSprites
-- uid: MainGameFramework.MainGame.OnDrawUI
-  name: OnDrawUI
-  href: api/MainGameFramework.MainGame.html#MainGameFramework_MainGame_OnDrawUI
-  commentId: E:MainGameFramework.MainGame.OnDrawUI
-  fullName: MainGameFramework.MainGame.OnDrawUI
-  nameWithType: MainGame.OnDrawUI
 - uid: MainGameFramework.MainGame.OnUpdate
   name: OnUpdate
   href: api/MainGameFramework.MainGame.html#MainGameFramework_MainGame_OnUpdate
@@ -405,19 +737,6 @@ references:
   isSpec: "True"
   fullName: MainGameFramework.MainGame.Update
   nameWithType: MainGame.Update
-- uid: MainGameFramework.MainGame.WindowSize
-  name: WindowSize
-  href: api/MainGameFramework.MainGame.html#MainGameFramework_MainGame_WindowSize
-  commentId: P:MainGameFramework.MainGame.WindowSize
-  fullName: MainGameFramework.MainGame.WindowSize
-  nameWithType: MainGame.WindowSize
-- uid: MainGameFramework.MainGame.WindowSize*
-  name: WindowSize
-  href: api/MainGameFramework.MainGame.html#MainGameFramework_MainGame_WindowSize_
-  commentId: Overload:MainGameFramework.MainGame.WindowSize
-  isSpec: "True"
-  fullName: MainGameFramework.MainGame.WindowSize
-  nameWithType: MainGame.WindowSize
 - uid: MainGameFramework.MainGame.World
   name: World
   href: api/MainGameFramework.MainGame.html#MainGameFramework_MainGame_World
@@ -1038,15 +1357,12 @@ references:
   isSpec: "True"
   fullName: ReFactory.GameScripts.Entity.Dispose
   nameWithType: Entity.Dispose
-- uid: ReFactory.GameScripts.Entity.DrawSprite(System.Single,SpriteBatch)
-  name: DrawSprite(float, SpriteBatch)
-  href: api/ReFactory.GameScripts.Entity.html#ReFactory_GameScripts_Entity_DrawSprite_System_Single_SpriteBatch_
-  commentId: M:ReFactory.GameScripts.Entity.DrawSprite(System.Single,SpriteBatch)
-  name.vb: DrawSprite(Single, SpriteBatch)
-  fullName: ReFactory.GameScripts.Entity.DrawSprite(float, SpriteBatch)
-  fullName.vb: ReFactory.GameScripts.Entity.DrawSprite(Single, SpriteBatch)
-  nameWithType: Entity.DrawSprite(float, SpriteBatch)
-  nameWithType.vb: Entity.DrawSprite(Single, SpriteBatch)
+- uid: ReFactory.GameScripts.Entity.DrawSprite(SpriteBatch,CanvasManagement.Canvas)
+  name: DrawSprite(SpriteBatch, Canvas)
+  href: api/ReFactory.GameScripts.Entity.html#ReFactory_GameScripts_Entity_DrawSprite_SpriteBatch_CanvasManagement_Canvas_
+  commentId: M:ReFactory.GameScripts.Entity.DrawSprite(SpriteBatch,CanvasManagement.Canvas)
+  fullName: ReFactory.GameScripts.Entity.DrawSprite(SpriteBatch, CanvasManagement.Canvas)
+  nameWithType: Entity.DrawSprite(SpriteBatch, Canvas)
 - uid: ReFactory.GameScripts.Entity.DrawSprite*
   name: DrawSprite
   href: api/ReFactory.GameScripts.Entity.html#ReFactory_GameScripts_Entity_DrawSprite_
@@ -1130,15 +1446,12 @@ references:
   isSpec: "True"
   fullName: ReFactory.GameScripts.GridEntity.DestroyTime
   nameWithType: GridEntity.DestroyTime
-- uid: ReFactory.GameScripts.GridEntity.DrawSprite(System.Single,SpriteBatch)
-  name: DrawSprite(float, SpriteBatch)
-  href: api/ReFactory.GameScripts.GridEntity.html#ReFactory_GameScripts_GridEntity_DrawSprite_System_Single_SpriteBatch_
-  commentId: M:ReFactory.GameScripts.GridEntity.DrawSprite(System.Single,SpriteBatch)
-  name.vb: DrawSprite(Single, SpriteBatch)
-  fullName: ReFactory.GameScripts.GridEntity.DrawSprite(float, SpriteBatch)
-  fullName.vb: ReFactory.GameScripts.GridEntity.DrawSprite(Single, SpriteBatch)
-  nameWithType: GridEntity.DrawSprite(float, SpriteBatch)
-  nameWithType.vb: GridEntity.DrawSprite(Single, SpriteBatch)
+- uid: ReFactory.GameScripts.GridEntity.DrawSprite(SpriteBatch,CanvasManagement.Canvas)
+  name: DrawSprite(SpriteBatch, Canvas)
+  href: api/ReFactory.GameScripts.GridEntity.html#ReFactory_GameScripts_GridEntity_DrawSprite_SpriteBatch_CanvasManagement_Canvas_
+  commentId: M:ReFactory.GameScripts.GridEntity.DrawSprite(SpriteBatch,CanvasManagement.Canvas)
+  fullName: ReFactory.GameScripts.GridEntity.DrawSprite(SpriteBatch, CanvasManagement.Canvas)
+  nameWithType: GridEntity.DrawSprite(SpriteBatch, Canvas)
 - uid: ReFactory.GameScripts.GridEntity.DrawSprite*
   name: DrawSprite
   href: api/ReFactory.GameScripts.GridEntity.html#ReFactory_GameScripts_GridEntity_DrawSprite_
@@ -2528,38 +2841,12 @@ references:
   isSpec: "True"
   fullName: ReFactory.Input.MousePosition
   nameWithType: Input.MousePosition
-- uid: ReFactory.Input.MousePositionWithinViewport
-  name: MousePositionWithinViewport
-  href: api/ReFactory.Input.html#ReFactory_Input_MousePositionWithinViewport
-  commentId: P:ReFactory.Input.MousePositionWithinViewport
-  fullName: ReFactory.Input.MousePositionWithinViewport
-  nameWithType: Input.MousePositionWithinViewport
-- uid: ReFactory.Input.MousePositionWithinViewport*
-  name: MousePositionWithinViewport
-  href: api/ReFactory.Input.html#ReFactory_Input_MousePositionWithinViewport_
-  commentId: Overload:ReFactory.Input.MousePositionWithinViewport
-  isSpec: "True"
-  fullName: ReFactory.Input.MousePositionWithinViewport
-  nameWithType: Input.MousePositionWithinViewport
 - uid: ReFactory.Input.MouseState
   name: MouseState
   href: api/ReFactory.Input.html#ReFactory_Input_MouseState
   commentId: F:ReFactory.Input.MouseState
   fullName: ReFactory.Input.MouseState
   nameWithType: Input.MouseState
-- uid: ReFactory.Input.NormalizedMousePosition
-  name: NormalizedMousePosition
-  href: api/ReFactory.Input.html#ReFactory_Input_NormalizedMousePosition
-  commentId: P:ReFactory.Input.NormalizedMousePosition
-  fullName: ReFactory.Input.NormalizedMousePosition
-  nameWithType: Input.NormalizedMousePosition
-- uid: ReFactory.Input.NormalizedMousePosition*
-  name: NormalizedMousePosition
-  href: api/ReFactory.Input.html#ReFactory_Input_NormalizedMousePosition_
-  commentId: Overload:ReFactory.Input.NormalizedMousePosition
-  isSpec: "True"
-  fullName: ReFactory.Input.NormalizedMousePosition
-  nameWithType: Input.NormalizedMousePosition
 - uid: ReFactory.Input.PreviousGamepadState
   name: PreviousGamepadState
   href: api/ReFactory.Input.html#ReFactory_Input_PreviousGamepadState
@@ -2850,18 +3137,51 @@ references:
   commentId: F:ReFactory.Resolution.fullscreen
   fullName: ReFactory.Resolution.fullscreen
   nameWithType: Resolution.fullscreen
-- uid: ReFactory.Resolution.gameSize
-  name: gameSize
-  href: api/ReFactory.Resolution.html#ReFactory_Resolution_gameSize
-  commentId: F:ReFactory.Resolution.gameSize
-  fullName: ReFactory.Resolution.gameSize
-  nameWithType: Resolution.gameSize
-- uid: ReFactory.Resolution.TrimmedScreen
-  name: TrimmedScreen
-  href: api/ReFactory.Resolution.html#ReFactory_Resolution_TrimmedScreen
-  commentId: F:ReFactory.Resolution.TrimmedScreen
-  fullName: ReFactory.Resolution.TrimmedScreen
-  nameWithType: Resolution.TrimmedScreen
+- uid: ReFactory.Resolution.OnResolutionChange
+  name: OnResolutionChange
+  href: api/ReFactory.Resolution.html#ReFactory_Resolution_OnResolutionChange
+  commentId: E:ReFactory.Resolution.OnResolutionChange
+  fullName: ReFactory.Resolution.OnResolutionChange
+  nameWithType: Resolution.OnResolutionChange
+- uid: ReFactory.Resolution.WindowHeight
+  name: WindowHeight
+  href: api/ReFactory.Resolution.html#ReFactory_Resolution_WindowHeight
+  commentId: P:ReFactory.Resolution.WindowHeight
+  fullName: ReFactory.Resolution.WindowHeight
+  nameWithType: Resolution.WindowHeight
+- uid: ReFactory.Resolution.WindowHeight*
+  name: WindowHeight
+  href: api/ReFactory.Resolution.html#ReFactory_Resolution_WindowHeight_
+  commentId: Overload:ReFactory.Resolution.WindowHeight
+  isSpec: "True"
+  fullName: ReFactory.Resolution.WindowHeight
+  nameWithType: Resolution.WindowHeight
+- uid: ReFactory.Resolution.WindowSize
+  name: WindowSize
+  href: api/ReFactory.Resolution.html#ReFactory_Resolution_WindowSize
+  commentId: P:ReFactory.Resolution.WindowSize
+  fullName: ReFactory.Resolution.WindowSize
+  nameWithType: Resolution.WindowSize
+- uid: ReFactory.Resolution.WindowSize*
+  name: WindowSize
+  href: api/ReFactory.Resolution.html#ReFactory_Resolution_WindowSize_
+  commentId: Overload:ReFactory.Resolution.WindowSize
+  isSpec: "True"
+  fullName: ReFactory.Resolution.WindowSize
+  nameWithType: Resolution.WindowSize
+- uid: ReFactory.Resolution.WindowWidth
+  name: WindowWidth
+  href: api/ReFactory.Resolution.html#ReFactory_Resolution_WindowWidth
+  commentId: P:ReFactory.Resolution.WindowWidth
+  fullName: ReFactory.Resolution.WindowWidth
+  nameWithType: Resolution.WindowWidth
+- uid: ReFactory.Resolution.WindowWidth*
+  name: WindowWidth
+  href: api/ReFactory.Resolution.html#ReFactory_Resolution_WindowWidth_
+  commentId: Overload:ReFactory.Resolution.WindowWidth
+  isSpec: "True"
+  fullName: ReFactory.Resolution.WindowWidth
+  nameWithType: Resolution.WindowWidth
 - uid: ReFactory.Time
   name: Time
   href: api/ReFactory.Time.html
@@ -2910,15 +3230,6 @@ references:
   commentId: T:ReFactory.UISystem.Button
   fullName: ReFactory.UISystem.Button
   nameWithType: Button
-- uid: ReFactory.UISystem.Button.#ctor(ReFactory.UISystem.UI.Margin,Texture2D,System.Nullable{Color},System.Collections.Generic.List{ReFactory.UISystem.UIElement},System.Int32,System.Single)
-  name: Button(Margin, Texture2D, Color?, List<UIElement>, int, float)
-  href: api/ReFactory.UISystem.Button.html#ReFactory_UISystem_Button__ctor_ReFactory_UISystem_UI_Margin_Texture2D_System_Nullable_Color__System_Collections_Generic_List_ReFactory_UISystem_UIElement__System_Int32_System_Single_
-  commentId: M:ReFactory.UISystem.Button.#ctor(ReFactory.UISystem.UI.Margin,Texture2D,System.Nullable{Color},System.Collections.Generic.List{ReFactory.UISystem.UIElement},System.Int32,System.Single)
-  name.vb: New(Margin, Texture2D, Color?, List(Of UIElement), Integer, Single)
-  fullName: ReFactory.UISystem.Button.Button(ReFactory.UISystem.UI.Margin, Texture2D, Color?, System.Collections.Generic.List<ReFactory.UISystem.UIElement>, int, float)
-  fullName.vb: ReFactory.UISystem.Button.New(ReFactory.UISystem.UI.Margin, Texture2D, Color?, System.Collections.Generic.List(Of ReFactory.UISystem.UIElement), Integer, Single)
-  nameWithType: Button.Button(UI.Margin, Texture2D, Color?, List<UIElement>, int, float)
-  nameWithType.vb: Button.New(UI.Margin, Texture2D, Color?, List(Of UIElement), Integer, Single)
 - uid: ReFactory.UISystem.Button.#ctor(System.Nullable{Rectangle},Texture2D,System.Nullable{Color},System.Collections.Generic.List{ReFactory.UISystem.UIElement},System.Int32,System.Single)
   name: Button(Rectangle?, Texture2D, Color?, List<UIElement>, int, float)
   href: api/ReFactory.UISystem.Button.html#ReFactory_UISystem_Button__ctor_System_Nullable_Rectangle__Texture2D_System_Nullable_Color__System_Collections_Generic_List_ReFactory_UISystem_UIElement__System_Int32_System_Single_
@@ -3215,15 +3526,12 @@ references:
   fullName.vb: ReFactory.UISystem.ItemSlot.New
   nameWithType: ItemSlot.ItemSlot
   nameWithType.vb: ItemSlot.New
-- uid: ReFactory.UISystem.ItemSlot.AfterDraw(System.Single,SpriteBatch)
-  name: AfterDraw(float, SpriteBatch)
-  href: api/ReFactory.UISystem.ItemSlot.html#ReFactory_UISystem_ItemSlot_AfterDraw_System_Single_SpriteBatch_
-  commentId: M:ReFactory.UISystem.ItemSlot.AfterDraw(System.Single,SpriteBatch)
-  name.vb: AfterDraw(Single, SpriteBatch)
-  fullName: ReFactory.UISystem.ItemSlot.AfterDraw(float, SpriteBatch)
-  fullName.vb: ReFactory.UISystem.ItemSlot.AfterDraw(Single, SpriteBatch)
-  nameWithType: ItemSlot.AfterDraw(float, SpriteBatch)
-  nameWithType.vb: ItemSlot.AfterDraw(Single, SpriteBatch)
+- uid: ReFactory.UISystem.ItemSlot.AfterDraw(SpriteBatch)
+  name: AfterDraw(SpriteBatch)
+  href: api/ReFactory.UISystem.ItemSlot.html#ReFactory_UISystem_ItemSlot_AfterDraw_SpriteBatch_
+  commentId: M:ReFactory.UISystem.ItemSlot.AfterDraw(SpriteBatch)
+  fullName: ReFactory.UISystem.ItemSlot.AfterDraw(SpriteBatch)
+  nameWithType: ItemSlot.AfterDraw(SpriteBatch)
 - uid: ReFactory.UISystem.ItemSlot.AfterDraw*
   name: AfterDraw
   href: api/ReFactory.UISystem.ItemSlot.html#ReFactory_UISystem_ItemSlot_AfterDraw_
@@ -3367,15 +3675,15 @@ references:
   commentId: T:ReFactory.UISystem.LayoutControllers.HorizontalGrid
   fullName: ReFactory.UISystem.LayoutControllers.HorizontalGrid
   nameWithType: HorizontalGrid
-- uid: ReFactory.UISystem.LayoutControllers.HorizontalGrid.#ctor(ReFactory.UISystem.UIElement,ReFactory.UISystem.UI.Margin)
-  name: HorizontalGrid(UIElement, Margin)
-  href: api/ReFactory.UISystem.LayoutControllers.HorizontalGrid.html#ReFactory_UISystem_LayoutControllers_HorizontalGrid__ctor_ReFactory_UISystem_UIElement_ReFactory_UISystem_UI_Margin_
-  commentId: M:ReFactory.UISystem.LayoutControllers.HorizontalGrid.#ctor(ReFactory.UISystem.UIElement,ReFactory.UISystem.UI.Margin)
-  name.vb: New(UIElement, Margin)
-  fullName: ReFactory.UISystem.LayoutControllers.HorizontalGrid.HorizontalGrid(ReFactory.UISystem.UIElement, ReFactory.UISystem.UI.Margin)
-  fullName.vb: ReFactory.UISystem.LayoutControllers.HorizontalGrid.New(ReFactory.UISystem.UIElement, ReFactory.UISystem.UI.Margin)
-  nameWithType: HorizontalGrid.HorizontalGrid(UIElement, UI.Margin)
-  nameWithType.vb: HorizontalGrid.New(UIElement, UI.Margin)
+- uid: ReFactory.UISystem.LayoutControllers.HorizontalGrid.#ctor(ReFactory.UISystem.UIElement)
+  name: HorizontalGrid(UIElement)
+  href: api/ReFactory.UISystem.LayoutControllers.HorizontalGrid.html#ReFactory_UISystem_LayoutControllers_HorizontalGrid__ctor_ReFactory_UISystem_UIElement_
+  commentId: M:ReFactory.UISystem.LayoutControllers.HorizontalGrid.#ctor(ReFactory.UISystem.UIElement)
+  name.vb: New(UIElement)
+  fullName: ReFactory.UISystem.LayoutControllers.HorizontalGrid.HorizontalGrid(ReFactory.UISystem.UIElement)
+  fullName.vb: ReFactory.UISystem.LayoutControllers.HorizontalGrid.New(ReFactory.UISystem.UIElement)
+  nameWithType: HorizontalGrid.HorizontalGrid(UIElement)
+  nameWithType.vb: HorizontalGrid.New(UIElement)
 - uid: ReFactory.UISystem.LayoutControllers.HorizontalGrid.#ctor*
   name: HorizontalGrid
   href: api/ReFactory.UISystem.LayoutControllers.HorizontalGrid.html#ReFactory_UISystem_LayoutControllers_HorizontalGrid__ctor_
@@ -3486,15 +3794,12 @@ references:
   fullName.vb: ReFactory.UISystem.ProgressBar.New
   nameWithType: ProgressBar.ProgressBar
   nameWithType.vb: ProgressBar.New
-- uid: ReFactory.UISystem.ProgressBar.AfterDraw(System.Single,SpriteBatch)
-  name: AfterDraw(float, SpriteBatch)
-  href: api/ReFactory.UISystem.ProgressBar.html#ReFactory_UISystem_ProgressBar_AfterDraw_System_Single_SpriteBatch_
-  commentId: M:ReFactory.UISystem.ProgressBar.AfterDraw(System.Single,SpriteBatch)
-  name.vb: AfterDraw(Single, SpriteBatch)
-  fullName: ReFactory.UISystem.ProgressBar.AfterDraw(float, SpriteBatch)
-  fullName.vb: ReFactory.UISystem.ProgressBar.AfterDraw(Single, SpriteBatch)
-  nameWithType: ProgressBar.AfterDraw(float, SpriteBatch)
-  nameWithType.vb: ProgressBar.AfterDraw(Single, SpriteBatch)
+- uid: ReFactory.UISystem.ProgressBar.AfterDraw(SpriteBatch)
+  name: AfterDraw(SpriteBatch)
+  href: api/ReFactory.UISystem.ProgressBar.html#ReFactory_UISystem_ProgressBar_AfterDraw_SpriteBatch_
+  commentId: M:ReFactory.UISystem.ProgressBar.AfterDraw(SpriteBatch)
+  fullName: ReFactory.UISystem.ProgressBar.AfterDraw(SpriteBatch)
+  nameWithType: ProgressBar.AfterDraw(SpriteBatch)
 - uid: ReFactory.UISystem.ProgressBar.AfterDraw*
   name: AfterDraw
   href: api/ReFactory.UISystem.ProgressBar.html#ReFactory_UISystem_ProgressBar_AfterDraw_
@@ -3539,86 +3844,6 @@ references:
   isSpec: "True"
   fullName: ReFactory.UISystem.UI.AllUIElements
   nameWithType: UI.AllUIElements
-- uid: ReFactory.UISystem.UI.Margin
-  name: UI.Margin
-  href: api/ReFactory.UISystem.UI.Margin.html
-  commentId: T:ReFactory.UISystem.UI.Margin
-  fullName: ReFactory.UISystem.UI.Margin
-  nameWithType: UI.Margin
-- uid: ReFactory.UISystem.UI.Margin.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
-  name: Margin(int, int, int, int)
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin__ctor_System_Int32_System_Int32_System_Int32_System_Int32_
-  commentId: M:ReFactory.UISystem.UI.Margin.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
-  name.vb: New(Integer, Integer, Integer, Integer)
-  fullName: ReFactory.UISystem.UI.Margin.Margin(int, int, int, int)
-  fullName.vb: ReFactory.UISystem.UI.Margin.New(Integer, Integer, Integer, Integer)
-  nameWithType: UI.Margin.Margin(int, int, int, int)
-  nameWithType.vb: UI.Margin.New(Integer, Integer, Integer, Integer)
-- uid: ReFactory.UISystem.UI.Margin.#ctor(System.Int32,System.Int32)
-  name: Margin(int, int)
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin__ctor_System_Int32_System_Int32_
-  commentId: M:ReFactory.UISystem.UI.Margin.#ctor(System.Int32,System.Int32)
-  name.vb: New(Integer, Integer)
-  fullName: ReFactory.UISystem.UI.Margin.Margin(int, int)
-  fullName.vb: ReFactory.UISystem.UI.Margin.New(Integer, Integer)
-  nameWithType: UI.Margin.Margin(int, int)
-  nameWithType.vb: UI.Margin.New(Integer, Integer)
-- uid: ReFactory.UISystem.UI.Margin.#ctor(System.Int32)
-  name: Margin(int)
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin__ctor_System_Int32_
-  commentId: M:ReFactory.UISystem.UI.Margin.#ctor(System.Int32)
-  name.vb: New(Integer)
-  fullName: ReFactory.UISystem.UI.Margin.Margin(int)
-  fullName.vb: ReFactory.UISystem.UI.Margin.New(Integer)
-  nameWithType: UI.Margin.Margin(int)
-  nameWithType.vb: UI.Margin.New(Integer)
-- uid: ReFactory.UISystem.UI.Margin.#ctor*
-  name: Margin
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin__ctor_
-  commentId: Overload:ReFactory.UISystem.UI.Margin.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: ReFactory.UISystem.UI.Margin.Margin
-  fullName.vb: ReFactory.UISystem.UI.Margin.New
-  nameWithType: UI.Margin.Margin
-  nameWithType.vb: UI.Margin.New
-- uid: ReFactory.UISystem.UI.Margin.Bottom
-  name: Bottom
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin_Bottom
-  commentId: F:ReFactory.UISystem.UI.Margin.Bottom
-  fullName: ReFactory.UISystem.UI.Margin.Bottom
-  nameWithType: UI.Margin.Bottom
-- uid: ReFactory.UISystem.UI.Margin.GetRect
-  name: GetRect
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin_GetRect
-  commentId: P:ReFactory.UISystem.UI.Margin.GetRect
-  fullName: ReFactory.UISystem.UI.Margin.GetRect
-  nameWithType: UI.Margin.GetRect
-- uid: ReFactory.UISystem.UI.Margin.GetRect*
-  name: GetRect
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin_GetRect_
-  commentId: Overload:ReFactory.UISystem.UI.Margin.GetRect
-  isSpec: "True"
-  fullName: ReFactory.UISystem.UI.Margin.GetRect
-  nameWithType: UI.Margin.GetRect
-- uid: ReFactory.UISystem.UI.Margin.Left
-  name: Left
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin_Left
-  commentId: F:ReFactory.UISystem.UI.Margin.Left
-  fullName: ReFactory.UISystem.UI.Margin.Left
-  nameWithType: UI.Margin.Left
-- uid: ReFactory.UISystem.UI.Margin.Right
-  name: Right
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin_Right
-  commentId: F:ReFactory.UISystem.UI.Margin.Right
-  fullName: ReFactory.UISystem.UI.Margin.Right
-  nameWithType: UI.Margin.Right
-- uid: ReFactory.UISystem.UI.Margin.Top
-  name: Top
-  href: api/ReFactory.UISystem.UI.Margin.html#ReFactory_UISystem_UI_Margin_Top
-  commentId: F:ReFactory.UISystem.UI.Margin.Top
-  fullName: ReFactory.UISystem.UI.Margin.Top
-  nameWithType: UI.Margin.Top
 - uid: ReFactory.UISystem.UI.Pixel
   name: Pixel
   href: api/ReFactory.UISystem.UI.html#ReFactory_UISystem_UI_Pixel
@@ -3637,15 +3862,6 @@ references:
   commentId: T:ReFactory.UISystem.UIElement
   fullName: ReFactory.UISystem.UIElement
   nameWithType: UIElement
-- uid: ReFactory.UISystem.UIElement.#ctor(ReFactory.UISystem.UI.Margin,Texture2D,System.Nullable{Color},System.Collections.Generic.List{ReFactory.UISystem.UIElement},System.Int32,System.Single)
-  name: UIElement(Margin, Texture2D, Color?, List<UIElement>, int, float)
-  href: api/ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement__ctor_ReFactory_UISystem_UI_Margin_Texture2D_System_Nullable_Color__System_Collections_Generic_List_ReFactory_UISystem_UIElement__System_Int32_System_Single_
-  commentId: M:ReFactory.UISystem.UIElement.#ctor(ReFactory.UISystem.UI.Margin,Texture2D,System.Nullable{Color},System.Collections.Generic.List{ReFactory.UISystem.UIElement},System.Int32,System.Single)
-  name.vb: New(Margin, Texture2D, Color?, List(Of UIElement), Integer, Single)
-  fullName: ReFactory.UISystem.UIElement.UIElement(ReFactory.UISystem.UI.Margin, Texture2D, Color?, System.Collections.Generic.List<ReFactory.UISystem.UIElement>, int, float)
-  fullName.vb: ReFactory.UISystem.UIElement.New(ReFactory.UISystem.UI.Margin, Texture2D, Color?, System.Collections.Generic.List(Of ReFactory.UISystem.UIElement), Integer, Single)
-  nameWithType: UIElement.UIElement(UI.Margin, Texture2D, Color?, List<UIElement>, int, float)
-  nameWithType.vb: UIElement.New(UI.Margin, Texture2D, Color?, List(Of UIElement), Integer, Single)
 - uid: ReFactory.UISystem.UIElement.#ctor(System.Nullable{Rectangle},Texture2D,System.Nullable{Color},System.Collections.Generic.List{ReFactory.UISystem.UIElement},System.Int32,System.Single)
   name: UIElement(Rectangle?, Texture2D, Color?, List<UIElement>, int, float)
   href: api/ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement__ctor_System_Nullable_Rectangle__Texture2D_System_Nullable_Color__System_Collections_Generic_List_ReFactory_UISystem_UIElement__System_Int32_System_Single_
@@ -3678,15 +3894,12 @@ references:
   isSpec: "True"
   fullName: ReFactory.UISystem.UIElement.AddChild
   nameWithType: UIElement.AddChild
-- uid: ReFactory.UISystem.UIElement.AfterDraw(System.Single,SpriteBatch)
-  name: AfterDraw(float, SpriteBatch)
-  href: api/ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_AfterDraw_System_Single_SpriteBatch_
-  commentId: M:ReFactory.UISystem.UIElement.AfterDraw(System.Single,SpriteBatch)
-  name.vb: AfterDraw(Single, SpriteBatch)
-  fullName: ReFactory.UISystem.UIElement.AfterDraw(float, SpriteBatch)
-  fullName.vb: ReFactory.UISystem.UIElement.AfterDraw(Single, SpriteBatch)
-  nameWithType: UIElement.AfterDraw(float, SpriteBatch)
-  nameWithType.vb: UIElement.AfterDraw(Single, SpriteBatch)
+- uid: ReFactory.UISystem.UIElement.AfterDraw(SpriteBatch)
+  name: AfterDraw(SpriteBatch)
+  href: api/ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_AfterDraw_SpriteBatch_
+  commentId: M:ReFactory.UISystem.UIElement.AfterDraw(SpriteBatch)
+  fullName: ReFactory.UISystem.UIElement.AfterDraw(SpriteBatch)
+  nameWithType: UIElement.AfterDraw(SpriteBatch)
 - uid: ReFactory.UISystem.UIElement.AfterDraw*
   name: AfterDraw
   href: api/ReFactory.UISystem.UIElement.html#ReFactory_UISystem_UIElement_AfterDraw_
