@@ -26,14 +26,8 @@ public class ItemSlot : UIElement, IPointerClickHandler
     } 
     public bool IsDropTarget => true;
     
-    private float timer = 1;
-    
-    public override void AfterDraw(float deltaTime, SpriteBatch batch)
+    public override void AfterDraw(SpriteBatch batch)
     {
-        timer += deltaTime;
-
-        timer %= 32;
-        
         if (Item != null)
         {
             batch.Draw(Item.Reference.sprite, rect, Color.White);

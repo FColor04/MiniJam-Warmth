@@ -11,7 +11,7 @@
 ![Discord](https://img.shields.io/discord/1006653195625431161?style=for-the-badge)
 ![Join Discord](https://img.shields.io/badge/Join-Discord-blue?style=for-the-badge&logo=discord&color=5865F2)
 
-https://discord.gg/jYQQJaHSa5
+https://discord.gg/pGSUV4kh8K
 
 ## Status
 |                                                                                                                       |                                                                                                                     |

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using CanvasManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MainGameFramework;
@@ -57,10 +58,10 @@ public class SpriteSheetRenderer
             case Layer.Manual:
                 break;
             case Layer.Sprites:
-                MainGame.OnDrawSprites += Draw;
+                CanvasLayer.Base.GetCanvas().OnDraw += Draw;
                 break;
             case Layer.UI:
-                MainGame.OnDrawUI += Draw;
+                CanvasLayer.UI.GetCanvas().OnDraw += Draw;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(layer), layer, null);
@@ -83,10 +84,10 @@ public class SpriteSheetRenderer
             case Layer.Manual:
                 break;
             case Layer.Sprites:
-                MainGame.OnDrawSprites -= Draw;
+                CanvasLayer.Base.GetCanvas().OnDraw -= Draw;
                 break;
             case Layer.UI:
-                MainGame.OnDrawUI -= Draw;
+                CanvasLayer.UI.GetCanvas().OnDraw -= Draw;
                 break;
         }
     }
@@ -99,10 +100,10 @@ public class SpriteSheetRenderer
     public void SetColor(Color color) => _color = color;
     public Color GetColor() => _color;
 
-    private void Draw(float deltaTime, SpriteBatch batch)
+    private void Draw(SpriteBatch spriteBatch, Canvas canvas)
     {
         if (_color.A == 0) return;
-        batch.Draw(GetSprite(), _rect, _color);
+        spriteBatch.Draw(GetSprite(), _rect, _color);
     }
 
     public Texture2D GetSprite()

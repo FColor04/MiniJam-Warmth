@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CanvasManagement;
 using MainGameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -26,7 +27,7 @@ public static class UI
         Pixel.SetData(new []{Color.White});
         
         MainGame.OnUpdate += Update;
-        MainGame.OnDrawUI += DrawUI;
+        CanvasLayer.UI.GetCanvas().OnDraw += DrawUI;
     }
 
     private static void Update(float deltaTime)
@@ -35,7 +36,7 @@ public static class UI
         
         foreach (var uiElement in AllUIElements.OfType<IHasInteractiveRect>().Concat(AdditionalInteractiveElements))
         {
-            if (uiElement.InteractiveRect.Contains(Input.MousePositionWithinViewport))
+            if (uiElement.InteractiveRect.Contains(CanvasLayer.UI.GetCanvas().MousePosition))
             {
                 if (!elementsUnderPointer.Contains(uiElement))
                 {
@@ -88,7 +89,7 @@ public static class UI
                     pointerClickReleaseHandler.OnPointerClickRelease(Input.GetPressedMouseButton);
                 }
 
-            }else if (!uiElement.InteractiveRect.Contains(Input.MousePositionWithinViewport) && elementsUnderPointer.Contains(uiElement))
+            }else if (!uiElement.InteractiveRect.Contains(CanvasLayer.UI.GetCanvas().MousePosition) && elementsUnderPointer.Contains(uiElement))
             {
                 elementsUnderPointer.Remove(uiElement);
                 if(uiElement is IPointerExitHandler pointerExitHandler)
@@ -109,54 +110,16 @@ public static class UI
         }
     }
 
-    private static void DrawUI(float deltaTime, SpriteBatch batch)
+    private static void DrawUI(SpriteBatch spriteBatch, Canvas canvas)
     {
         foreach (var uiElement in AllUIElements)
         {
             if (uiElement.Texture != null)
             {
-                batch.Draw(uiElement.Texture, uiElement.rect, null, uiElement.color, uiElement.rotation, Vector2.Zero,
+                spriteBatch.Draw(uiElement.Texture, uiElement.rect, null, uiElement.color, uiElement.rotation, Vector2.Zero,
                     SpriteEffects.None, 0);
-                uiElement.AfterDraw(deltaTime, batch);
+                uiElement.AfterDraw(spriteBatch);
             }
-        }
-    }
-
-    /// <summary>
-    /// Margin structure, clockwise order
-    /// </summary>
-    public struct Margin
-    {
-        public int Top;
-        public int Right;
-        public int Bottom;
-        public int Left;
-
-        public Rectangle GetRect => new Rectangle(Left, Top, Resolution.gameSize.X - (Right + Left),
-            Resolution.gameSize.Y - (Top + Bottom));
-        
-        public Margin(int top, int right, int bottom, int left)
-        {
-            this.Top = top;
-            this.Right = right;
-            this.Bottom = bottom;
-            this.Left = left;
-        }
-
-        public Margin(int horizontal, int vertical)
-        {
-            Left = horizontal;
-            Right = horizontal;
-            Top = vertical;
-            Bottom = vertical;
-        }
-
-        public Margin(int value)
-        {
-            Top = value;
-            Right = value;
-            Bottom = value;
-            Left = value;
         }
     }
 }

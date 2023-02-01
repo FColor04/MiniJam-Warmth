@@ -31,7 +31,7 @@ namespace ReFactory
             
             //Load font
             FontSystem = new FontSystem();
-            FontSystem.AddFont(Assembly.GetExecutingAssembly().GetManifestResourceStream("ReFactory.Fonts.FFFForward.ttf"));
+            FontSystem.AddFont(Assembly.GetExecutingAssembly().GetManifestResourceStream("Fonts.FFFForward.ttf"));
             Font11 = FontSystem.GetFont(16);
             //
             SelectedTile = Content.Load<Texture2D>("Selected");

@@ -3,6 +3,7 @@ using MainGameFramework;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using CanvasManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -80,14 +81,14 @@ public class World : IPointerClickHandler
             }
         }
         
-        MainGame.OnDrawSprites += Draw;
+        CanvasLayer.Base.GetCanvas().OnDraw += Draw;
         MainGame.OnUpdate += Update;
         UI.AdditionalInteractiveElements.Add(this);
     }
 
     ~World()
     {
-        MainGame.OnDrawSprites -= Draw;
+        CanvasLayer.Base.GetCanvas().OnDraw -= Draw;
         MainGame.OnUpdate -= Update;
         UI.AdditionalInteractiveElements.Remove(this);
     }
@@ -156,17 +157,17 @@ public class World : IPointerClickHandler
         ConveyorBelt.GlobalUpdate(deltaTime);
     }
 
-    private void Draw(float deltaTime, SpriteBatch batch)
+    private void Draw(SpriteBatch spriteBatch, Canvas canvas)
     {
         if (_drawPlaceable)
         {
             _drawPlaceable = false;
             _placeableRect.Location -= cameraOffset.ToPoint();
-            batch.Draw(_placeableTexture, _placeableRect, null, _placeableColor, _isPlaceableRotatable ? MathHelper.ToRadians(_placeableRotation) : 0, new Vector2(_placeableRect.Width / 2f, _placeableRect.Height /2f), SpriteEffects.None, 0);
+            spriteBatch.Draw(_placeableTexture, _placeableRect, null, _placeableColor, _isPlaceableRotatable ? MathHelper.ToRadians(_placeableRotation) : 0, new Vector2(_placeableRect.Width / 2f, _placeableRect.Height /2f), SpriteEffects.None, 0);
         } else
         {
-            var pos = GetGridPoint(Input.MousePositionWithinViewport.ToVector2() + cameraOffset) - cameraOffset.ToPoint();
-            batch.Draw(GameContent.SelectedTile, new Rectangle(pos, new Point(16, 16)), Color.White);
+            var pos = GetGridPoint(canvas.MousePosition + cameraOffset) - cameraOffset.ToPoint();
+            spriteBatch.Draw(GameContent.SelectedTile, new Rectangle(pos, new Point(16, 16)), Color.White);
         }
     }
 
@@ -221,7 +222,7 @@ public class World : IPointerClickHandler
             //Handle building first
             if (PointerItemRenderer.HeldItem != null && PointerItemRenderer.HeldItem.Reference is PlaceableItemReference reference)
             {
-                if (PlaceItem(Input.MousePositionWithinViewport.ToVector2() + cameraOffset, reference))
+                if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition + cameraOffset, reference))
                     PointerItemRenderer.HeldItem.Count--;
                 else
                     Debug.Log("Play Error Sound");
@@ -251,6 +252,6 @@ public class World : IPointerClickHandler
 
     public Point GetMouseGridPosition()
     {
-        return GetGridPoint(Input.MousePositionWithinViewport.ToVector2() + cameraOffset);
+        return GetGridPoint(CanvasLayer.Base.GetCanvas().MousePosition + cameraOffset);
     }
 }

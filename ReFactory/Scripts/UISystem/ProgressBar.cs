@@ -15,7 +15,7 @@ public class ProgressBar : UIElement
         this.fillColor = fillColor;
     }
 
-    public override void AfterDraw(float deltaTime, SpriteBatch batch)
+    public override void AfterDraw(SpriteBatch batch)
     {
         var fillRect = new Rectangle(rect.Location, new Point((int) (rect.Width * fillAmount), rect.Height));
         batch.Draw(UI.Pixel, fillRect, fillColor);

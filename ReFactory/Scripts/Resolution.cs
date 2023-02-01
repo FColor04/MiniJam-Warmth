@@ -6,11 +6,14 @@ namespace ReFactory;
 
 public static class Resolution
 {
-    public static readonly Point gameSize = new Point(320, 180);
     private static int _previousWidth;
     private static int _previousHeight;
-    public static Rectangle TrimmedScreen;
+    public static int WindowWidth => _previousWidth;
+    public static int WindowHeight => _previousHeight;
+    public static Point WindowSize => new (WindowWidth, WindowHeight);
+    
     public static bool fullscreen;
+    public static event Action OnResolutionChange = () => {};
     
     static Resolution()
     {
@@ -50,12 +53,6 @@ public static class Resolution
         
         _previousWidth = MainGame.graphicsDevice.Viewport.Width;
         _previousHeight = MainGame.graphicsDevice.Viewport.Height;
-        
-        var newWidth = Math.Min(MainGame.graphicsDevice.Viewport.Height * (16/9f), MainGame.graphicsDevice.Viewport.Width);
-        var newHeight = newWidth * (9 / 16f);
-        
-        var widthDelta = MainGame.graphicsDevice.Viewport.Width - newWidth;
-        var heightDelta = MainGame.graphicsDevice.Viewport.Height - newHeight;
-        TrimmedScreen = new Rectangle(new Vector2(widthDelta / 2f, heightDelta / 2f).ToPoint(), new Vector2(newWidth, newHeight).ToPoint());
+        OnResolutionChange?.Invoke();
     }
 }

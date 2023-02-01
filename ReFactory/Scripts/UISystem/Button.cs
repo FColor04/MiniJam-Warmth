@@ -11,9 +11,6 @@ public class Button : UIElement, IPointerEnterHandler, IPointerExitHandler
     private Rectangle _targetRect;
     private float transition = 0;
     
-    public Button(UI.Margin margin, Texture2D texture = null, Color? color = null,
-        List<UIElement> children = null, int priority = -1, float rotation = 0) : this(margin.GetRect, texture, color, children, priority, rotation) { }
-
     public Button(Rectangle? rect = default, Texture2D texture = null, Color? color = null,
         List<UIElement> children = null, int priority = -1, float rotation = 0) : base(rect, texture, color, children,
         priority, rotation)

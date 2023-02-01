@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using CanvasManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MainGameFramework;
@@ -17,19 +18,19 @@ public class Entity : IDisposable
 
     public Entity()
     {
-        MainGame.OnDrawSprites += DrawSprite;
+        CanvasLayer.Base.GetCanvas().OnDraw += DrawSprite;
     }
 
-    protected virtual void DrawSprite(float deltaTime, SpriteBatch batch)
+    protected virtual void DrawSprite(SpriteBatch spriteBatch, Canvas canvas)
     {
         if (sprite == null) return;
-        batch.Draw(sprite, new Rectangle(_position.ToPoint(), new Point(sprite.Width, sprite.Height)), Color.White);
+        spriteBatch.Draw(sprite, new Rectangle(_position.ToPoint(), new Point(sprite.Width, sprite.Height)), Color.White);
     }
 
     protected virtual void Dispose(bool disposing)
     {
         if (!disposing) return;
-        MainGame.OnDrawSprites -= DrawSprite;
+        CanvasLayer.Base.GetCanvas().OnDraw -= DrawSprite;
     }
 
     public void Dispose()
