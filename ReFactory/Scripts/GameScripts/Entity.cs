@@ -11,7 +11,7 @@ namespace ReFactory.GameScripts;
 public class Entity : IDisposable
 {
     public Vector2 position;
-    protected virtual Vector2 _position => position - MainGame.Instance.World.cameraOffset;
+    protected virtual Vector2 _position => position;// - MainGame.Instance.World.cameraOffset;
     public Texture2D internalSprite = null;
     public virtual Texture2D sprite => internalSprite;
     public virtual Vector2 origin => new Vector2(sprite.Width / 2f, sprite.Height / 2f);

@@ -22,7 +22,7 @@ public class World : IPointerClickHandler
     public const int GridSize = 16;
 
     public event Action<Point, GridEntity> OnGridBuild = (_, _) => {};
-    
+
     private int interactiveRectA = 0;
     private int interactiveRectB = 0;
     private int interactiveRectC = 320;
@@ -31,16 +31,11 @@ public class World : IPointerClickHandler
     public Rectangle Bounds;
     private int BoundOriginX = 0;
     private int BoundOriginY = 0;
-    private float centerX;
-    private float centerY;
-    private int worldWidth;
-    private int worldHeight;
     public Rectangle InteractiveRect => new Rectangle(interactiveRectA, interactiveRectB, interactiveRectC, interactiveRectD);
     public List<Entity> entities = new();
     public Dictionary<Point, GridEntity> gridElements = new ();
 
-    public Vector2 cameraOffset;
-    private int[] _sandIndexes;
+    //public Vector2 cameraOffset;
 
     private float _destroyProgress;
     private ProgressBar _destroyFillBar;
@@ -58,14 +53,6 @@ public class World : IPointerClickHandler
     public World(int width, int height)
     {
         Bounds = new Rectangle(BoundOriginX, BoundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
-        _sandIndexes = new int[width * height];
-        centerX = BoundOriginX + ((width * GridSize) - GridSize) / 2;
-        centerY = BoundOriginY + ((height * GridSize) - GridSize) / 2;
-        worldWidth = width;
-        worldHeight = height;
-
-        cameraOffset = new Vector2(-centerX / 4 , centerY / 4);
-
         
         _desertStorm = new SpriteSheetRenderer(MainGame.content.Load<Texture2D>("SandStorm/SandStorm"), 7, 7, SpriteSheetRenderer.Layer.UI);
         _desertStormTime = Random.Shared.Range(20, 70);
@@ -85,7 +72,7 @@ public class World : IPointerClickHandler
         MainGame.OnUpdate += Update;
         UI.AdditionalInteractiveElements.Add(this);
     }
-
+    
     ~World()
     {
         CanvasLayer.Base.GetCanvas().OnDraw -= Draw;
@@ -106,17 +93,6 @@ public class World : IPointerClickHandler
             DrawPlaceableGhost(reference);
         }
 
-        cameraOffset.Y += Input.Vertical * deltaTime * GridSize * 8;
-        cameraOffset.X += Input.Horizontal * deltaTime * GridSize * 8;
-
-        if(cameraOffset.X >= ((worldWidth * GridSize) - GridSize) / 2 || cameraOffset.X <= -((worldWidth * GridSize) - GridSize) / 2)
-        {
-            cameraOffset.X -= Input.Horizontal * deltaTime * GridSize * 8;
-        }
-        if (cameraOffset.Y >= (((worldWidth * GridSize) - GridSize) * 3) / 4 || cameraOffset.Y <= -((worldWidth * GridSize) - GridSize) / 4)
-        {
-            cameraOffset.Y -= Input.Vertical * deltaTime * GridSize * 8;
-        }
 
         var mousePos = GetMouseGridPosition();
         if (Input.RightMouseHold && gridElements.ContainsKey(mousePos))
@@ -162,11 +138,11 @@ public class World : IPointerClickHandler
         if (_drawPlaceable)
         {
             _drawPlaceable = false;
-            _placeableRect.Location -= cameraOffset.ToPoint();
+            //_placeableRect.Location -= cameraOffset.ToPoint();
             spriteBatch.Draw(_placeableTexture, _placeableRect, null, _placeableColor, _isPlaceableRotatable ? MathHelper.ToRadians(_placeableRotation) : 0, new Vector2(_placeableRect.Width / 2f, _placeableRect.Height /2f), SpriteEffects.None, 0);
         } else
         {
-            var pos = GetGridPoint(canvas.MousePosition + cameraOffset) - cameraOffset.ToPoint();
+            var pos = GetGridPoint(canvas.MousePosition /*+ cameraOffset) - cameraOffset.ToPoint(*/);
             spriteBatch.Draw(GameContent.SelectedTile, new Rectangle(pos, new Point(16, 16)), Color.White);
         }
     }
@@ -222,7 +198,7 @@ public class World : IPointerClickHandler
             //Handle building first
             if (PointerItemRenderer.HeldItem != null && PointerItemRenderer.HeldItem.Reference is PlaceableItemReference reference)
             {
-                if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition + cameraOffset, reference))
+                if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition /*+ cameraOffset*/, reference))
                     PointerItemRenderer.HeldItem.Count--;
                 else
                     Debug.Log("Play Error Sound");
@@ -252,6 +228,6 @@ public class World : IPointerClickHandler
 
     public Point GetMouseGridPosition()
     {
-        return GetGridPoint(CanvasLayer.Base.GetCanvas().MousePosition + cameraOffset);
+        return GetGridPoint(CanvasLayer.Base.GetCanvas().MousePosition /*+ cameraOffset*/);
     }
 }
