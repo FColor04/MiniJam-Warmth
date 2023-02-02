@@ -12,6 +12,7 @@ using ReFactory;
 using ReFactory.UISystem;
 using ReFactory.UISystem.LayoutControllers;
 using FontStashSharp;
+using ParticleSystem.Particles;
 
 namespace MainGameFramework {
     public class MainGame : Game
@@ -58,6 +59,7 @@ namespace MainGameFramework {
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(AudioManager).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
+            System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(ParticleTester).TypeHandle);
 
              var toolbar = new UIElement(new Rectangle(88, 180-20, 320-88-88, 20), UI.Pixel, ColorUtility.ToolbarGrey);
              UI.Root.AddChild(toolbar);
