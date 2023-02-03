@@ -20,6 +20,6 @@ public static class ParticleTester
     private static void Update(float deltaTime)
     {
         if(Input.LeftMousePressed)
-            _particleSystem.AddParticle(new Particle(CanvasLayer.Base.GetCanvas().MousePosition, ParticleData));
+            _particleSystem.AddParticle(new Particle(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset, ParticleData));
     }
 }

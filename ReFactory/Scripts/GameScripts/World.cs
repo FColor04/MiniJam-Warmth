@@ -35,8 +35,6 @@ public class World : IPointerClickHandler
     public List<Entity> entities = new();
     public Dictionary<Point, GridEntity> gridElements = new ();
 
-    //public Vector2 cameraOffset;
-
     private float _destroyProgress;
     private ProgressBar _destroyFillBar;
     
@@ -138,11 +136,11 @@ public class World : IPointerClickHandler
         if (_drawPlaceable)
         {
             _drawPlaceable = false;
-            //_placeableRect.Location -= cameraOffset.ToPoint();
+            _placeableRect.Location -= canvas.ViewportOffset.ToPoint();
             spriteBatch.Draw(_placeableTexture, _placeableRect, null, _placeableColor, _isPlaceableRotatable ? MathHelper.ToRadians(_placeableRotation) : 0, new Vector2(_placeableRect.Width / 2f, _placeableRect.Height /2f), SpriteEffects.None, 0);
         } else
         {
-            var pos = GetGridPoint(canvas.MousePosition /*+ cameraOffset) - cameraOffset.ToPoint(*/);
+            var pos = GetGridPoint(canvas.MousePosition + canvas.ViewportOffset) - canvas.ViewportOffset.ToPoint();
             spriteBatch.Draw(GameContent.SelectedTile, new Rectangle(pos, new Point(16, 16)), Color.White);
         }
     }
@@ -198,7 +196,7 @@ public class World : IPointerClickHandler
             //Handle building first
             if (PointerItemRenderer.HeldItem != null && PointerItemRenderer.HeldItem.Reference is PlaceableItemReference reference)
             {
-                if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition /*+ cameraOffset*/, reference))
+                if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset, reference))
                     PointerItemRenderer.HeldItem.Count--;
                 else
                     Debug.Log("Play Error Sound");
@@ -228,6 +226,6 @@ public class World : IPointerClickHandler
 
     public Point GetMouseGridPosition()
     {
-        return GetGridPoint(CanvasLayer.Base.GetCanvas().MousePosition /*+ cameraOffset*/);
+        return GetGridPoint(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset);
     }
 }

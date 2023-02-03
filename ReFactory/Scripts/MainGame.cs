@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using AudioManagement;
 using CanvasManagement;
+using DefaultNamespace;
 using ReFactory.Controllers;
 using ReFactory.GameScripts;
 using ReFactory.Utility;
@@ -56,6 +57,7 @@ namespace MainGameFramework {
             GameContent.RegisterItems();
 
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(CanvasManager).TypeHandle);
+            System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(CameraController).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(AudioManager).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);

@@ -11,7 +11,7 @@ namespace ReFactory.GameScripts;
 public class Entity : IDisposable
 {
     public Vector2 position;
-    protected virtual Vector2 _position => position;// - MainGame.Instance.World.cameraOffset;
+    protected virtual Vector2 _position => position;
     public Texture2D internalSprite = null;
     public virtual Texture2D sprite => internalSprite;
     public virtual Vector2 origin => new Vector2(sprite.Width / 2f, sprite.Height / 2f);
@@ -24,7 +24,7 @@ public class Entity : IDisposable
     protected virtual void DrawSprite(SpriteBatch spriteBatch, Canvas canvas)
     {
         if (sprite == null) return;
-        spriteBatch.Draw(sprite, new Rectangle(_position.ToPoint(), new Point(sprite.Width, sprite.Height)), Color.White);
+        spriteBatch.Draw(sprite, new Rectangle(_position.ToPoint() - canvas.ViewportOffset.ToPoint(), new Point(sprite.Width, sprite.Height)), Color.White);
     }
 
     protected virtual void Dispose(bool disposing)

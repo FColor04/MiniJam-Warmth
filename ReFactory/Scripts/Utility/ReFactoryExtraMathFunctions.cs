@@ -4,14 +4,16 @@
     {
         public static float InverseLerp(float a, float b, float value)
         {
-            if (a != b)
-            {
-                return (value - a) / (b - a);
-            }
-            else
-            {
-                return 0.0f;
-            }
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            if (a == b) return 0.0f;
+            return (value - a) / (b - a);
+        }
+        
+        public static float InverseLerpClamped(float a, float b, float value)
+        {
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            if (a == b) return 0.0f;
+            return (value - a) / (b - a);
         }
     }
 }

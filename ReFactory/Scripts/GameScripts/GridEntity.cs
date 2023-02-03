@@ -23,6 +23,6 @@ public abstract class GridEntity : Entity
     {
         if (sprite == null) return;
         var halfSize = new Vector2(sprite.Width / 2f, sprite.Height / 2f);
-        batch.Draw(sprite, new Rectangle(_position.ToPoint() + halfSize.ToPoint(), new Point(sprite.Width, sprite.Height)), null, Color.White, MathHelper.ToRadians(rotation), halfSize, SpriteEffects.None, 0);
+        batch.Draw(sprite, new Rectangle(_position.ToPoint() + halfSize.ToPoint() - canvas.ViewportOffset.ToPoint(), new Point(sprite.Width, sprite.Height)), null, Color.White, MathHelper.ToRadians(rotation), halfSize, SpriteEffects.None, 0);
     }
 }

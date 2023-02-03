@@ -47,7 +47,7 @@ namespace ReFactory.ParticleSystem.Particles
 
         public void Draw(SpriteBatch spriteBatch, Canvas canvas)
         {
-            spriteBatch.Draw(_data.Texture, _position, null, _color * _opacity, 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 1f);
+            spriteBatch.Draw(_data.Texture, _position - canvas.ViewportOffset, null, _color * _opacity, 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 1f);
         }
     }
 }

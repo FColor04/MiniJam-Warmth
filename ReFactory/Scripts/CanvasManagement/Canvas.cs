@@ -9,7 +9,6 @@ namespace CanvasManagement;
 
 public class Canvas
 {
-    public Vector2 cameraPosition;
     public virtual int X { get; protected set; }
     public virtual int Y { get; protected set; }
     public virtual int Width { get; protected set; }
@@ -18,6 +17,7 @@ public class Canvas
     protected RenderTarget2D RenderTarget;
     public virtual int RenderWidth { get; protected set; }
     public virtual int RenderHeight { get; protected set; }
+    public virtual Vector2 ViewportOffset { get; set; }
     private SpriteBatch SpriteBatch { get; }
     public CanvasLayer Layer { get; }
 
@@ -111,26 +111,6 @@ public class Canvas
             SpriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
             SpriteBatch.Draw(RenderTarget, Rect, Color.White);
             SpriteBatch.End();
-        }
-    }
-
-    public void CameraMove(float deltaTime, int GridSize, int worldWidth)
-    {
-        cameraPosition.Y += Input.Vertical * deltaTime * GridSize * 8;
-        cameraPosition.X += Input.Horizontal * deltaTime * GridSize * 8;
-
-        if (cameraPosition.X >= ((worldWidth * GridSize) - GridSize) / 2 || cameraPosition.X <= -((worldWidth * GridSize) - GridSize) / 2)
-        {
-            cameraPosition.X -= Input.Horizontal * deltaTime * GridSize * 8;
-        }
-        if (cameraPosition.Y >= (((worldWidth * GridSize) - GridSize) * 3) / 4 || cameraPosition.Y <= -((worldWidth * GridSize) - GridSize) / 4)
-        {
-            cameraPosition.Y -= Input.Vertical * deltaTime * GridSize * 8;
-        }
-
-        if (Input.Horizontal > 0 || Input.Horizontal < 0)
-        {
-            Debug.Log("Hello World");
         }
     }
 }
