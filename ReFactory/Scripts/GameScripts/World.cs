@@ -127,7 +127,7 @@ public class World : IPointerClickHandler
             _destroyFillBar?.Dispose();
             _destroyFillBar = null;
         }
-        
+
         ConveyorBelt.GlobalUpdate(deltaTime);
     }
 

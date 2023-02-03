@@ -13,7 +13,7 @@ public class GridTextAlignment
         private string cellName;
         private Vector2 position;
         private Vector2 rotation;
-        private BeltParams.Belt[] belts;
+        private BeltParams_bkup.Belt[] belts;
         public override bool Equals([NotNullWhen(true)] object obj) {
             return base.Equals(obj); }
         public override int GetHashCode() {
@@ -26,7 +26,7 @@ public class GridTextAlignment
             cellName = "Cell Position: " + position + "_Rotation: " + rotation;
             this.position = position;
             this.rotation = rotation;
-            belts = new BeltParams.Belt[0];
+            belts = new BeltParams_bkup.Belt[0];
         }
     }
 

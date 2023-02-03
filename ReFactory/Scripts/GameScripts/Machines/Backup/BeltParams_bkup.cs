@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using static ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams;
+using static ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams_bkup;
 using Debug = ReFactory.Debugger.Debug;
 
 /*
@@ -16,20 +16,10 @@ in which you hold 'R' and use '->' or '<-' to rotate 'CW' or 'CCW' respectively?
  
  */
 
-namespace ConveyorDirection
-{
-    public enum Direction
-    {
-        North, // Dir 0
-        South, // Dir 1
-        East, // Dir 2
-        West // Dir 3
-    }
-}
 
 namespace ReFactory.GameScripts.Machines.ConveyorBelt
 {
-    public class BeltParams
+    public class BeltParams_bkup
     {
         public struct Belt
         {
