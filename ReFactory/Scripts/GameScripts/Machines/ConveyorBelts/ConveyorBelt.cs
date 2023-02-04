@@ -21,7 +21,7 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
 
         public override HashSet<Point> OccupiedRelativePoints => new() { new Point(0, 0) }; // Override GridEntity OccupiedRelativePoints.
         public override Func<bool> OnDestroy => () => Inventory.AddItem(new Item("Belt", 1)); // Override GridEntity OnDestroy.
-        public List<Entity> BeltEntities; // List of entities on this Belt
+        public List<Entity> BeltEntities = new(); // List of entities on this Belt
 
         public ConveyorBelt()
         {
@@ -69,50 +69,77 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
             beltEntity.pointB = position;
         }
 
+        #region Get Target Belt
+        public ConveyorBelt GetTargetBelt()
+        {
+            Point beltTarget = position.ToPoint();
+            switch (rotation)
+            {
+                case 0: //Top
+                    beltTarget += new Point(0, -World.GridSize);
+                    break;
+                case 90: //Right
+                    beltTarget += new Point(World.GridSize, 0);
+                    break;
+                case 180: //Bottom
+                    beltTarget += new Point(0, World.GridSize);
+                    break;
+                case 270: //Left
+                    beltTarget += new Point(-World.GridSize, 0);
+                    break;
+            }
+
+            if (MainGame.Instance.World.gridElements.TryGetValue(beltTarget, out var entity) && entity is ConveyorBelt belt)
+                return belt;
+            return null;
+        }
+
+        #endregion
+
+        #region Get Source Belt
+        public ConveyorBelt GetSourceBelt()
+        {
+            Point beltSource = position.ToPoint();
+            switch (rotation)
+            {
+                case 0: //Top
+                    beltSource += new Point(0, World.GridSize);
+                    break;
+                case 90: //Right
+                    beltSource += new Point(-World.GridSize, 0);
+                    break;
+                case 180: //Bottom
+                    beltSource += new Point(0, -World.GridSize);
+                    break;
+                case 270: //Left
+                    beltSource += new Point(World.GridSize, 0);
+                    break;
+            }
+
+            if (MainGame.Instance.World.gridElements.TryGetValue(beltSource, out var entity) && entity is ConveyorBelt belt)
+                return belt;
+            return null;
+        }
+
+        #endregion
+
         #region Update Sprite Method
         public void UpdateSprite()
         {
             Point clockwisePoint = position.ToPoint();
             Point counterClockwisePoint = position.ToPoint();
-            switch (rotation)
-            {
-                case 0: //Top
-                    clockwisePoint += new Point(World.GridSize, 0);
-                    counterClockwisePoint += new Point(-World.GridSize, 0);
-                    break;
-                case 90: //Right
-                    clockwisePoint += new Point(0, World.GridSize);
-                    counterClockwisePoint += new Point(0, -World.GridSize);
-                    break;
-                case 180: //Bottom
-                    clockwisePoint += new Point(-World.GridSize, 0);
-                    counterClockwisePoint += new Point(World.GridSize, 0);
-                    break;
-                case 270: //Left
-                    clockwisePoint += new Point(0, -World.GridSize);
-                    counterClockwisePoint += new Point(0, World.GridSize);
-                    break;
-            }
-
-            bool clockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(clockwisePoint, out var cwEntity)
-                                && cwEntity is ConveyorBelt clockwiseBelt &&
-                                clockwiseBelt.rotation == (rotation + 270) % 360;
-
-            bool counterClockwiseValid = MainGame.Instance.World.gridElements.TryGetValue(counterClockwisePoint, out var ccwEntity)
-                                && ccwEntity is ConveyorBelt counterClockwiseBelt &&
-                                counterClockwiseBelt.rotation == (rotation + 90) % 360;
-            if (!clockwiseValid && !counterClockwiseValid || clockwiseValid && counterClockwiseValid)
-            {
-                _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
-                return;
-            }
-
-            _getSprite = clockwiseValid ? () => GameContent.ClockwiseConveyorBelt.GetSprite() : () => GameContent.CounterClockwiseConveyorBelt.GetSprite();
+            
+            _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
         }
         #endregion
 
         public struct BeltEntity
         {
+            enum BeltDirection
+            {
+                N_S, S_N, W_E, E_W, N_W, W_S, S_E, E_N, N_E, E_S, S_W, W_N
+            }
+            
             public Vector2 pointA;
             public Vector2 pointB;
             public Entity entity;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿/*
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -7,14 +9,14 @@ using Microsoft.Xna.Framework.Graphics;
 using static ReFactory.GameScripts.Machines.ConveyorBelt.BeltParams_bkup;
 using Debug = ReFactory.Debugger.Debug;
 
-/*
+
 =======Thoughts=======
 Instead of just rotating a placable entity with 'R', is it possible to use 'R' as a 'primer' 
 in which you hold 'R' and use '->' or '<-' to rotate 'CW' or 'CCW' respectively?
 ======================
 
- 
- */
+
+
 
 
 namespace ReFactory.GameScripts.Machines.ConveyorBelt
@@ -24,7 +26,7 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
         public struct Belt
         {
             #region BeltState & Cell Ref
-/* 
+
 =================BeltState & Cell Reference====================
 
 ============Letter Abbreviation Legend=========================
@@ -114,7 +116,7 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
                 W, N Turn:
                     Single Cell: TL
                         Three Cell: BL -> BR -> TR
-*/
+
             #endregion
 
             public String BeltID; // --> (ConveyorBeltType + "Pos: " + position)
@@ -202,14 +204,14 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
             }
         }
 
-        public void MoveEntities(/*/--> Belt/CellPosition, BeltState, _leftSideEntity, _rightSideEntity, neighbor, TLCell, TRCell, BLCell, BRCell <--/*/)
+        public void MoveEntities(//--> Belt / CellPosition, BeltState, _leftSideEntity, _rightSideEntity, neighbor, TLCell, TRCell, BLCell, BRCell < --//)
         {
             // Get 'Belt/CellPosition' && 'BeltState'
             // Get Left & Right Entities
             // Get Neighbor
 
             #region BeltState Ref
-            /*
+            
                         Turn-based Organization:
 
                             Vertical:
@@ -250,7 +252,7 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
                                 E, W = 3 //Straight
                                 E, N = 7 //Right
                                 E, S = 9 //Left
-            */
+           
             #endregion
 
         }
@@ -298,3 +300,6 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt.ConveyorUtilities
 
     }
 }
+
+
+ */
