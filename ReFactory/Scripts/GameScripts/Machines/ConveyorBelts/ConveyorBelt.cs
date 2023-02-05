@@ -206,16 +206,16 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
             switch (rotation)
             {
                 case 0: //Top
-                    beltSource += new Point(0, World.GridSize);
+                    //beltSource += new Point(0, World.GridSize);
                     break;
                 case 90: //Right
-                    beltSource += new Point(-World.GridSize, 0);
+                    //beltSource += new Point(-World.GridSize, 0);
                     break;
                 case 180: //Bottom
-                    beltSource += new Point(0, -World.GridSize);
+                    //beltSource += new Point(0, -World.GridSize);
                     break;
                 case 270: //Left
-                    beltSource += new Point(World.GridSize, 0);
+                    //beltSource += new Point(World.GridSize, 0);
                     break;
             }
 
