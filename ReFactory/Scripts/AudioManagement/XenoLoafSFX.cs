@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Audio;
 using MainGameFramework;
 using Microsoft.Xna.Framework;
-using RFMath = ReFactory.ExtraMathFunctions.ReFactoryExtraMathFunctions;
+using EMF = ReFactory.Utility.ExtraMathFunctions;
 
 namespace AudioManagement
 {
@@ -66,7 +66,7 @@ namespace AudioManagement
 					float distance = Vector2.Distance(position, playerPosition);
 					if (distance <= radii[i])
 					{
-						float t = RFMath.InverseLerpClamped(radii[i], radii[0], distance);
+						float t = EMF.InverseLerpClamped(radii[i], radii[0], distance);
 						emitterVolumeSlide = MathHelper.Lerp(EmitterMinVolume, EmitterMaxVolume, t);
 						break;
 					}

@@ -18,6 +18,7 @@ public class ConveyorBelt : GridEntity
 {
     public static List<ConveyorBelt> conveyorBelts = new();
     private static Stack<ConveyorBelt> _updateStack = new();
+    private bool beltSet = false;
 
     public override float DestroyTime => 0.1f;
     private Func<Texture2D> _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
@@ -227,12 +228,9 @@ public class ConveyorBelt : GridEntity
     #region On Grid Build Method
     private void OnGridBuild(Point entityPosition, GridEntity entity)
     {
-        if (entity is ConveyorBelt belt &&
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            Math.Abs(position.X - entityPosition.X) == World.GridSize ||
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            Math.Abs(position.Y - entityPosition.Y) == World.GridSize
-            )
+        if (entity is ConveyorBelt && 
+            Math.Abs(position.X - entityPosition.X) == World.GridSize
+            || Math.Abs(position.Y - entityPosition.Y) == World.GridSize)
         {
             UpdateSprite();
         }
@@ -249,18 +247,22 @@ public class ConveyorBelt : GridEntity
             case 0: //Top
                 clockwisePoint += new Point(World.GridSize, 0);
                 counterClockwisePoint += new Point(-World.GridSize, 0);
+                Debug.Log("top");
                 break;
             case 90: //Right
                 clockwisePoint += new Point(0, World.GridSize);
                 counterClockwisePoint += new Point(0, -World.GridSize);
+                Debug.Log("right");
                 break;
             case 180: //Bottom
                 clockwisePoint += new Point(-World.GridSize, 0);
                 counterClockwisePoint += new Point(World.GridSize, 0);
+                Debug.Log("bottom");
                 break;
             case 270: //Left
                 clockwisePoint += new Point(0, -World.GridSize);
                 counterClockwisePoint += new Point(0, World.GridSize);
+                Debug.Log("left");
                 break;
         }
 
@@ -273,11 +275,11 @@ public class ConveyorBelt : GridEntity
                             counterClockwiseBelt.rotation == (rotation + 90) % 360;
         if (!clockwiseValid && !counterClockwiseValid || clockwiseValid && counterClockwiseValid)
         {
-            _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
+            //_getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
             return;
         }
 
-        _getSprite = clockwiseValid ? () => GameContent.ClockwiseConveyorBelt.GetSprite() : () => GameContent.CounterClockwiseConveyorBelt.GetSprite();
+        //_getSprite = clockwiseValid ? () => GameContent.ClockwiseConveyorBelt.GetSprite() : () => GameContent.CounterClockwiseConveyorBelt.GetSprite();
     }
     #endregion
 
