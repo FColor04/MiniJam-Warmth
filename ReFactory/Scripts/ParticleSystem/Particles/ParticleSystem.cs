@@ -30,6 +30,6 @@ public class ParticleSystem
             particle.Update();
         }
 
-        _particles.RemoveAll(p => p.IsFinished);
+        _particles.RemoveAll(p => p.isFinished);
     }
 }

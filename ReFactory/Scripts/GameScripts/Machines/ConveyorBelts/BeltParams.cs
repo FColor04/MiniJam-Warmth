@@ -127,12 +127,12 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
 */
             #endregion
 
-            public String BeltID; // --> (ConveyorBeltType + "Pos: " + position)
+            public String beltId; // --> (ConveyorBeltType + "Pos: " + position)
             public String ConveyorBeltType { get; private set;} // --> Basic, Quick, Hyper
             Vector2 cellPosition; // 'this' Belts grid cell position.
             Vector2 position; // 'this' Belts world position.
             private Func<Texture2D> _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
-            public Texture2D sprite => _getSprite();
+            public Texture2D Sprite => _getSprite();
             public HashSet<Point> OccupiedRelativePoints => new() { new Point(0, 0) };
             public float DestroyTime => 0.1f;
             public Func<bool> OnDestroy => () => Inventory.AddItem(new Item("Belt", 1));
@@ -141,27 +141,27 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
             BeltEntity[] _leftSideEntity; // List of Entities on the left side of the belt.
             BeltEntity[] _rightSideEntity; // List of Entities on the right side of the belt.
 
-            Dictionary<BeltEntityCell, Entity[]> TLCell; // Top left cell
-            Dictionary<BeltEntityCell, Entity[]> TRCell; // Top right cell
-            Dictionary<BeltEntityCell, Entity[]> BLCell; // Bottom left cell
-            Dictionary<BeltEntityCell, Entity[]> BRCell; // Bottom right cell
-            public int BeltState; // Current State of 'this' Belt.
+            Dictionary<BeltEntityCell, Entity[]> _tlCell; // Top left cell
+            Dictionary<BeltEntityCell, Entity[]> _trCell; // Top right cell
+            Dictionary<BeltEntityCell, Entity[]> _blCell; // Bottom left cell
+            Dictionary<BeltEntityCell, Entity[]> _brCell; // Bottom right cell
+            public int beltState; // Current State of 'this' Belt.
 
             public Belt(string conveyorBeltType, Vector2 cellPosition, Vector2 position, int beltState)
             {
-                BeltID = conveyorBeltType + "Pos: " + position;
+                beltId = conveyorBeltType + "Pos: " + position;
                 ConveyorBeltType = conveyorBeltType;
                 this.cellPosition = cellPosition;
                 this.position = position;
                 _leftSideEntity = new BeltEntity[0];
                 _rightSideEntity = new BeltEntity[0];
-                TLCell = new Dictionary<BeltEntityCell, Entity[]>();
-                TRCell = new Dictionary<BeltEntityCell, Entity[]>();
-                BLCell = new Dictionary<BeltEntityCell, Entity[]>();
-                BRCell = new Dictionary<BeltEntityCell, Entity[]>();
+                _tlCell = new Dictionary<BeltEntityCell, Entity[]>();
+                _trCell = new Dictionary<BeltEntityCell, Entity[]>();
+                _blCell = new Dictionary<BeltEntityCell, Entity[]>();
+                _brCell = new Dictionary<BeltEntityCell, Entity[]>();
                 neighbor = new List<Belt>();
                 _getSprite = () => GameContent.StraightConveyorBelt.GetSprite();
-                BeltState = beltState;
+                this.beltState = beltState;
             }
 
         }
@@ -181,8 +181,8 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt
 
         public struct BeltEntityCell
         {
-            public String TopLeft, TopRight, BotLeft, BotRight;
-            public int TL, TR, BL, BR;
+            public String topLeft, topRight, botLeft, botRight;
+            public int tl, tr, bl, br;
             public Entity[] beltItem;
 
             public override bool Equals([NotNullWhen(true)] object obj)
@@ -271,8 +271,8 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt.ConveyorUtilities
 {
     class MasterBeltHandler // Handles Global Belt States
     {
-        public static List<Belt> AllBelts = new(); // List for storing all belts placed on the grid
-        public static List<List<Belt>> Stream = new(); // List of belts connected in a chain from 1 to 'X'
+        public static List<Belt> allBelts = new(); // List for storing all belts placed on the grid
+        public static List<List<Belt>> stream = new(); // List of belts connected in a chain from 1 to 'X'
 
         private static void BuildStream()
         {
@@ -293,17 +293,17 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelt.ConveyorUtilities
 
         public MasterBeltHandler()
         {
-            AllBelts = new List<Belt>();
+            allBelts = new List<Belt>();
         }
 
         public void AddBelt(Belt belt)
         {
-            AllBelts.Add(belt);
+            allBelts.Add(belt);
         }
 
         public void RemoveBelt(Belt belt)
         {
-            AllBelts.Remove(belt);
+            allBelts.Remove(belt);
         }
 
     }

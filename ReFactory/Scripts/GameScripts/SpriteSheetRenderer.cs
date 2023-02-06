@@ -12,7 +12,7 @@ namespace ReFactory.GameScripts;
 
 public class SpriteSheetRenderer
 {
-    protected virtual int CurrentFrame => (int)Math.Floor((Time.TotalTime * frameRate) % sprites.Count);
+    protected virtual int CurrentFrame => (int)Math.Floor((Time.totalTime * frameRate) % sprites.Count);
     private Rectangle _rect;
     private Color _color;
     public int frameRate = 24;
@@ -45,7 +45,7 @@ public class SpriteSheetRenderer
                 if (discardEmpty && spriteSheetData.All(pixel => pixel == new Color(0, 0, 0, 0)))
                     continue;
                 
-                var texture = new Texture2D(MainGame.graphicsDevice, frameSize.X, frameSize.Y);
+                var texture = new Texture2D(MainGame.GraphicsDevice, frameSize.X, frameSize.Y);
                 texture.SetData(spriteSheetData);
                 sprites.Add(texture);
             }

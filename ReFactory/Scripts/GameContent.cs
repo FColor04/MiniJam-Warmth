@@ -27,25 +27,25 @@ namespace ReFactory
         
         static GameContent()
         {
-            var Content = MainGame.content;
+            var content = MainGame.Content;
             
             //Load font
             FontSystem = new FontSystem();
             FontSystem.AddFont(Assembly.GetExecutingAssembly().GetManifestResourceStream("Fonts.FFFForward.ttf"));
             Font11 = FontSystem.GetFont(16);
             //
-            SelectedTile = Content.Load<Texture2D>("Selected");
-            Rocks = Content.Load<Texture2D>("rocks");
+            SelectedTile = content.Load<Texture2D>("Selected");
+            Rocks = content.Load<Texture2D>("rocks");
             
             var sandTextures = new List<Texture2D>()
             {
-                Content.Load<Texture2D>("Sand1"),
-                Content.Load<Texture2D>("Sand2"),
-                Content.Load<Texture2D>("Sand3")
+                content.Load<Texture2D>("Sand1"),
+                content.Load<Texture2D>("Sand2"),
+                content.Load<Texture2D>("Sand3")
             };
             
             SandTextures = sandTextures.AsReadOnly();
-            var conveyors = Content.Load<Texture2D>("Tiles/ConveyorBelts");
+            var conveyors = content.Load<Texture2D>("Tiles/ConveyorBelts");
             StraightConveyorBelt = new SpriteSheetRenderer(conveyors, 
                 4, 
                 1, 
@@ -65,21 +65,21 @@ namespace ReFactory
 
         public static void RegisterItems()
         {
-            var Content = MainGame.content;
+            var content = MainGame.Content;
 
-            ItemReference.RegisterItem("Wood", "Chunk of tree", Content.Load<Texture2D>("wood"));
+            ItemReference.RegisterItem("Wood", "Chunk of tree", content.Load<Texture2D>("wood"));
             PlaceableItemReference.RegisterPlaceableItem(
                 "Rocks", 
                 "Just a few rocks", 
                 typeof(TestRockEntity),
                 new () {new Point(0, 0)}, 
-                Content.Load<Texture2D>("rocks"));
+                content.Load<Texture2D>("rocks"));
             PlaceableItemReference.RegisterPlaceableItem(
                 "Belt",
                 "Classic conveyor belt",
                 typeof(ConveyorBelt),
                 new HashSet<Point>{new (0, 0)},
-                Content.Load<Texture2D>("Tiles/ConveyorBelt"), 
+                content.Load<Texture2D>("Tiles/ConveyorBelt"), 
                 true);
         }
     }

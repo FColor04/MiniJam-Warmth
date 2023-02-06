@@ -17,37 +17,37 @@ namespace ReFactory.ParticleSystem.Particles
         private float _lifespanAmount;
         private Color _color;
         private float _opacity;
-        public bool IsFinished = false;
+        public bool isFinished = false;
 
         public Particle(Vector2 pos, ParticleData data)
         {
             _data = data;
-            _lifespanLeft = data.Lifespan;
+            _lifespanLeft = data.lifespan;
             _lifespanAmount = 1f;
             _position = pos;
-            _color = data.ColorStart;
-            _opacity = _data.OpacityStart;
+            _color = data.colorStart;
+            _opacity = _data.opacityStart;
             CanvasLayer.Base.GetCanvas().OnDraw += Draw;
         }
 
         public void Update()
         {
-            _lifespanLeft -= Time.DeltaTime;
+            _lifespanLeft -= Time.deltaTime;
             if (_lifespanLeft <= 0f)
             {
-                IsFinished = true;
+                isFinished = true;
                 CanvasLayer.Base.GetCanvas().OnDraw -= Draw;
                 return;
             }
 
-            _lifespanAmount = MathHelper.Clamp(_lifespanLeft / _data.Lifespan, 0, 1);
-            _color = Color.Lerp(_data.ColorEnd, _data.ColorStart, _lifespanAmount);
-            _opacity = MathHelper.Clamp(MathHelper.Lerp(_data.OpacityEnd, _data.OpacityStart, _lifespanAmount), 0, 1);
+            _lifespanAmount = MathHelper.Clamp(_lifespanLeft / _data.lifespan, 0, 1);
+            _color = Color.Lerp(_data.colorEnd, _data.colorStart, _lifespanAmount);
+            _opacity = MathHelper.Clamp(MathHelper.Lerp(_data.opacityEnd, _data.opacityStart, _lifespanAmount), 0, 1);
         }
 
         public void Draw(SpriteBatch spriteBatch, Canvas canvas)
         {
-            spriteBatch.Draw(_data.Texture, _position - canvas.ViewportOffset, null, _color * _opacity, 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 1f);
+            spriteBatch.Draw(_data.texture, _position - canvas.ViewportOffset, null, _color * _opacity, 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 1f);
         }
     }
 }

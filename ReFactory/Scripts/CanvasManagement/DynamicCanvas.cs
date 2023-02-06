@@ -31,8 +31,8 @@ public class DynamicCanvas : Canvas
         Rect = new Rectangle(new Vector2(widthDelta / 2f, heightDelta / 2f).ToPoint(), new Vector2(newWidth, newHeight).ToPoint());
         
         if (!useFullSize) return;
-        RenderTarget?.Dispose();
+        renderTarget?.Dispose();
         if (newWidth <= 0 || newHeight <= 0) return;
-        RenderTarget = new RenderTarget2D(MainGame.graphicsDevice, (int) newWidth, (int) newHeight, false, MainGame.graphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);
+        renderTarget = new RenderTarget2D(MainGame.GraphicsDevice, (int) newWidth, (int) newHeight, false, MainGame.GraphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);
     }
 }

@@ -12,7 +12,7 @@ namespace AudioManagement
 	{
 		private SoundEffectInstance sfxSound; // The Emitter Sound.
 
-		public SoundEffectInstance SFXSound
+		public SoundEffectInstance SfxSound
 		{
 			get { return sfxSound; }
 			set { sfxSound = value; }
@@ -51,9 +51,9 @@ namespace AudioManagement
 				set { emitterVolumeSlide = value; }
 			}
 
-			public ObjectSoundEmitter(SoundEffectInstance Sound, Vector2 emitterPos, float maxVolume, float minVolume)
+			public ObjectSoundEmitter(SoundEffectInstance sound, Vector2 emitterPos, float maxVolume, float minVolume)
 			{
-				this.sfxSound = Sound;
+				this.sfxSound = sound;
 				position = emitterPos;
 				emitterMaxVolume = maxVolume;
 				emitterMinVolume = minVolume;
@@ -115,7 +115,7 @@ namespace AudioManagement
 				set { isMoving = value; }
 			}
 
-			public PlayerSoundEmitter(SoundEffectInstance Sound, Vector2 playerPosition, float radius,
+			public PlayerSoundEmitter(SoundEffectInstance sound, Vector2 playerPosition, float radius,
 				float movementMultiplier, float noiseVal)
 			{
 				this.position = playerPosition;

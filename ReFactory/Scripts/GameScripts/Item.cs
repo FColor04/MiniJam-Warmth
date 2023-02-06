@@ -5,20 +5,20 @@ namespace ReFactory.GameScripts;
 
 public class Item
 {
-    public readonly string Name;
-    public int Count;
+    public readonly string name;
+    public int count;
     
     public Item(string name, int count)
     {
-        Name = name;
-        Count = count;
+        this.name = name;
+        this.count = count;
     }
 
     public Item(ItemReference reference, int count = 1)
     {
-        Name = reference.name;
-        Count = count;
+        name = reference.name;
+        this.count = count;
     }
 
-    public ItemReference Reference => ItemList.Items.FirstOrDefault(item => item.name == Name);
+    public ItemReference Reference => ItemList.Items.FirstOrDefault(item => item.name == name);
 }

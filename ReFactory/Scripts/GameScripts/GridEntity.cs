@@ -21,8 +21,8 @@ public abstract class GridEntity : Entity
 
     protected override void DrawSprite(SpriteBatch batch, Canvas canvas)
     {
-        if (sprite == null) return;
-        var halfSize = new Vector2(sprite.Width / 2f, sprite.Height / 2f);
-        batch.Draw(sprite, new Rectangle(_position.ToPoint() + halfSize.ToPoint() - canvas.ViewportOffset.ToPoint(), new Point(sprite.Width, sprite.Height)), null, Color.White, MathHelper.ToRadians(rotation), halfSize, SpriteEffects.None, 0);
+        if (Sprite == null) return;
+        var halfSize = new Vector2(Sprite.Width / 2f, Sprite.Height / 2f);
+        batch.Draw(Sprite, new Rectangle(Position.ToPoint() + halfSize.ToPoint() - canvas.ViewportOffset.ToPoint(), new Point(Sprite.Width, Sprite.Height)), null, Color.White, MathHelper.ToRadians(rotation), halfSize, SpriteEffects.None, 0);
     }
 }

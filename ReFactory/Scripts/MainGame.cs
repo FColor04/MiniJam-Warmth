@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using AudioManagement;
 using CanvasManagement;
-using DefaultNamespace;
+using ECS;
 using ReFactory.Controllers;
 using ReFactory.GameScripts;
 using ReFactory.Utility;
@@ -24,25 +24,25 @@ namespace MainGameFramework {
         /// </summary>
         public static event Action<float> OnUpdate = _ => { };
 
-        public static MainGame Instance;
-        public static GraphicsDevice graphicsDevice => Instance.GraphicsDevice;
+        public static MainGame instance;
+        public static GraphicsDevice GraphicsDevice => ((Game) instance).GraphicsDevice;
         private readonly GraphicsDeviceManager _graphics;
-        public static GraphicsDeviceManager graphicsDeviceManager => Instance._graphics;
-        public static ContentManager content => Instance.Content;
-        public static bool IsFocused => Instance.IsActive;
+        public static GraphicsDeviceManager GraphicsDeviceManager => instance._graphics;
+        public static ContentManager Content => ((Game) instance).Content;
+        public static bool IsFocused => instance.IsActive;
 
         private StateMachine playerStateMachine;
         private int worldSizeX = 17;
         private int worldSizeY = 17;
-        public World World;
+        public World world;
         public int WorldSizeX { get { return worldSizeX; } }
         public int WorldSizeY { get { return worldSizeY; } }
 
         public MainGame()
         {
-            Instance = this;
+            instance = this;
             _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            base.Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
         }
@@ -62,6 +62,7 @@ namespace MainGameFramework {
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(UI).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Resolution).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(ParticleTester).TypeHandle);
+            System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(SceneManagement).TypeHandle);
 
              var toolbar = new UIElement(new Rectangle(88, 180-20, 320-88-88, 20), UI.Pixel, ColorUtility.ToolbarGrey);
              UI.Root.AddChild(toolbar);
@@ -82,20 +83,20 @@ namespace MainGameFramework {
              toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar));
              toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
 
-            World = new World(WorldSizeX, WorldSizeY);
+             //world = new World(WorldSizeX, WorldSizeY);
         }
 
         protected override void Update(GameTime gameTime)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            Time.UnscaledDeltaTime = deltaTime;
-            Time.UnscaledTotalTime = (float)gameTime.TotalGameTime.TotalSeconds;
+            Time.unscaledDeltaTime = deltaTime;
+            Time.unscaledTotalTime = (float)gameTime.TotalGameTime.TotalSeconds;
 
-            deltaTime *= Time.TimeScale;
+            deltaTime *= Time.timeScale;
 
-            Time.TotalTime += deltaTime;
-            Time.DeltaTime = deltaTime;
+            Time.totalTime += deltaTime;
+            Time.deltaTime = deltaTime;
 
             //Input is exception so it's executed before other stuff not to cause race conditions.
             Input.UpdateState();
@@ -114,8 +115,8 @@ namespace MainGameFramework {
             {
                 canvas.Draw();
             }
-            GraphicsDevice.SetRenderTarget(null);
-            GraphicsDevice.Clear(Color.Black);
+            base.GraphicsDevice.SetRenderTarget(null);
+            base.GraphicsDevice.Clear(Color.Black);
             foreach (var canvas in CanvasManager.Canvases)
             {
                 canvas.DrawRenderTexture();

@@ -17,5 +17,5 @@ namespace AudioManagement;
 /// <seealso cref="AudioMixerGroup"/>
 public class AudioMixers : KeyedCollection<AudioMixerGroup, AudioMixer>
 {
-    protected override AudioMixerGroup GetKeyForItem(AudioMixer item) => item.Group;
+    protected override AudioMixerGroup GetKeyForItem(AudioMixer item) => item.group;
 }

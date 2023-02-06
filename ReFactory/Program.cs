@@ -11,15 +11,15 @@ public static class Program
     [DllImport("user32.dll")]
     static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
-    const int SW_HIDE = 0;
-    const int SW_SHOW = 5;
+    const int SwHide = 0;
+    const int SwShow = 5;
     
     [STAThread] static void Main(string[] args)
     {
-        if (!Debug.DebugMode)
+        if (!Debug.debugMode)
         {
             var handle = GetConsoleWindow();
-            ShowWindow(handle, SW_HIDE);
+            ShowWindow(handle, SwHide);
         }
         using var game = new MainGame();
         game.Run();

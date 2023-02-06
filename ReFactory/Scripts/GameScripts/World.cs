@@ -28,9 +28,9 @@ public class World : IPointerClickHandler
     private int interactiveRectC = 320;
     private int interactiveRectD = 180;
     
-    public Rectangle Bounds;
-    private int BoundOriginX = 0;
-    private int BoundOriginY = 0;
+    public Rectangle bounds;
+    private int _boundOriginX = 0;
+    private int _boundOriginY = 0;
     public Rectangle InteractiveRect => new Rectangle(interactiveRectA, interactiveRectB, interactiveRectC, interactiveRectD);
     public List<Entity> entities = new();
     public Dictionary<Point, GridEntity> gridElements = new ();
@@ -50,17 +50,17 @@ public class World : IPointerClickHandler
     
     public World(int width, int height)
     {
-        Bounds = new Rectangle(BoundOriginX, BoundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
+        bounds = new Rectangle(_boundOriginX, _boundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
         
-        _desertStorm = new SpriteSheetRenderer(MainGame.content.Load<Texture2D>("SandStorm/SandStorm"), 7, 7, SpriteSheetRenderer.Layer.UI);
+        _desertStorm = new SpriteSheetRenderer(MainGame.Content.Load<Texture2D>("SandStorm/SandStorm"), 7, 7, SpriteSheetRenderer.Layer.UI);
         _desertStormTime = Random.Shared.Range(20, 70);
         
         _desertStorm.SetColor(new Color(0,0,0,0));
         _desertStorm.SetRect(new Rectangle(0, 0, 320, 180));
         
-        for (int x = Bounds.X; x < Bounds.Width; x += 32)
+        for (int x = bounds.X; x < bounds.Width; x += 32)
         {
-            for (int y = Bounds.Y; y < Bounds.Height; y += 32)
+            for (int y = bounds.Y; y < bounds.Height; y += 32)
             {
                 entities.Add(new Sand(new Vector2(x, y)));
             }
@@ -68,19 +68,19 @@ public class World : IPointerClickHandler
         
         CanvasLayer.Base.GetCanvas().OnDraw += Draw;
         MainGame.OnUpdate += Update;
-        UI.AdditionalInteractiveElements.Add(this);
+        UI.additionalInteractiveElements.Add(this);
     }
     
     ~World()
     {
         CanvasLayer.Base.GetCanvas().OnDraw -= Draw;
         MainGame.OnUpdate -= Update;
-        UI.AdditionalInteractiveElements.Remove(this);
+        UI.additionalInteractiveElements.Remove(this);
     }
 
     private void Update(float deltaTime)
     {
-        if (Time.TotalTime > _desertStormTime)
+        if (Time.totalTime > _desertStormTime)
         {
             _desertStormTime += Random.Shared.Range(20, 70);
             _desertStorm.SetColor(_desertStorm.GetColor() == Color.White ? new Color(0,0,0,0) : Color.White);
@@ -145,16 +145,16 @@ public class World : IPointerClickHandler
         }
     }
 
-    public bool IsPointOccupied(Point gridPoint) => gridElements.ContainsKey(gridPoint) || !Bounds.Contains(gridPoint);
+    public bool IsPointOccupied(Point gridPoint) => gridElements.ContainsKey(gridPoint) || !bounds.Contains(gridPoint);
 
-    public bool CanBePlaced(PlaceableItemReference item, Point root) => item.OccupiedPoints.All(point => !IsPointOccupied(root + new Point(point.X * GridSize, point.Y * GridSize)));
+    public bool CanBePlaced(PlaceableItemReference item, Point root) => item.occupiedPoints.All(point => !IsPointOccupied(root + new Point(point.X * GridSize, point.Y * GridSize)));
     
     public bool PlaceItem(Vector2 position, PlaceableItemReference item)
     {
         var gridPosition = GetGridPoint(position);
         if (!CanBePlaced(item, gridPosition)) return false;
         
-        var entityInstance = Activator.CreateInstance(item.PlacedEntityType);
+        var entityInstance = Activator.CreateInstance(item.placedEntityType);
         if (entityInstance is GridEntity gridEntity)
         {
             if (item.rotatable)
@@ -197,7 +197,7 @@ public class World : IPointerClickHandler
             if (PointerItemRenderer.HeldItem != null && PointerItemRenderer.HeldItem.Reference is PlaceableItemReference reference)
             {
                 if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset, reference))
-                    PointerItemRenderer.HeldItem.Count--;
+                    PointerItemRenderer.HeldItem.count--;
                 else
                     Debug.Log("Play Error Sound");
             }

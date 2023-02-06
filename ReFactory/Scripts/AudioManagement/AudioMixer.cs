@@ -6,10 +6,10 @@ namespace AudioManagement;
 
 public class AudioMixer : IDisposable
 {
-    public AudioMixerGroup Group;
+    public AudioMixerGroup group;
 
-    public float MixerVolume;
-    public int AudioTrackLimit;
+    public float mixerVolume;
+    public int audioTrackLimit;
 
     private float _fadeVolumeTarget;
     private float _fadeVolumeMultiplier = 1f;
@@ -20,9 +20,9 @@ public class AudioMixer : IDisposable
 
     public AudioMixer(AudioMixerGroup group, float mixerVolume = 1f, int audioTrackLimit = -1)
     {
-        MixerVolume = mixerVolume;
-        Group = group;
-        AudioTrackLimit = audioTrackLimit;
+        this.mixerVolume = mixerVolume;
+        this.group = group;
+        this.audioTrackLimit = audioTrackLimit;
     }
 
     public void Dispose()
@@ -49,10 +49,10 @@ public class AudioMixer : IDisposable
 
     public void Play(SoundEffect audioTrack, float volume = 1f, float pitch = 0, float pan = 0f, bool loop = true)
     {
-        if (AudioTrackLimit != -1 && _instances.Count >= AudioTrackLimit) return;
+        if (audioTrackLimit != -1 && _instances.Count >= audioTrackLimit) return;
 
         var trackInstance = audioTrack.CreateInstance();
-        trackInstance.Volume = MixerVolume * volume * _fadeVolumeMultiplier;
+        trackInstance.Volume = mixerVolume * volume * _fadeVolumeMultiplier;
         trackInstance.Pitch = pitch;
         trackInstance.Pan = pan;
         trackInstance.IsLooped = loop;
@@ -72,13 +72,13 @@ public class AudioMixer : IDisposable
             _fadeVolumeMultiplier -= deltaTime / (Math.Max(_fadeDuration, 0.0001f));
         else
         {
-            _fadeInInstance.Volume = _fadeVolumeTarget * MixerVolume;
+            _fadeInInstance.Volume = _fadeVolumeTarget * mixerVolume;
             _instances.Add(_fadeInInstance);
             _fadeInInstance = null;
 
             return;
         }
 
-        _fadeInInstance.Volume = _fadeVolumeTarget * MixerVolume * (1 - _fadeVolumeMultiplier);
+        _fadeInInstance.Volume = _fadeVolumeTarget * mixerVolume * (1 - _fadeVolumeMultiplier);
     }
 }

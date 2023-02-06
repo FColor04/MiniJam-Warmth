@@ -10,28 +10,28 @@ namespace ReFactory
     /// </summary>
     public static class Input
     {
-        public static MouseState MouseState;
-        public static GamePadState GamepadState;
-        public static KeyboardState KeyboardState;
+        public static MouseState mouseState;
+        public static GamePadState gamepadState;
+        public static KeyboardState keyboardState;
 
-        public static MouseState PreviousMouseState;
-        public static GamePadState PreviousGamepadState;
-        public static KeyboardState PreviousKeyboardState;
+        public static MouseState previousMouseState;
+        public static GamePadState previousGamepadState;
+        public static KeyboardState previousKeyboardState;
 
-        public static Point MousePosition => MouseState.Position;
-        public static bool Exit => KeyboardState.IsKeyDown(Keys.Escape) || GamepadState.Buttons.Start == ButtonState.Pressed;
+        public static Point MousePosition => mouseState.Position;
+        public static bool Exit => keyboardState.IsKeyDown(Keys.Escape) || gamepadState.Buttons.Start == ButtonState.Pressed;
         public static bool ToggleFullscreen => Keys.F11.WasPressedThisFrame();
 
-        public static bool MiddleMousePressed => MouseState.MiddleButton == ButtonState.Pressed && PreviousMouseState.MiddleButton == ButtonState.Released;
-        public static bool RightMousePressed => MouseState.RightButton == ButtonState.Pressed && PreviousMouseState.RightButton == ButtonState.Released;
-        public static bool LeftMousePressed => MouseState.LeftButton == ButtonState.Pressed && PreviousMouseState.LeftButton == ButtonState.Released;
+        public static bool MiddleMousePressed => mouseState.MiddleButton == ButtonState.Pressed && previousMouseState.MiddleButton == ButtonState.Released;
+        public static bool RightMousePressed => mouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Released;
+        public static bool LeftMousePressed => mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released;
         
-        public static bool LeftMouseHold => MouseState.LeftButton == ButtonState.Pressed && PreviousMouseState.LeftButton == ButtonState.Pressed;
-        public static bool RightMouseHold => MouseState.RightButton == ButtonState.Pressed && PreviousMouseState.RightButton == ButtonState.Pressed;
+        public static bool LeftMouseHold => mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Pressed;
+        public static bool RightMouseHold => mouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Pressed;
         
-        public static bool LeftMouseRelease => MouseState.LeftButton == ButtonState.Released && PreviousMouseState.LeftButton == ButtonState.Pressed;
-        public static bool RightMouseRelease => MouseState.RightButton == ButtonState.Released && PreviousMouseState.RightButton == ButtonState.Pressed;
-        public static bool MiddleMouseRelease => MouseState.MiddleButton == ButtonState.Released && PreviousMouseState.MiddleButton == ButtonState.Pressed;
+        public static bool LeftMouseRelease => mouseState.LeftButton == ButtonState.Released && previousMouseState.LeftButton == ButtonState.Pressed;
+        public static bool RightMouseRelease => mouseState.RightButton == ButtonState.Released && previousMouseState.RightButton == ButtonState.Pressed;
+        public static bool MiddleMouseRelease => mouseState.MiddleButton == ButtonState.Released && previousMouseState.MiddleButton == ButtonState.Pressed;
 
         public static int GetPressedMouseButton =>
             LeftMousePressed ? 0 :
@@ -49,13 +49,13 @@ namespace ReFactory
 
         public static void UpdateState()
         {
-            PreviousMouseState = MouseState;
-            PreviousGamepadState = GamepadState;
-            PreviousKeyboardState = KeyboardState;
+            previousMouseState = mouseState;
+            previousGamepadState = gamepadState;
+            previousKeyboardState = keyboardState;
 
-            MouseState = Mouse.GetState();
-            GamepadState = GamePad.GetState(PlayerIndex.One);
-            KeyboardState = Keyboard.GetState();
+            mouseState = Mouse.GetState();
+            gamepadState = GamePad.GetState(PlayerIndex.One);
+            keyboardState = Keyboard.GetState();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace ReFactory
         /// <returns>Was pressed this frame</returns>
         public static bool WasPressedThisFrame(this Keys key)
         {
-            return KeyboardState.IsKeyDown(key) && !PreviousKeyboardState.IsKeyDown(key);
+            return keyboardState.IsKeyDown(key) && !previousKeyboardState.IsKeyDown(key);
         }
         
         /// <summary>
@@ -75,7 +75,7 @@ namespace ReFactory
         /// <returns>Is pressed this frame</returns>
         public static bool IsPressedThisFrame(this Keys key)
         {
-            return KeyboardState.IsKeyDown(key);
+            return keyboardState.IsKeyDown(key);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace ReFactory
         /// <returns>Was released this frame</returns>
         public static bool WasReleasedThisFrame(this Keys key)
         {
-            return !KeyboardState.IsKeyDown(key) && PreviousKeyboardState.IsKeyDown(key);
+            return !keyboardState.IsKeyDown(key) && previousKeyboardState.IsKeyDown(key);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace ReFactory
         /// <returns>Is being held this frame (false if just pressed)</returns>
         public static bool IsHeldThisFrame(this Keys key)
         {
-            return KeyboardState.IsKeyDown(key) && PreviousKeyboardState.IsKeyDown(key);
+            return keyboardState.IsKeyDown(key) && previousKeyboardState.IsKeyDown(key);
         }
     }
 }

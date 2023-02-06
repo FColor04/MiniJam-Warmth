@@ -8,7 +8,7 @@ namespace ParticleSystem.Particles;
 
 public static class ParticleTester
 {
-    private static ParticleData ParticleData = new ();
+    private static ParticleData _particleData = new ();
     private static ParticleSystem _particleSystem;
     
     static ParticleTester()
@@ -20,6 +20,6 @@ public static class ParticleTester
     private static void Update(float deltaTime)
     {
         if(Input.LeftMousePressed)
-            _particleSystem.AddParticle(new Particle(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset, ParticleData));
+            _particleSystem.AddParticle(new Particle(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset, _particleData));
     }
 }

@@ -10,9 +10,9 @@ namespace ReFactory.UISystem;
 
 public static class PointerItemRenderer
 {
-    public static Func<Item> GetItem = () => null;
-    public static Action<Item> SetItem = _ => {};
-    public static Item HeldItem => GetItem();
+    public static Func<Item> getItem = () => null;
+    public static Action<Item> setItem = _ => {};
+    public static Item HeldItem => getItem();
     static PointerItemRenderer()
     {
         CanvasLayer.UI.GetCanvas().OnDraw += DrawHeldItem;
@@ -20,13 +20,13 @@ public static class PointerItemRenderer
 
     private static void DrawHeldItem(SpriteBatch spriteBatch, Canvas canvas)
     {
-        if (HeldItem?.Count <= 0) 
-            SetItem(null);
+        if (HeldItem?.count <= 0) 
+            setItem(null);
         if (HeldItem == null) return;
         var sprite = HeldItem.Reference.sprite;
         spriteBatch.Draw(sprite, new Rectangle(canvas.MousePosition.ToPoint(), new Point(sprite.Width, sprite.Height)), Color.White);
         spriteBatch.DrawString(GameContent.Font11,
-            $"{HeldItem.Count}",
+            $"{HeldItem.count}",
             canvas.MousePosition,
             Color.White);
     }
