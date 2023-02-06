@@ -9,9 +9,7 @@ namespace ReFactory.Debugger {
         public static bool DebugMode;
         public static readonly int DebugInt = 5;
         public static readonly float DebugFloat = 3.141592653589793238462643383279f;
-
         private static string TimeNow => DateTime.Now.ToString("T");
-        
         static Debug()
         {
 #if DEBUG

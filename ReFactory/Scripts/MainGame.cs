@@ -77,9 +77,9 @@ namespace MainGameFramework {
                  toolbar.AddChild(itemSlot);
              }
             
-             Inventory.AddItem(new Item("Belt", 24));
-            
-             toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar));
+            Inventory.AddItem(new Item("Belt", 48));
+
+            toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar));
              toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
 
             World = new World(WorldSizeX, WorldSizeY);

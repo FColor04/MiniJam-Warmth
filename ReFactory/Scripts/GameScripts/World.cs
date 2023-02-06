@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using ReFactory.Utility;
 using ReFactory.GameScripts.Machines.ConveyorBelts;
 using ReFactory.UISystem;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ReFactory.GameScripts;
 
@@ -20,6 +21,8 @@ namespace ReFactory.GameScripts;
 public class World : IPointerClickHandler
 {
     public const int GridSize = 16;
+    public List<GEC> GridEntityCells;
+    public List<Vector2> Cells;
 
     public event Action<Point, GridEntity> OnGridBuild = (_, _) => {};
 
@@ -47,9 +50,27 @@ public class World : IPointerClickHandler
 
     private float _desertStormTime;
     private SpriteSheetRenderer _desertStorm;
-    
+
+    public struct GEC {
+        Vector2 parentCell;
+        Vector2 A; 
+        Vector2 B; 
+        Vector2 C; 
+        Vector2 D;
+
+        public GEC(Vector2 parentCell)
+        {
+            this.parentCell = parentCell;
+            this.A = new Vector2(0, 0);
+            this.B = new Vector2(0, 1);
+            this.C = new Vector2(1, 0);
+            this.D = new Vector2(1, 1);
+        }
+    }
+
     public World(int width, int height)
     {
+        GenerateCells(GridSize);
         Bounds = new Rectangle(BoundOriginX, BoundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
         
         _desertStorm = new SpriteSheetRenderer(MainGame.content.Load<Texture2D>("SandStorm/SandStorm"), 7, 7, SpriteSheetRenderer.Layer.UI);
@@ -78,6 +99,21 @@ public class World : IPointerClickHandler
         UI.AdditionalInteractiveElements.Remove(this);
     }
 
+    private void GenerateCells(int GridSize)
+    {
+        Cells = new List<Vector2>();
+        GridEntityCells = new List<GEC>();
+        for (int i = 0; i < GridSize; i++)
+        {
+            for (int j = 0; j < GridSize; j++)
+            {
+                Cells.Add(new Vector2(i, j));
+                GridEntityCells.Add(new GEC(new Vector2(i, j)));
+            }
+        }
+    }
+
+
     private void Update(float deltaTime)
     {
         if (Time.TotalTime > _desertStormTime)
@@ -85,7 +121,7 @@ public class World : IPointerClickHandler
             _desertStormTime += Random.Shared.Range(20, 70);
             _desertStorm.SetColor(_desertStorm.GetColor() == Color.White ? new Color(0,0,0,0) : Color.White);
         }
-        
+
         if (PointerItemRenderer.HeldItem != null && PointerItemRenderer.HeldItem.Reference is PlaceableItemReference reference)
         {
             DrawPlaceableGhost(reference);

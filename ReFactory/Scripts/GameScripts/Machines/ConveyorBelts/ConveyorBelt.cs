@@ -17,9 +17,12 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
     public class ConveyorBelt : GridEntity
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-
         public static List<ConveyorBelt> ConveyorBelts = new();
+        private static List<ConveyorBelt> nieghborBelt = new();
         private static Stack<ConveyorBelt> _updateStack = new();
+        private List<BeltEntity> _beltEntities = new();
+
+        private static Vector2[] cellPositions;
 
         private bool beltSet = false;
 
@@ -28,15 +31,15 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
         public override Texture2D sprite => _getSprite();
         public override HashSet<Point> OccupiedRelativePoints => new() { new Point(0, 0) };
         public override Func<bool> OnDestroy => () => Inventory.AddItem(new Item("Belt", 1));
-        private bool _updatedThisFrame;
-        private List<BeltEntity> _leftSideBeltEntities = new();
-        private List<BeltEntity> _rightSideBeltEntities = new();
+
+
         #endregion
 
         #region Conveyor Belt Constructor & Disposal Method
         public ConveyorBelt()
         {
             ConveyorBelts.Add(this);
+            NieghborCheck(0f);
             MainGame.Instance.World.OnGridBuild += OnGridBuild;
         }
 
@@ -44,12 +47,34 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
         {
             if (!disposing) return;
             ConveyorBelts.Remove(this);
+            NieghborCheck(1f);
             MainGame.Instance.World.OnGridBuild -= OnGridBuild;
             base.Dispose(true);
         }
 
         #endregion
 
+        public void NieghborCheck(float AddRemove) // 0 = Adder, 1 = Remover
+        {
+            if (AddRemove == 0f)
+            {
+                nieghborBelt.Add(this);
+                MainGame.Instance.World.OnGridBuild += OnGridBuild;
+                Debug.Log("Belt Added at: " + position);
+            }
+
+            if (AddRemove == 1f)
+            {
+                nieghborBelt.Remove(this);
+                MainGame.Instance.World.OnGridBuild -= OnGridBuild;
+                base.Dispose(true);
+                Debug.Log("Belt Removed at: " + position);
+            }
+
+            Debug.Log("Belts Placed: " + nieghborBelt.Count);
+            Debug.Log("Last Belt Interaction at: " + virtualPosition);
+            
+        }
 
 
         #region Global Update Method
@@ -80,7 +105,7 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
                     bool targetOtherSide = rotationDiff >= 180;
 
 
-                    if (belt._leftSideBeltEntities.Count! >= 0 && belt._rightSideBeltEntities.Count! >= 0)
+                    if (belt._beltEntities.Count! >= 0)
                     {
                         continue;
                     }
@@ -88,10 +113,10 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
                     if (targetBelt.HasSpaceForNewEntity(targetOtherSide))
                     {
                         float previousProgress = 2;
-                        foreach (var beltEntity in belt._rightSideBeltEntities.OrderByDescending(beltE => beltE.progress))
+                        foreach (var beltEntity in belt._beltEntities.OrderByDescending(beltE => beltE.progress))
                         {
                             if (!beltEntity.Progress(deltaTime, ref previousProgress)) break;
-                            belt._rightSideBeltEntities.Remove(beltEntity);
+                            belt._beltEntities.Remove(beltEntity);
                             targetBelt.PlaceNewEntity(beltEntity, targetOtherSide);
                         }
                     }
@@ -101,10 +126,10 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
                     if (targetBelt.HasSpaceForNewEntity(!targetOtherSide))
                     {
                         var previousProgress = 1 + ItemSpacing;
-                        foreach (var beltEntity in belt._leftSideBeltEntities.OrderByDescending(beltE => beltE.progress))
+                        foreach (var beltEntity in belt._beltEntities.OrderByDescending(beltE => beltE.progress))
                         {
                             if (!beltEntity.Progress(deltaTime, ref previousProgress)) break;
-                            belt._leftSideBeltEntities.Remove(beltEntity);
+                            belt._beltEntities.Remove(beltEntity);
                             targetBelt.PlaceNewEntity(beltEntity, !targetOtherSide);
                         }
                     }
@@ -163,9 +188,9 @@ namespace ReFactory.GameScripts.Machines.ConveyorBelts
         {
             if (left)
             {
-                return _leftSideBeltEntities.Count == 0 || _leftSideBeltEntities.MinBy(beltE => beltE.progress).progress > ItemSpacing;
+                return _beltEntities.Count == 0 || _beltEntities.MinBy(beltE => beltE.progress).progress > ItemSpacing;
             }
-            return _rightSideBeltEntities.Count == 0 || _rightSideBeltEntities.MinBy(beltE => beltE.progress).progress > ItemSpacing;
+            return _beltEntities.Count == 0 || _beltEntities.MinBy(beltE => beltE.progress).progress > ItemSpacing;
         }
         private const float ItemSpacing = 1 / 4f;
 
