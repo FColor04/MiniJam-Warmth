@@ -110,19 +110,35 @@
 #region Experience Based Knowledge
 //	Things like Occupation or World Events this NPC took part in; generally before player interaction. (AKA 'Generated')
 
+#region Example Jobs/Practices and World Events
+//	====Jobs & Practices====
+//	Lumber Jack, Excavator/Miner
+//	Construction Worker
+//	Hunter, Farmer, Scavenger
+//	
+//	
+//	
+//	
+//	====World Events====
 //	
 //	
 //	
 //	
 #endregion
 
+#endregion
+
 #region Situational Based Knowledge
 //	Events that took place in the game, generally due directly or indirectly by player actions.
 
+#region Example Actions or Scenarios that might occur
 //	
 //	
 //	
 //	
+//	
+#endregion
+
 #endregion
 
 #endregion
