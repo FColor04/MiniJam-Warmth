@@ -97,7 +97,8 @@ namespace MainGameFramework {
 
             Time.totalTime += deltaTime;
             Time.deltaTime = deltaTime;
-
+            Time.preciseDeltaTime = gameTime.ElapsedGameTime.TotalSeconds;
+            
             //Input is exception so it's executed before other stuff not to cause race conditions.
             Input.UpdateState();
             if (Input.Exit)

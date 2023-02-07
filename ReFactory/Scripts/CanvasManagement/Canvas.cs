@@ -2,6 +2,8 @@
 using MainGameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using MonoGame;
 using ReFactory;
 using ReFactory.Utility;
 
@@ -98,8 +100,6 @@ public class Canvas
         if (DrawRenderTarget)
             MainGame.GraphicsDevice.Clear(Color.Transparent);
 
-        ViewportOffset = (ViewportOffset * 1000f).ToPoint().ToVector2() / 1000f;
-        
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
         OnDraw?.Invoke(SpriteBatch, this);
         SpriteBatch.End();
@@ -110,10 +110,11 @@ public class Canvas
         if (DrawRenderTarget)
         {
             SpriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
+            
             var offset = new Point();
             offset.X = (int) (-((ViewportOffset.X - MathF.Truncate(ViewportOffset.X)) * ((float) Width / RenderWidth)));
             offset.Y = (int) (-((ViewportOffset.Y - MathF.Truncate(ViewportOffset.Y)) * ((float) Height / RenderHeight)));
-            Debug.Log(ViewportOffset);
+
             SpriteBatch.Draw(renderTarget, new Rectangle(offset + Location, Size), Color.White);
             SpriteBatch.End();
         }

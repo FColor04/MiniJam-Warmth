@@ -10,7 +10,8 @@ namespace ReFactory.Controllers;
 public static class CameraController
 {
     private static readonly Canvas Canvas;
-
+    private static float velocity;
+    
     static CameraController()
     {
         Canvas = CanvasLayer.Base.GetCanvas();
@@ -38,6 +39,20 @@ public static class CameraController
             vertical = 1;
         }
 
-        Canvas.ViewportOffset += new Vector2(horizontal, vertical) * deltaTime * 32;
+        var moving = horizontal != 0 || vertical != 0;
+        var movingDiagonally = horizontal != 0 && vertical != 0;
+        
+        //Get up to speed in 1 / 8th of a second
+        velocity = MathHelper.Lerp(velocity, moving ? 1 : 0, Time.deltaTime * 8f);
+        
+        if (movingDiagonally)
+        {
+            horizontal *= 0.707106781f;
+            vertical *= 0.707106781f;
+        }
+
+        var speed = Time.preciseDeltaTime * velocity * 128.0;
+        var movementVector = new Vector2((float) (horizontal * speed), (float) (vertical * speed));
+        Canvas.ViewportOffset += movementVector;
     }
 }

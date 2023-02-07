@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ECS.Components;
 using ECS.Systems;
 using MainGameFramework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReFactory;
 
@@ -23,6 +24,24 @@ public static class SceneManagement
 
         _gameScene
             .AddEntity()
+            .AddComponent(new SpriteRenderer()
+            {
+                texture = GameContent.Rocks
+            });
+        _gameScene.AddEntity()
+            .SetPosition(new Vector2(0, 100))
+            .AddComponent(new SpriteRenderer()
+            {
+                texture = GameContent.Rocks
+            });
+        _gameScene.AddEntity()
+            .SetPosition(new Vector2(0, 50.5f))
+            .AddComponent(new SpriteRenderer()
+            {
+                texture = GameContent.Rocks
+            });
+        _gameScene.AddEntity()
+            .SetPosition(new Vector2(0, 21.3742001294f))
             .AddComponent(new SpriteRenderer()
             {
                 texture = GameContent.Rocks

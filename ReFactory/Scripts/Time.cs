@@ -1,4 +1,6 @@
-﻿namespace ReFactory;
+﻿using Microsoft.Xna.Framework;
+
+namespace ReFactory;
 
 public static class Time
 {
@@ -7,4 +9,5 @@ public static class Time
     public static float unscaledTotalTime;
     public static float deltaTime;
     public static float unscaledDeltaTime;
+    public static double preciseDeltaTime;
 }

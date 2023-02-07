@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ECS.Components;
 using JetBrains.Annotations;
+using Microsoft.Xna.Framework;
 
 namespace ECS;
 
@@ -19,6 +20,12 @@ public class Entity : IDisposable
         Scene = scene;
         Transform = new Transform();
         AddComponent(Transform);
+    }
+
+    public Entity SetPosition(Vector2 newPosition)
+    {
+        Transform.position = newPosition;
+        return this;
     }
 
     protected virtual void Dispose(bool disposing)

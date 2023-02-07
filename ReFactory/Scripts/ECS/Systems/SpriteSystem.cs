@@ -20,14 +20,13 @@ public class SpriteSystem : BaseSystem<SpriteRenderer>
 
     private static void Draw(SpriteBatch spriteBatch, Canvas canvas)
     {
-        spriteBatch.Draw(GameContent.SelectedTile, new Rectangle(0,0,320,180), Color.White);
         foreach (var component in ComponentReferences)
         {
             if (!component.TryGetTarget(out SpriteRenderer spriteRenderer)) continue;
             
             spriteBatch.Draw(
                 spriteRenderer.texture,
-                spriteRenderer.entity.Transform.position - _canvas.ViewportOffset,
+                (spriteRenderer.entity.Transform.position - _canvas.ViewportOffset.ToPoint().ToVector2()),
                 null,
                 spriteRenderer.color,
                 spriteRenderer.entity.Transform.rotation.Radians,
