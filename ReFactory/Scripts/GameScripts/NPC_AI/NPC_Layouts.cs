@@ -71,6 +71,8 @@
 
 #endregion
 
+//=========//
+
 #region Base Traits
 
 #region Basic Statistics
@@ -82,8 +84,8 @@
 //	Hearing Range
 #endregion
 
-#region Humanoid & Creature Personality 'Adoptible' Traits
-//**In this sense, 'Adoptible' just means Non-Default for most traits**
+#region Humanoid & Creature Personality 'Adoptable' Traits
+//**In this sense, 'Adoptable' just means Non-Default for most traits**
 
 //	Curiosity : Clamped float -100 to 100 (amount of 'Disruption' (Audio/Visual) before this NPC investigates. 100 means Extremely Curios. Negitive Numbers result in degrees of fleeing)
 //	
@@ -93,6 +95,8 @@
 #endregion
 
 #endregion
+
+//=========//
 
 #region Humanoid
 
@@ -170,22 +174,79 @@
 #endregion
 
 
-
 #region Creature
 
 #region Traits/Features
-// Natural Hostility : Clamped float 0-100, Default 25.0f
-//
-//
-//
-//
+//  Natural Hostility : Clamped float -50 to 50, Default 0f
+//  
+//  
+//  
+//  
 #endregion
 
-#region
-//
-//
-//
-//
+#region 
+//  
+//  
+//  
 #endregion
 
+#endregion
+
+
+
+#region NPC Structuring
+//  
+#region BaseNPC
+
+namespace ReFactoryNPC
+{
+    public class BaseNPC
+    {
+        #region Main Variables
+        private bool _isKillable = true;
+
+        private float _health = 100f;
+        private float _armour = 0f;
+        private float _baseDamage = 10f;
+
+        private float _visionRange = 10f;
+        private float _hearingRange = 10f;
+        #endregion
+        #region Adoptables
+
+
+
+    }
+
+}
+
+#endregion 
+
+#region Humanoid
+
+namespace ReFactoryNPC
+{
+    public class Humanoid : BaseNPC
+    {
+
+    }
+
+
+}
+
+#endregion
+
+#region Creature
+
+namespace ReFactoryNPC
+{
+    public class Creature : BaseNPC
+    {
+
+    }
+
+}
+
+#endregion
+//  
 #endregion
