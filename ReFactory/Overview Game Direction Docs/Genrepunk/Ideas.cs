@@ -9,17 +9,17 @@ Escort a valuable shipment of atomic energy from an atompunk power plant to a bi
 
 Rescue a steam-powered automaton that was stolen from a clockpunk inventor and taken to a dieselpunk city.
 
-Help a solarpunk community defend against an invasion by a cyborg army led by a powerful atompunk general.
+Help a clockpunk community defend against an invasion by a cyborg army led by a powerful atompunk general.
 
-Infiltrate a dieselpunk weapons factory and sabotage its production of clockwork-powered war machines.
+Infiltrate a dieselpunk weapons factory and sabotage its production of atomic-powered war machines.
 
 Investigate a series of mysterious disappearances in a nanotech-infused cyberpunk metropolis.
 
-Help a biopunk researcher recover a stolen sample of genetic material from a group of clockpunk alchemists.
+Help a biopunk researcher recover a stolen sample of genetic material from a group of cyberpunks.
 
 Retrieve a powerful artifact that has been lost in a steam-powered temple in the middle of an atompunk wasteland.
 
-Defend a solarpunk village from a rampaging horde of nanobots controlled by a rogue cyberpunk hacker.
+Defend a Steampunk village from a rampaging horde of nanobots controlled by a rogue cyberpunk hacker.
 
 
 =====Quest Creator General Prompts=====
