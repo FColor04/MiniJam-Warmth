@@ -84,11 +84,18 @@
 //	Hearing Range
 #endregion
 
+#region Location Data
+//  _currentWorldPosition
+//  _currentRegion
+//  _homeRegion
+//  
+#endregion
+
 #region Humanoid & Creature Personality 'Adoptable' Traits
 //**In this sense, 'Adoptable' just means Non-Default for most traits**
 
 //	Curiosity : Clamped float -100 to 100 (amount of 'Disruption' (Audio/Visual) before this NPC investigates. 100 means Extremely Curios. Negitive Numbers result in degrees of fleeing)
-//	
+//  Hostility : Clamped float -50 to 50, Default 0f
 //	
 //	
 //	
@@ -177,7 +184,6 @@
 #region Creature
 
 #region Traits/Features
-//  Natural Hostility : Clamped float -50 to 50, Default 0f
 //  
 //  
 //  
@@ -195,7 +201,10 @@
 
 
 #region NPC Structuring
-//  
+using EMF = ReFactory.Utility.ExtraMathFunctions;
+using System;
+
+
 #region BaseNPC
 
 namespace ReFactoryNPC
@@ -209,16 +218,19 @@ namespace ReFactoryNPC
         private float _armour = 0f;
         private float _baseDamage = 10f;
 
-        private float _visionRange = 10f;
-        private float _hearingRange = 10f;
+        private float _visionRange = EMF.Clamp(10f, 0f, 100f);
+        private float _hearingRange = EMF.Clamp(10f, 0f, 100f);
         #endregion
         #region Adoptables
-
+        private float _curiosity = EMF.Clamp(5f, -100f, 100f);
+        private float _hostility = EMF.Clamp(0f, -50f, 50f);
+        #endregion
 
 
     }
 
 }
+
 
 #endregion 
 
@@ -248,5 +260,9 @@ namespace ReFactoryNPC
 }
 
 #endregion
+
+
+
+
 //  
 #endregion
