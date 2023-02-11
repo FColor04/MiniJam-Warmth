@@ -74,16 +74,6 @@ namespace AudioManagement
 			}
 		}
 
-		public class PlayerSoundRadar
-		{
-
-
-			public PlayerSoundRadar()
-			{
-
-			}
-		}
-
 		public class PlayerSoundEmitter : SoundEmitterBase
 		{
 			private float radius; // Radius that the player emits sound to.
