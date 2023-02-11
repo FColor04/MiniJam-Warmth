@@ -59,6 +59,13 @@ namespace ReFactory.Debugger {
         {
             
         }
+
+        public static void CurrentMousePosition() 
+        //TODO: Make a tool to show the mouse coordinates in a small box on the in-game screen
+        {
+            if (!debugMode) return;
+        }
+
         #endregion
 
     }
