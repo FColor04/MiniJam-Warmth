@@ -50,7 +50,7 @@ public class World : IPointerClickHandler
     
     public World(int width, int height)
     {
-        bounds = new Rectangle(_boundOriginX, _boundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
+        bounds = new Rectangle(_boundOriginX, _boundOriginY, width * GridSize, height * GridSize);
         
         _desertStorm = new SpriteSheetRenderer(MainGame.Content.Load<Texture2D>("SandStorm/SandStorm"), 7, 7, SpriteSheetRenderer.Layer.UI);
         _desertStormTime = Random.Shared.Range(20, 70);

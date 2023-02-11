@@ -32,11 +32,11 @@ namespace MainGameFramework {
         public static bool IsFocused => instance.IsActive;
 
         private StateMachine playerStateMachine;
-        private int worldSizeX = 17;
-        private int worldSizeY = 17;
+        private int worldSizeX = 16;
+        private int worldSizeY = 16;
         public World world;
-        public int WorldSizeX { get { return worldSizeX; } }
-        public int WorldSizeY { get { return worldSizeY; } }
+        public int WorldSizeX => worldSizeX;
+        public int WorldSizeY => worldSizeY;
 
         public MainGame()
         {
@@ -83,7 +83,7 @@ namespace MainGameFramework {
              toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar));
              toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
 
-             //world = new World(WorldSizeX, WorldSizeY);
+             world = new World(WorldSizeX, WorldSizeY);
         }
 
         protected override void Update(GameTime gameTime)
