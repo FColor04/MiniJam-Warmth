@@ -1,60 +1,4 @@
 ﻿/*
-
-In a Genrepunk-themed factory/automation game, players could expect to encounter a mix of technology and creatures inspired by each of the different punk genres. 
-
-Some possible tech and creatures that could exist include:
-
-Steampunk-Clockpunk inspired tech and creatues:
-
-Steam - powered robots and automatons
-Clockwork machines and contraptions
-Futuristic vehicles, Airships and dirigibles powered by steam or clockwork
-Mechanical horses, dragons and other beasts and steam-powered vehicles
-Clockwork-powered golems and automatons
-Automated guardian constructs and traps
-
-Dieselpunk-inspired tech:
-
-Diesel - powered robots and automatons
-Art deco-style factories and machinery
-Diesel-powered airships and war machines
-Futuristic vehicles powered by diesel engines
-
-Atompunk-inspired tech:
-
-Atomic - powered robots and automatons
-Nuclear reactors and energy-generating facilities
-Atomic-powered submarines and airships
-Futuristic weapons and gadgets powered by atomic energy
-
-Cyberpunk-inspired tech:
-
-Advanced computer systems and virtual reality interfaces
-Cyborgs and artificial intelligence entities
-Hacking tools and weapons
-Futuristic weapons and gadgets
-
-
-Biopunk-inspired tech:
-
-Biotechnology - powered robots and automatons
-Genetic engineering facilities and labs
-Synthetic creatures and genetically modified organisms
-Medical and biotech devices and tools
-
-Nanopunk-inspired creatures:
-
-Nanobot swarms and nanomachine constructs
-Futuristic weapons and gadgets powered by nanotechnology
-Synthetic creatures and biotechnology-powered organisms
-Futuristic vehicles powered by nanotechnology.
-
-In this game, players could create and manage their own factories, automating production processes and utilizing a mix of these advanced technologies to produce a variety of products and goods. 
-Players could also encounter and recruit various creatures and automatons, each with unique abilities and strengths, to aid in the production process.
-
-*/
-
-/*
 ===Quest Ideas===
 
 Retrieve a lost artifact powered by clockwork technology that has been stolen by a group of dieselpunk airship pirates.
@@ -77,6 +21,52 @@ Retrieve a powerful artifact that has been lost in a steam-powered temple in the
 
 Defend a solarpunk village from a rampaging horde of nanobots controlled by a rogue cyberpunk hacker.
 
+
+=====Quest Creator General Prompts=====
+
+Protect, escort, or deliver important individuals, items, or information
+
+Investigate mysterious occurrences, disappearances, or plots
+
+Retrieve lost artifacts, treasure, or resources
+
+Eliminate dangerous monsters or creatures
+
+Defend settlements from raiders or invaders
+
+Infiltrate heavily guarded locations or enemy strongholds
+
+Explore dangerous or uncharted areas
+
+Complete tasks for powerful individuals or organizations
+
+Disrupt hostile organizations
+
+Locate and defeat powerful monsters
+
+Uncover and stop mysterious plots
+
+Help settlements overcome crisis or challenges
+
+Gather resources or materials for a particular purpose
+
+Solve puzzles or riddles to unlock hidden knowledge or items
+
+Participate in competitions or challenges to earn rewards or recognition
+
+Assist with the construction or repair of infrastructure or buildings
+
+Rescue, protect or assist vulnerable populations, such as hostages, refugees or the sick
+
+Investigate and resolve conflicts between different factions or groups
+
+Deliver messages or packages across dangerous or distant territory
+
+Train or develop skills to overcome specific challenges or obstacles
+
+Search for missing persons or lost pets
+
+Negotiate or broker peace between warring factions or individuals.
 
 
 */
