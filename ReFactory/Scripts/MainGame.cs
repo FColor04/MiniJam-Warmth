@@ -64,26 +64,26 @@ namespace MainGameFramework {
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(ParticleTester).TypeHandle);
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(SceneManagement).TypeHandle);
 
-             var toolbar = new UIElement(new Rectangle(88, 180-20, 320-88-88, 20), UI.Pixel, ColorUtility.ToolbarGrey);
-             UI.Root.AddChild(toolbar);
-             for (int i = 0; i < 8; i++)
-             {
-                 var index = i;
-                 var itemSlot = new ItemSlot(
-                     () => Inventory.items[index],
-                     item => Inventory.items[index] = item,
-                     new Rectangle(0, 0, 16, 16),
-                     UI.Pixel,
-                     ColorUtility.ToolbarSilver);
-                 toolbar.AddChild(itemSlot);
-             }
+            var toolbar = new UIElement(new Rectangle(88, 180-20, 320-88-88, 20), UI.Pixel, ColorUtility.ToolbarGrey);
+            UI.Root.AddChild(toolbar);
+            for (int i = 0; i < 8; i++)
+            {
+                var index = i;
+                var itemSlot = new ItemSlot(
+                    () => Inventory.items[index],
+                    item => Inventory.items[index] = item,
+                    new Rectangle(0, 0, 16, 16),
+                    UI.Pixel,
+                    ColorUtility.ToolbarSilver);
+                toolbar.AddChild(itemSlot);
+            }
             
-             Inventory.AddItem(new Item("Belt", 24));
+            Inventory.AddItem(new Item("Belt", 24));
             
-             toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar));
-             toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
+            toolbar.ProcessUsingLayoutController(new HorizontalGrid(toolbar));
+            toolbar.ProcessUsingLayoutController(new FixedSize(16, 16));
 
-             //world = new World(WorldSizeX, WorldSizeY);
+            //world = new World(WorldSizeX, WorldSizeY);
         }
 
         protected override void Update(GameTime gameTime)
