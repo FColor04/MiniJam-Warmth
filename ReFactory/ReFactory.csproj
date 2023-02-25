@@ -26,6 +26,7 @@
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Content\Warmer.mp3" />
+        <None Remove="Overview Game Direction Docs\Genrepunk\WeaponBase.lua" />
         <None Update="Icon.png">
           <Pack>True</Pack>
         </None>
@@ -71,6 +72,9 @@
     </ItemGroup>
     <ItemGroup>
       <Content Remove="Fonts\FFFForward.ttf" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Include="Overview Game Direction Docs\Genrepunk\WeaponBase.lua" />
     </ItemGroup>
     <ItemGroup>
       <None Include="Scripts\GameScripts\NPC_AI\NPC_Layouts.cs" />
