@@ -23,7 +23,7 @@ namespace ScoreBoardUtil
         #region Timer
         private float scoreTimer;
         public float ScoreTimer { get { return scoreTimer; } set { scoreTimer = value; } }
-        public float totalSecondsElapsed;
+        public float TotalSecondsElapsed;
         #endregion
 
         #region Init & Current Score
@@ -71,9 +71,9 @@ namespace ScoreBoardUtil
                 HighestScoreAchieved = Math.Max(HighestScoreAchieved, CurrentScore);
                 TotalScoreAccumulated += (int)ScoreGainedPerSec;
                 TotalScoreLost += (int)ScoreLostPerSec;
-                totalSecondsElapsed++;
+                TotalSecondsElapsed++;
             }
-            AverageScorePerSecond = (CurrentScore - InitialScore) / totalSecondsElapsed;
+            AverageScorePerSecond = (CurrentScore - InitialScore) / TotalSecondsElapsed;
         }
 
     }

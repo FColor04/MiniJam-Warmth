@@ -1,13 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-
-namespace ReFactory;
+﻿namespace ReFactory;
 
 public static class Time
 {
-    public static float timeScale = 1f;
-    public static float totalTime;
-    public static float unscaledTotalTime;
-    public static float deltaTime;
-    public static float unscaledDeltaTime;
-    public static double preciseDeltaTime;
+    public static float TimeScale = 1f;
+    public static float TotalTime;
+    public static float UnscaledTotalTime;
+    public static float DeltaTime;
+    public static float UnscaledDeltaTime;
 }

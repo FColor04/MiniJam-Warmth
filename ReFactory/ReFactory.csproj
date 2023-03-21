@@ -26,7 +26,6 @@
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Content\Warmer.mp3" />
-        <None Remove="Overview Game Direction Docs\Genrepunk\WeaponBase.lua" />
         <None Update="Icon.png">
           <Pack>True</Pack>
         </None>
@@ -65,19 +64,10 @@
       <Compile Remove="ReFactory.Tests\**" />
     </ItemGroup>
     <ItemGroup>
-      <Compile Remove="Scripts\GameScripts\NPC_AI\NPC_Layouts.cs" />
-    </ItemGroup>
-    <ItemGroup>
       <Folder Include="Scripts\ContentScripts" />
     </ItemGroup>
     <ItemGroup>
       <Content Remove="Fonts\FFFForward.ttf" />
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Include="Overview Game Direction Docs\Genrepunk\WeaponBase.lua" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="Scripts\GameScripts\NPC_AI\NPC_Layouts.cs" />
     </ItemGroup>
     <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
         <Message Text="Restoring dotnet tools" Importance="High" />

@@ -17,9 +17,9 @@ public class UIElement : IDisposable
     public float rotation;
 
     public virtual Rectangle InteractiveRect => rect;
-    public readonly int priority;
-    [CanBeNull] public readonly Texture2D texture;
-    public readonly List<UIElement> children;
+    public readonly int Priority;
+    [CanBeNull] public readonly Texture2D Texture;
+    public readonly List<UIElement> Children;
     
     public UIElement(Rectangle? rect = default, Texture2D texture = null, Color? color = null, List<UIElement> children = null, int priority = -1, float rotation = 0)
     {
@@ -29,17 +29,17 @@ public class UIElement : IDisposable
         this.rect = rect.Value;
         this.color = color.Value;
             
-        this.texture = texture;
-        this.children = children ?? new List<UIElement>();
-        this.priority = priority == -1 ? _autoPriority : priority;
+        Texture = texture;
+        Children = children ?? new List<UIElement>();
+        Priority = priority == -1 ? _autoPriority : priority;
         _autoPriority++;
     }
     
     public void ProcessUsingLayoutController(UILayoutController controller)
     {
-        for (int i = 0; i < children.Count; i++)
+        for (int i = 0; i < Children.Count; i++)
         {
-            children[i].SetRect(controller.GetChildRect(children[i], i, children.Count));
+            Children[i].SetRect(controller.GetChildRect(Children[i], i, Children.Count));
         }
     }
 
@@ -50,15 +50,15 @@ public class UIElement : IDisposable
 
     public virtual void AfterDraw(SpriteBatch batch) {}
 
-    public void AddChild(UIElement element) => children.Add(element);
+    public void AddChild(UIElement element) => Children.Add(element);
 
     public void Dispose()
     {
         foreach (var uiElement in UI.Root.Flatten())
         {
-            uiElement.children.Remove(this);
+            uiElement.Children.Remove(this);
         }
-        foreach (var uiElement in children)
+        foreach (var uiElement in Children)
         {
             uiElement.Dispose();
         }

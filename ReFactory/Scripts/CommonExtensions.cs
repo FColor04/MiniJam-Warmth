@@ -15,8 +15,8 @@ public static class CommonExtensions
     public static IEnumerable<UIElement> Flatten(this UIElement element)
     {
         yield return element;
-        element.children.RemoveAll(el => el == null);
-        foreach (UIElement child in element.children)
+        element.Children.RemoveAll(el => el == null);
+        foreach (UIElement child in element.Children)
         {
             foreach (var childFlatten in child.Flatten())
             {

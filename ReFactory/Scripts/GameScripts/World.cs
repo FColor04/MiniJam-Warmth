@@ -22,18 +22,25 @@ public class World : IPointerClickHandler
     public const int GridSize = 16;
 
     public event Action<Point, GridEntity> OnGridBuild = (_, _) => {};
-
+    
     private int interactiveRectA = 0;
     private int interactiveRectB = 0;
     private int interactiveRectC = 320;
     private int interactiveRectD = 180;
     
-    public Rectangle bounds;
-    private int _boundOriginX = 0;
-    private int _boundOriginY = 0;
+    public Rectangle Bounds;
+    private int BoundOriginX = 0;
+    private int BoundOriginY = 0;
+    private float centerX;
+    private float centerY;
+    private int worldWidth;
+    private int worldHeight;
     public Rectangle InteractiveRect => new Rectangle(interactiveRectA, interactiveRectB, interactiveRectC, interactiveRectD);
     public List<Entity> entities = new();
     public Dictionary<Point, GridEntity> gridElements = new ();
+
+    public Vector2 cameraOffset;
+    private int[] _sandIndexes;
 
     private float _destroyProgress;
     private ProgressBar _destroyFillBar;
@@ -50,17 +57,25 @@ public class World : IPointerClickHandler
     
     public World(int width, int height)
     {
-        bounds = new Rectangle(_boundOriginX, _boundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
+        Bounds = new Rectangle(BoundOriginX, BoundOriginY, (width * GridSize) - GridSize, (height * GridSize) - GridSize);
+        _sandIndexes = new int[width * height];
+        centerX = BoundOriginX + ((width * GridSize) - GridSize) / 2;
+        centerY = BoundOriginY + ((height * GridSize) - GridSize) / 2;
+        worldWidth = width;
+        worldHeight = height;
+
+        cameraOffset = new Vector2(-centerX / 4 , centerY / 4);
+
         
-        _desertStorm = new SpriteSheetRenderer(MainGame.Content.Load<Texture2D>("SandStorm/SandStorm"), 7, 7, SpriteSheetRenderer.Layer.UI);
+        _desertStorm = new SpriteSheetRenderer(MainGame.content.Load<Texture2D>("SandStorm/SandStorm"), 7, 7, SpriteSheetRenderer.Layer.UI);
         _desertStormTime = Random.Shared.Range(20, 70);
         
         _desertStorm.SetColor(new Color(0,0,0,0));
         _desertStorm.SetRect(new Rectangle(0, 0, 320, 180));
         
-        for (int x = bounds.X; x < bounds.Width; x += 32)
+        for (int x = Bounds.X; x < Bounds.Width; x += 32)
         {
-            for (int y = bounds.Y; y < bounds.Height; y += 32)
+            for (int y = Bounds.Y; y < Bounds.Height; y += 32)
             {
                 entities.Add(new Sand(new Vector2(x, y)));
             }
@@ -68,19 +83,19 @@ public class World : IPointerClickHandler
         
         CanvasLayer.Base.GetCanvas().OnDraw += Draw;
         MainGame.OnUpdate += Update;
-        UI.additionalInteractiveElements.Add(this);
+        UI.AdditionalInteractiveElements.Add(this);
     }
-    
+
     ~World()
     {
         CanvasLayer.Base.GetCanvas().OnDraw -= Draw;
         MainGame.OnUpdate -= Update;
-        UI.additionalInteractiveElements.Remove(this);
+        UI.AdditionalInteractiveElements.Remove(this);
     }
 
     private void Update(float deltaTime)
     {
-        if (Time.totalTime > _desertStormTime)
+        if (Time.TotalTime > _desertStormTime)
         {
             _desertStormTime += Random.Shared.Range(20, 70);
             _desertStorm.SetColor(_desertStorm.GetColor() == Color.White ? new Color(0,0,0,0) : Color.White);
@@ -91,6 +106,17 @@ public class World : IPointerClickHandler
             DrawPlaceableGhost(reference);
         }
 
+        cameraOffset.Y += Input.Vertical * deltaTime * GridSize * 8;
+        cameraOffset.X += Input.Horizontal * deltaTime * GridSize * 8;
+
+        if(cameraOffset.X >= ((worldWidth * GridSize) - GridSize) / 2 || cameraOffset.X <= -((worldWidth * GridSize) - GridSize) / 2)
+        {
+            cameraOffset.X -= Input.Horizontal * deltaTime * GridSize * 8;
+        }
+        if (cameraOffset.Y >= (((worldWidth * GridSize) - GridSize) * 3) / 4 || cameraOffset.Y <= -((worldWidth * GridSize) - GridSize) / 4)
+        {
+            cameraOffset.Y -= Input.Vertical * deltaTime * GridSize * 8;
+        }
 
         var mousePos = GetMouseGridPosition();
         if (Input.RightMouseHold && gridElements.ContainsKey(mousePos))
@@ -136,25 +162,25 @@ public class World : IPointerClickHandler
         if (_drawPlaceable)
         {
             _drawPlaceable = false;
-            _placeableRect.Location -= canvas.ViewportOffset.ToPoint();
+            _placeableRect.Location -= cameraOffset.ToPoint();
             spriteBatch.Draw(_placeableTexture, _placeableRect, null, _placeableColor, _isPlaceableRotatable ? MathHelper.ToRadians(_placeableRotation) : 0, new Vector2(_placeableRect.Width / 2f, _placeableRect.Height /2f), SpriteEffects.None, 0);
         } else
         {
-            var pos = GetGridPoint(canvas.MousePosition + canvas.ViewportOffset) - canvas.ViewportOffset.ToPoint();
+            var pos = GetGridPoint(canvas.MousePosition + cameraOffset) - cameraOffset.ToPoint();
             spriteBatch.Draw(GameContent.SelectedTile, new Rectangle(pos, new Point(16, 16)), Color.White);
         }
     }
 
-    public bool IsPointOccupied(Point gridPoint) => gridElements.ContainsKey(gridPoint) || !bounds.Contains(gridPoint);
+    public bool IsPointOccupied(Point gridPoint) => gridElements.ContainsKey(gridPoint) || !Bounds.Contains(gridPoint);
 
-    public bool CanBePlaced(PlaceableItemReference item, Point root) => item.occupiedPoints.All(point => !IsPointOccupied(root + new Point(point.X * GridSize, point.Y * GridSize)));
+    public bool CanBePlaced(PlaceableItemReference item, Point root) => item.OccupiedPoints.All(point => !IsPointOccupied(root + new Point(point.X * GridSize, point.Y * GridSize)));
     
     public bool PlaceItem(Vector2 position, PlaceableItemReference item)
     {
         var gridPosition = GetGridPoint(position);
         if (!CanBePlaced(item, gridPosition)) return false;
         
-        var entityInstance = Activator.CreateInstance(item.placedEntityType);
+        var entityInstance = Activator.CreateInstance(item.PlacedEntityType);
         if (entityInstance is GridEntity gridEntity)
         {
             if (item.rotatable)
@@ -196,8 +222,8 @@ public class World : IPointerClickHandler
             //Handle building first
             if (PointerItemRenderer.HeldItem != null && PointerItemRenderer.HeldItem.Reference is PlaceableItemReference reference)
             {
-                if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset, reference))
-                    PointerItemRenderer.HeldItem.count--;
+                if (PlaceItem(CanvasLayer.Base.GetCanvas().MousePosition + cameraOffset, reference))
+                    PointerItemRenderer.HeldItem.Count--;
                 else
                     Debug.Log("Play Error Sound");
             }
@@ -226,6 +252,6 @@ public class World : IPointerClickHandler
 
     public Point GetMouseGridPosition()
     {
-        return GetGridPoint(CanvasLayer.Base.GetCanvas().MousePosition + CanvasLayer.Base.GetCanvas().ViewportOffset);
+        return GetGridPoint(CanvasLayer.Base.GetCanvas().MousePosition + cameraOffset);
     }
 }

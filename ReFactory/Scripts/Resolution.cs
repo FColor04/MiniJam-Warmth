@@ -27,7 +27,7 @@ public static class Resolution
     /// <param name="deltaTime">Delta time</param>
     private static void CheckResolution(float deltaTime)
     {
-        if (MainGame.GraphicsDevice == null) return;
+        if (MainGame.graphicsDevice == null) return;
 
         if (Input.ToggleFullscreen)
         {
@@ -35,24 +35,24 @@ public static class Resolution
             if (fullscreen)
             {
                 //Hard set to current resolution, TODO: Replace with current resolution setting
-                MainGame.GraphicsDeviceManager.PreferredBackBufferWidth = MainGame.GraphicsDevice.DisplayMode.Width;
-                MainGame.GraphicsDeviceManager.PreferredBackBufferHeight = MainGame.GraphicsDevice.DisplayMode.Height;
+                MainGame.graphicsDeviceManager.PreferredBackBufferWidth = MainGame.graphicsDevice.DisplayMode.Width;
+                MainGame.graphicsDeviceManager.PreferredBackBufferHeight = MainGame.graphicsDevice.DisplayMode.Height;
             }
             else
             {
-                MainGame.GraphicsDeviceManager.PreferredBackBufferWidth = MainGame.GraphicsDevice.DisplayMode.Width / 2;
-                MainGame.GraphicsDeviceManager.PreferredBackBufferHeight = MainGame.GraphicsDevice.DisplayMode.Height / 2;
+                MainGame.graphicsDeviceManager.PreferredBackBufferWidth = MainGame.graphicsDevice.DisplayMode.Width / 2;
+                MainGame.graphicsDeviceManager.PreferredBackBufferHeight = MainGame.graphicsDevice.DisplayMode.Height / 2;
             }
-            MainGame.GraphicsDeviceManager.IsFullScreen = fullscreen;
-            MainGame.GraphicsDeviceManager.ApplyChanges();
+            MainGame.graphicsDeviceManager.IsFullScreen = fullscreen;
+            MainGame.graphicsDeviceManager.ApplyChanges();
         }
 
-        if (MainGame.GraphicsDevice.Viewport.Width == _previousWidth &&
-            MainGame.GraphicsDevice.Viewport.Height == _previousHeight)
+        if (MainGame.graphicsDevice.Viewport.Width == _previousWidth &&
+            MainGame.graphicsDevice.Viewport.Height == _previousHeight)
             return;
         
-        _previousWidth = MainGame.GraphicsDevice.Viewport.Width;
-        _previousHeight = MainGame.GraphicsDevice.Viewport.Height;
+        _previousWidth = MainGame.graphicsDevice.Viewport.Width;
+        _previousHeight = MainGame.graphicsDevice.Viewport.Height;
         OnResolutionChange?.Invoke();
     }
 }

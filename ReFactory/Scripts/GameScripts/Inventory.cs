@@ -16,19 +16,19 @@ public static class Inventory
     public static bool AddItem(Item parsedItem)
     {
         var item = parsedItem;
-        bool SlotCondition(Item i) => i != null && i.Reference == item.Reference && i.count < i.Reference.maxStack;
+        bool SlotCondition(Item i) => i != null && i.Reference == item.Reference && i.Count < i.Reference.maxStack;
         while (items.FindIndex(SlotCondition) is var index && index != -1)
         {
-            items[index].count++;
-            item.count--;
-            if (item.count <= 0) return true;
+            items[index].Count++;
+            item.Count--;
+            if (item.Count <= 0) return true;
         }
         while(items.FindIndex(i => i == null) is var index && index != -1)
         {
-            int parsedCount = Math.Min(item.Reference.maxStack, item.count);
+            int parsedCount = Math.Min(item.Reference.maxStack, item.Count);
             items[items.FindIndex(i => i == null)] = new Item(item.Reference, parsedCount);
-            item.count -= parsedCount;
-            if (item.count <= 0)
+            item.Count -= parsedCount;
+            if (item.Count <= 0)
                 return true;
         }
 

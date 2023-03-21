@@ -32,7 +32,7 @@ public class ItemSlot : UIElement, IPointerClickHandler
         {
             batch.Draw(Item.Reference.sprite, rect, Color.White);
             batch.DrawString(GameContent.Font11,
-                $"{Math.Min(Item.count, 99)}{(Item.count > 99 ? "+" : "")}",
+                $"{Math.Min(Item.Count, 99)}{(Item.Count > 99 ? "+" : "")}",
                 rect.Location.ToVector2(),
                 Color.White);
         }
@@ -45,15 +45,15 @@ public class ItemSlot : UIElement, IPointerClickHandler
             var tempItem = PointerItemRenderer.HeldItem;
             if (tempItem != null)
             {
-                PointerItemRenderer.setItem(Item);
+                PointerItemRenderer.SetItem(Item);
                 Item = tempItem;
-                PointerItemRenderer.getItem = () => null;
-                PointerItemRenderer.setItem = _ => {};
+                PointerItemRenderer.GetItem = () => null;
+                PointerItemRenderer.SetItem = _ => {};
             }
             else
             {
-                PointerItemRenderer.getItem = () => Item;
-                PointerItemRenderer.setItem = newItem => Item = newItem;
+                PointerItemRenderer.GetItem = () => Item;
+                PointerItemRenderer.SetItem = newItem => Item = newItem;
             }
         }
     }

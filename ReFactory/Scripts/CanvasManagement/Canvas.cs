@@ -2,8 +2,6 @@
 using MainGameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using MonoGame;
 using ReFactory;
 using ReFactory.Utility;
 
@@ -15,11 +13,10 @@ public class Canvas
     public virtual int Y { get; protected set; }
     public virtual int Width { get; protected set; }
     public virtual int Height { get; protected set; }
-    protected bool DrawRenderTarget => renderTarget != null;
-    protected RenderTarget2D renderTarget;
+    protected bool DrawRenderTarget => RenderTarget != null;
+    protected RenderTarget2D RenderTarget;
     public virtual int RenderWidth { get; protected set; }
     public virtual int RenderHeight { get; protected set; }
-    public virtual Vector2 ViewportOffset { get; set; }
     private SpriteBatch SpriteBatch { get; }
     public CanvasLayer Layer { get; }
 
@@ -86,19 +83,20 @@ public class Canvas
         renderHeight ??= height;
 
         if ((renderWidth != width || renderHeight != height) && renderHeight != 0 && renderWidth != 0)
-            renderTarget = new RenderTarget2D(MainGame.GraphicsDevice, renderWidth.Value, renderHeight.Value, false, 
-                MainGame.GraphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24, 0, RenderTargetUsage.PreserveContents);
+            RenderTarget = new RenderTarget2D(MainGame.graphicsDevice, renderWidth.Value, renderHeight.Value, false, 
+                MainGame.graphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24, 0, RenderTargetUsage.PreserveContents);
         
         RenderWidth = renderWidth.Value;
         RenderHeight = renderHeight.Value;
-        SpriteBatch = new SpriteBatch(MainGame.GraphicsDevice);
+        SpriteBatch = new SpriteBatch(MainGame.graphicsDevice);
+        Debug.Log($"Created {layer} canvas, ({x}, {y}) {width} x {height}, {renderWidth} x {renderHeight}");
     }
 
     public void Draw()
     {
-        MainGame.GraphicsDevice.SetRenderTarget(renderTarget);
+        MainGame.graphicsDevice.SetRenderTarget(RenderTarget);
         if (DrawRenderTarget)
-            MainGame.GraphicsDevice.Clear(Color.Transparent);
+            MainGame.graphicsDevice.Clear(Color.Transparent);
 
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
         OnDraw?.Invoke(SpriteBatch, this);
@@ -110,12 +108,7 @@ public class Canvas
         if (DrawRenderTarget)
         {
             SpriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
-            
-            var offset = new Point();
-            offset.X = (int) (-((ViewportOffset.X - MathF.Truncate(ViewportOffset.X)) * ((float) Width / RenderWidth)));
-            offset.Y = (int) (-((ViewportOffset.Y - MathF.Truncate(ViewportOffset.Y)) * ((float) Height / RenderHeight)));
-
-            SpriteBatch.Draw(renderTarget, new Rectangle(offset + Location, Size), Color.White);
+            SpriteBatch.Draw(RenderTarget, Rect, Color.White);
             SpriteBatch.End();
         }
     }

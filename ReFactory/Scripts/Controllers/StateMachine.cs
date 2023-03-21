@@ -39,7 +39,7 @@ public class StateMachine
     {
         var transition = GetActiveTransition(_currentState);
         if (transition != null)
-            SetState(transition.to);
+            SetState(transition.To);
         _currentState?.Tick();
     }
 
@@ -53,7 +53,7 @@ public class StateMachine
     {
         for (int i = 0; i < _anyTransitions.Count; i++)
         {
-            if (_anyTransitions[i].condition())
+            if (_anyTransitions[i].Condition())
                 return _anyTransitions[i];
         }
 
@@ -63,7 +63,7 @@ public class StateMachine
         {
             for (int i = 0; i < transitions.Count; i++)
             {
-                if (transitions[i].condition())
+                if (transitions[i].Condition())
                     return transitions[i];
             }
         }
@@ -111,13 +111,13 @@ public class StateMachine
     /// </summary>
     private class Transition
     {
-        public readonly IState to;
-        public readonly Func<bool> condition;
+        public readonly IState To;
+        public readonly Func<bool> Condition;
 
         public Transition([NotNull] IState to, Func<bool> condition)
         {
-            this.to = to;
-            this.condition = condition;
+            To = to;
+            Condition = condition;
         }
     }
 }

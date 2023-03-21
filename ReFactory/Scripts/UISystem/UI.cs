@@ -13,17 +13,17 @@ public static class UI
     public static readonly Texture2D Pixel;
     private static IDragHandler _dragHandler;
     
-    public static IEnumerable<UIElement> AllUIElements => Root.Flatten().OrderBy(element => element.priority);
-    public static List<IHasInteractiveRect> additionalInteractiveElements = new ();
+    public static IEnumerable<UIElement> AllUIElements => Root.Flatten().OrderBy(element => element.Priority);
+    public static List<IHasInteractiveRect> AdditionalInteractiveElements = new ();
 
-    private static List<IHasInteractiveRect> _elementsUnderPointer = new ();
+    private static List<IHasInteractiveRect> elementsUnderPointer = new ();
     private static bool _clickHandled;
     
     static UI()
     {
         Root = new UIElement();
         
-        Pixel = new Texture2D(MainGame.GraphicsDevice, 1, 1);
+        Pixel = new Texture2D(MainGame.graphicsDevice, 1, 1);
         Pixel.SetData(new []{Color.White});
         
         MainGame.OnUpdate += Update;
@@ -34,13 +34,13 @@ public static class UI
     {
         if(!MainGame.IsFocused) return;
         
-        foreach (var uiElement in AllUIElements.OfType<IHasInteractiveRect>().Concat(additionalInteractiveElements))
+        foreach (var uiElement in AllUIElements.OfType<IHasInteractiveRect>().Concat(AdditionalInteractiveElements))
         {
             if (uiElement.InteractiveRect.Contains(CanvasLayer.UI.GetCanvas().MousePosition))
             {
-                if (!_elementsUnderPointer.Contains(uiElement))
+                if (!elementsUnderPointer.Contains(uiElement))
                 {
-                    _elementsUnderPointer.Add(uiElement);
+                    elementsUnderPointer.Add(uiElement);
                     if (uiElement is IPointerEnterHandler pointerEnterHandler)
                         pointerEnterHandler.OnPointerEnter();
                 }
@@ -89,9 +89,9 @@ public static class UI
                     pointerClickReleaseHandler.OnPointerClickRelease(Input.GetPressedMouseButton);
                 }
 
-            }else if (!uiElement.InteractiveRect.Contains(CanvasLayer.UI.GetCanvas().MousePosition) && _elementsUnderPointer.Contains(uiElement))
+            }else if (!uiElement.InteractiveRect.Contains(CanvasLayer.UI.GetCanvas().MousePosition) && elementsUnderPointer.Contains(uiElement))
             {
-                _elementsUnderPointer.Remove(uiElement);
+                elementsUnderPointer.Remove(uiElement);
                 if(uiElement is IPointerExitHandler pointerExitHandler)
                     pointerExitHandler.OnPointerExit();
             }
@@ -114,9 +114,9 @@ public static class UI
     {
         foreach (var uiElement in AllUIElements)
         {
-            if (uiElement.texture != null)
+            if (uiElement.Texture != null)
             {
-                spriteBatch.Draw(uiElement.texture, uiElement.rect, null, uiElement.color, uiElement.rotation, Vector2.Zero,
+                spriteBatch.Draw(uiElement.Texture, uiElement.rect, null, uiElement.color, uiElement.rotation, Vector2.Zero,
                     SpriteEffects.None, 0);
                 uiElement.AfterDraw(spriteBatch);
             }

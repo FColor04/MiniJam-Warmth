@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 namespace ReFactory.Debugger {
 
     public static class Debug {
-        public static bool debugMode;
+        public static bool DebugMode;
         public static readonly int DebugInt = 5;
         public static readonly float DebugFloat = 3.141592653589793238462643383279f;
 
@@ -15,7 +15,7 @@ namespace ReFactory.Debugger {
         static Debug()
         {
 #if DEBUG
-            debugMode = true;
+            DebugMode = true;
 #else
             DebugMode = Environment.GetCommandLineArgs().Any(arg => arg == "--debug");
 #endif
@@ -24,13 +24,13 @@ namespace ReFactory.Debugger {
         #region ~Log~
         public static void Log(object obj)
         {
-            if (!debugMode) return;
+            if (!DebugMode) return;
             Console.WriteLine($"[{TimeNow}] {obj}"); 
         }
 
         public static void LogWarning(object obj)
         {
-            if (!debugMode) return;
+            if (!DebugMode) return;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"[{TimeNow}] [WARNING] {obj}");
             Console.WriteLine($"{string.Join("\n", (new StackTrace(true)).GetFrames().Select(frame => $"{frame.GetMethod()} \n {frame.GetFileName()} @ {frame.GetFileLineNumber()}"))} line");
@@ -39,7 +39,7 @@ namespace ReFactory.Debugger {
 
         public static void LogError(object obj)
         {
-            if (!debugMode) return;
+            if (!DebugMode) return;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"[{TimeNow}] [ERROR] {obj}");
             Console.WriteLine($"{string.Join("\n", (new StackTrace(true)).GetFrames().Select(frame => $"{frame.GetMethod()} \n {frame.GetFileName()} @ {frame.GetFileLineNumber()}"))} line");
@@ -48,7 +48,7 @@ namespace ReFactory.Debugger {
 
         public static void ThrowError()
         {
-            if (!debugMode) return;
+            if (!DebugMode) return;
             LogError($"An error has occured");
         }
         #endregion
@@ -59,13 +59,6 @@ namespace ReFactory.Debugger {
         {
             
         }
-
-        public static void CurrentMousePosition() 
-        //TODO: Make a tool to show the mouse coordinates in a small box on the in-game screen
-        {
-            if (!debugMode) return;
-        }
-
         #endregion
 
     }
